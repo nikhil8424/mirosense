@@ -44,6 +44,7 @@ class PrepareSimulationTool:
         entity_types: Optional[List[str]] = None,
         use_llm_for_profiles: bool = True,
         parallel_profile_count: int = 5,
+        agent_count: Optional[int] = None,
         force_regenerate: bool = False,
         session_id: Optional[str] = None,
     ) -> Dict[str, Any]:
@@ -197,6 +198,7 @@ class PrepareSimulationTool:
                     use_llm_for_profiles=use_llm_for_profiles,
                     progress_callback=progress_callback,
                     parallel_profile_count=parallel_profile_count,
+                    agent_count=agent_count,
                 )
 
                 self.session_manager.attach(session.session_id, metadata={"phase": "simulation_ready"})

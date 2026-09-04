@@ -60,7 +60,9 @@ Machine-readable verdict for agent consumption — prediction, confidence (0-1),
 ## Config
 
 `.env` file at repo root. Key vars:
-- `LLM_PROVIDER` — `claude-cli` (default) or `codex-cli`. Validated at `main()` startup — any other value (including `openai`) exits 1 with `config error: LLM_PROVIDER must be 'claude-cli' or 'codex-cli'`. `--help` / `--version` skip validation so metadata commands always work.
+- `LLM_PROVIDER` — `ollama` (local), `claude-cli` (default), or `codex-cli`. Validated at `main()` startup. `--help` / `--version` skip validation so metadata commands always work.
+- `OLLAMA_BASE_URL` — `http://localhost:11434` (default)
+- `OLLAMA_MODEL` — `qwen3:8b` (default)
 
 ## Agent Integration
 

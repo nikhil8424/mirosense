@@ -143,7 +143,8 @@ def create_oasis_model(config: Dict[str, Any], use_boost: bool = False):
         or 'claude-cli'
     ).lower()
 
-    model = config.get('llm_model') or provider
+    default_model = Config.OLLAMA_MODEL if provider == 'ollama' else provider
+    model = config.get('llm_model') or default_model
 
     logger.info(f"OASIS model: provider={provider}, model={model}, mode=cli-bridge")
     return CLIModel(
@@ -156,4 +157,12 @@ def create_oasis_model(config: Dict[str, Any], use_boost: bool = False):
 
 def get_oasis_semaphore(config: Dict[str, Any], use_boost: bool = False) -> int:
     """Get CLI-appropriate OASIS concurrency limit."""
-    return int(os.environ.get('OASIS_CLI_SEMAPHORE', str(DEFAULT_CLI_SEMAPHORE)))
+    provider = (
+        os.environ.get('LLM_PROVIDER')
+        or config.get('llm_provider')
+        or Config.LLM_PROVIDER
+        or 'claude-cli'
+    ).lower()
+    default_sem = 1 if provider == 'ollama' else DEFAULT_CLI_SEMAPHORE
+    return int(os.environ.get('OASIS_CLI_SEMAPHORE', str(default_sem)))
+

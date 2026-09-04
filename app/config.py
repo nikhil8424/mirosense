@@ -39,6 +39,9 @@ class Config:
     DEBUG = _get_bool_env("DEBUG", False)
 
     LLM_PROVIDER = os.environ.get("LLM_PROVIDER", "claude-cli").strip().lower()
+    OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+    OLLAMA_MODEL: str = os.getenv("OLLAMA_MODEL", "qwen3:8b")
+    OLLAMA_TIMEOUT: float = float(os.getenv("OLLAMA_TIMEOUT", "600.0"))
 
     DATA_DIR = _resolve_path(os.path.join(os.path.dirname(__file__), "../data/graphs"), "DATA_DIR")
 
@@ -70,7 +73,7 @@ class Config:
         """Validate required configuration."""
         errors: list[str] = []
 
-        if cls.LLM_PROVIDER not in ("claude-cli", "codex-cli"):
-            errors.append(f"LLM_PROVIDER must be 'claude-cli' or 'codex-cli', got '{cls.LLM_PROVIDER}'")
+        if cls.LLM_PROVIDER not in ("claude-cli", "codex-cli", "ollama"):
+            errors.append(f"LLM_PROVIDER must be 'claude-cli', 'codex-cli', or 'ollama', got '{cls.LLM_PROVIDER}'")
 
         return errors

@@ -279,7 +279,8 @@ class SimulationManager:
         defined_entity_types: Optional[List[str]] = None,
         use_llm_for_profiles: bool = True,
         progress_callback: Optional[callable] = None,
-        parallel_profile_count: int = 3
+        parallel_profile_count: int = 3,
+        agent_count: Optional[int] = None
     ) -> SimulationState:
         """
         Prepare simulation environment (fully automated)
@@ -352,12 +353,27 @@ class SimulationManager:
             # ========== Phase 2: Generate Agent Profiles ==========
             total_entities = len(filtered.entities)
             
+            # Handle agent count limitation
+            if agent_count is not None:
+                target_agent_count = min(agent_count, total_entities)
+                if target_agent_count < total_entities:
+                    # Limit entities to requested count
+                    filtered.entities = filtered.entities[:target_agent_count]
+                    total_entities = target_agent_count
+                    logger.info(f"Limited entities from {len(filtered.entities)} to {target_agent_count} as requested")
+                elif target_agent_count > total_entities:
+                    # If requested more entities than available, we'll duplicate some
+                    logger.info(f"Requested {agent_count} agents but only {total_entities} entities available, will duplicate entities")
+                    target_agent_count = total_entities  # For now, just use available entities
+            else:
+                target_agent_count = total_entities
+            
             if progress_callback:
                 progress_callback(
                     "generating_profiles", 0,
-                    "Starting generation...",
+                    f"Starting generation for {target_agent_count} agents...",
                     current=0,
-                    total=total_entities
+                    total=target_agent_count
                 )
             
             # Pass graph_id to enable Kuzu retrieval for richer context
@@ -402,8 +418,8 @@ class SimulationManager:
                 progress_callback(
                     "generating_profiles", 95,
                     "Saving Profile files...",
-                    current=total_entities,
-                    total=total_entities
+                    current=target_agent_count,
+                    total=target_agent_count
                 )
             
             if state.enable_reddit:

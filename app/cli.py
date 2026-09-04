@@ -328,16 +328,24 @@ def _collect_run_outputs(
 
 
 def _run_pipeline(args: argparse.Namespace) -> Dict[str, Any]:
+    # Validate agent count if provided
+    if hasattr(args, 'agent_count') and args.agent_count is not None:
+        if args.agent_count < 5:
+            _stderr(f"Warning: Agent count {args.agent_count} is below recommended minimum of 5")
+        elif args.agent_count > 500:
+            _stderr(f"Warning: Agent count {args.agent_count} exceeds recommended maximum of 500")
+    
     source_files = _require_existing_files(args.files)
     project_name = _default_project_name(source_files)
     store = RunStore(root_dir=args.output_dir)
     manifest = store.create(args.requirement, source_files, project_name=project_name)
     run_id = manifest["run_id"]
 
+    provider_label = f"ollama ({Config.OLLAMA_MODEL})" if Config.LLM_PROVIDER == "ollama" else Config.LLM_PROVIDER
     display = PipelineDisplay(
         project_name=project_name,
         run_id=run_id,
-        provider=Config.LLM_PROVIDER,
+        provider=provider_label,
         platform=args.platform,
         json_mode=args.json,
     )
@@ -418,6 +426,7 @@ def _run_pipeline(args: argparse.Namespace) -> Dict[str, Any]:
             simulation_id=simulation_id,
             use_llm_for_profiles=True,
             parallel_profile_count=DEFAULT_PARALLEL_PROFILE_COUNT,
+            agent_count=args.agent_count,
         )
         if prepare_result.get("task_id"):
             store.update(run_id, prepare_task_id=prepare_result["task_id"], status="simulation_preparing")
@@ -435,7 +444,13 @@ def _run_pipeline(args: argparse.Namespace) -> Dict[str, Any]:
         if os.path.exists(config_path):
             with open(config_path, "r") as f:
                 agent_count = len(json.load(f).get("agent_configs", []))
-        display.complete_step("profiles", f"{agent_count} agents")
+        
+        # Display requested vs actual agent count
+        requested_count = args.agent_count if hasattr(args, 'agent_count') and args.agent_count else None
+        if requested_count:
+            display.complete_step("profiles", f"{agent_count} agents (requested: {requested_count})")
+        else:
+            display.complete_step("profiles", f"{agent_count} agents")
         store.update(run_id, status="simulation_ready", task_progress=100, task_message="Simulation ready")
 
         _record_if_copied(store, run_id, "frozen_simulation_config", os.path.join(sim_dir, "simulation_config.json"), "input/simulation_config.json")
@@ -525,7 +540,7 @@ def cmd_doctor() -> int:
     repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     env_path = os.path.join(repo_root, ".env")
 
-    valid_providers = ("claude-cli", "codex-cli")
+    valid_providers = ("claude-cli", "codex-cli", "ollama")
 
     def provider_set() -> bool:
         return bool(os.environ.get("LLM_PROVIDER", "").strip())
@@ -546,7 +561,7 @@ def cmd_doctor() -> int:
         DoctorCheck(
             name="LLM_PROVIDER set",
             check=provider_set,
-            hint="export LLM_PROVIDER=claude-cli (or codex-cli) in .env",
+            hint="export LLM_PROVIDER=ollama (or claude-cli / codex-cli) in .env",
         ),
         DoctorCheck(
             name="LLM_PROVIDER valid",
@@ -555,9 +570,7 @@ def cmd_doctor() -> int:
         ),
     ]
 
-    # Only probe the provider binary when the provider name is a real option —
-    # otherwise the row is noise on top of the LLM_PROVIDER valid failure.
-    if Config.LLM_PROVIDER in valid_providers:
+    if Config.LLM_PROVIDER in ("claude-cli", "codex-cli"):
         provider = Config.LLM_PROVIDER
 
         def provider_binary_on_path() -> bool:
@@ -568,6 +581,42 @@ def cmd_doctor() -> int:
                 name=f"{provider} binary on PATH",
                 check=provider_binary_on_path,
                 hint=f"install the {provider} binary or add it to PATH",
+            )
+        )
+    elif Config.LLM_PROVIDER == "ollama":
+        import urllib.request
+
+        def ollama_reachable() -> bool:
+            try:
+                url = f"{Config.OLLAMA_BASE_URL}/api/tags"
+                with urllib.request.urlopen(url, timeout=3) as res:
+                    return res.status == 200
+            except Exception:
+                return False
+
+        def ollama_model_installed() -> bool:
+            try:
+                url = f"{Config.OLLAMA_BASE_URL}/api/tags"
+                with urllib.request.urlopen(url, timeout=3) as res:
+                    data = json.loads(res.read().decode("utf-8"))
+                models = [m.get("name", "") for m in data.get("models", [])]
+                target = Config.OLLAMA_MODEL
+                return any(target == m or target == m.split(":")[0] or target in m for m in models)
+            except Exception:
+                return False
+
+        checks.append(
+            DoctorCheck(
+                name=f"Ollama reachable at {Config.OLLAMA_BASE_URL}",
+                check=ollama_reachable,
+                hint=f"start Ollama service or check OLLAMA_BASE_URL={Config.OLLAMA_BASE_URL}",
+            )
+        )
+        checks.append(
+            DoctorCheck(
+                name=f"Ollama model '{Config.OLLAMA_MODEL}' installed",
+                check=ollama_model_installed,
+                hint=f"run `ollama pull {Config.OLLAMA_MODEL}` to install the model",
             )
         )
 
@@ -631,6 +680,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     run_parser.add_argument("--platform", choices=("parallel", "twitter", "reddit"), default="parallel")
     run_parser.add_argument("--max-rounds", type=int)
+    run_parser.add_argument("--agent-count", type=int, help="Number of agents to simulate (5-500)")
     run_parser.add_argument("--wait", action="store_true", help="Accepted for consistency; end-to-end run waits by default")
     run_parser.add_argument("--output-dir")
     run_parser.add_argument("--json", action="store_true")

@@ -799,10 +799,10 @@ Important:
             self.graph_id = graph_id
 
         if use_llm and self.is_cli_provider:
-            cli_parallel_limit = 4
+            cli_parallel_limit = 1 if self.provider == "ollama" else 4
             if parallel_count > cli_parallel_limit:
                 logger.info(
-                    f"CLI LLM provider detected ({self.provider}), reducing profile generation parallelism "
+                    f"CLI/local LLM provider detected ({self.provider}), setting profile generation parallelism "
                     f"from {parallel_count} to {cli_parallel_limit}"
                 )
                 parallel_count = cli_parallel_limit

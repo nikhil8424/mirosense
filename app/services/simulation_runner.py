@@ -377,14 +377,14 @@ class SimulationRunner:
                 logger.error(f"Failed to create graph memory updater: {e}")
         
         # Determine which script to run (scripts are in scripts/ directory)
+        script_name = "run_parallel_simulation.py"
         if platform == "twitter":
-            script_name = "run_twitter_simulation.py"
             state.twitter_running = True
+            state.reddit_running = False
         elif platform == "reddit":
-            script_name = "run_reddit_simulation.py"
+            state.twitter_running = False
             state.reddit_running = True
         else:
-            script_name = "run_parallel_simulation.py"
             state.twitter_running = True
             state.reddit_running = True
         
@@ -405,6 +405,11 @@ class SimulationRunner:
                 script_path,
                 "--config", config_path,
             ]
+
+            if platform == "twitter":
+                cmd.append("--twitter-only")
+            elif platform == "reddit":
+                cmd.append("--reddit-only")
 
             if max_rounds is not None and max_rounds > 0:
                 cmd.extend(["--max-rounds", str(max_rounds)])

@@ -75,7 +75,7 @@ def test_cli_parser_is_run_first():
     parser = build_parser()
     subparsers = next(action for action in parser._actions if isinstance(action, argparse._SubParsersAction))
 
-    assert set(subparsers.choices) == {"run", "runs"}
+    assert set(subparsers.choices) == {"run", "runs", "doctor"}
 
     run_help = subparsers.choices["run"].format_help()
     assert "--files" in run_help
@@ -148,4 +148,5 @@ def test_cli_runs_list_and_status_emit_json(tmp_path: Path, monkeypatch: pytest.
 
     assert exit_code == 0
     assert export_payload["artifact"] == "swarm_overview"
-    assert export_payload["path"].endswith("visuals/swarm-overview.svg")
+    assert export_payload["path"].replace("\\", "/").endswith("visuals/swarm-overview.svg")
+

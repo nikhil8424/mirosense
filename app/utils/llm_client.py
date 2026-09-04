@@ -1,11 +1,14 @@
 """
-LLM Client — CLI-only providers (Claude Code, Codex).
+LLM Client — CLI (Claude Code, Codex) and Ollama local providers.
 """
 
 import json
 import re
+import socket
 import subprocess
 import time
+import urllib.error
+import urllib.request
 from typing import Optional, Dict, Any, List
 
 from ..config import Config
@@ -18,12 +21,16 @@ RETRY_BASE_DELAY = 2.0  # seconds
 
 
 class LLMClient:
-    """LLM Client — supports claude-cli and codex-cli."""
+    """LLM Client — supports ollama, claude-cli, and codex-cli."""
 
     def __init__(self, provider: Optional[str] = None):
         self.provider = (provider or Config.LLM_PROVIDER or "claude-cli").lower()
-        if self.provider not in ("claude-cli", "codex-cli"):
-            raise ValueError(f"Unsupported LLM provider: {self.provider!r}. Use 'claude-cli' or 'codex-cli'.")
+        if self.provider not in ("claude-cli", "codex-cli", "ollama"):
+            raise ValueError(f"Unsupported LLM provider: {self.provider!r}. Use 'ollama', 'claude-cli', or 'codex-cli'.")
+        self.ollama_base_url = Config.OLLAMA_BASE_URL
+        self.ollama_model = Config.OLLAMA_MODEL
+        self.ollama_timeout = Config.OLLAMA_TIMEOUT
+        logger.info(f"LLM client initialized: provider={self.provider}" + (f", model={self.ollama_model}" if self.provider == "ollama" else ""))
 
     def _split_system_message(self, messages: List[Dict[str, str]]):
         """Split system message from conversation messages."""
@@ -52,11 +59,13 @@ class LLMClient:
         max_tokens: int = 4096,
         response_format: Optional[Dict] = None
     ) -> str:
-        """Send a chat request via CLI with automatic retry on transient failures."""
+        """Send a chat request with automatic retry on transient failures."""
         last_error = None
         for attempt in range(MAX_RETRIES):
             try:
-                if self.provider == "codex-cli":
+                if self.provider == "ollama":
+                    return self._chat_ollama(messages, temperature, max_tokens, response_format)
+                elif self.provider == "codex-cli":
                     return self._chat_codex_cli(messages, temperature, max_tokens, response_format)
                 return self._chat_claude_cli(messages, temperature, max_tokens, response_format)
             except RuntimeError as exc:
@@ -66,6 +75,94 @@ class LLMClient:
                     logger.warning(f"LLM call failed (attempt {attempt + 1}/{MAX_RETRIES}), retrying in {delay}s: {exc}")
                     time.sleep(delay)
         raise last_error
+
+    def _chat_ollama(
+        self,
+        messages: List[Dict[str, str]],
+        temperature: float,
+        max_tokens: int,
+        response_format: Optional[Dict] = None
+    ) -> str:
+        """Chat via Ollama HTTP API (POST /api/generate)."""
+        system_text, conversation = self._split_system_message(messages)
+
+        prompt_parts = []
+        for msg in conversation:
+            role = msg.get("role", "user").upper()
+            prompt_parts.append(f"{role}: {msg['content']}")
+
+        prompt = "\n\n".join(prompt_parts) if prompt_parts else (system_text or "")
+
+        payload: Dict[str, Any] = {
+            "model": self.ollama_model,
+            "prompt": prompt,
+            "stream": False,
+            "options": {
+                "temperature": temperature,
+            }
+        }
+
+        if system_text:
+            payload["system"] = system_text
+
+        if max_tokens and max_tokens > 0:
+            payload["options"]["num_predict"] = max(max_tokens, 4096)
+
+        if response_format and response_format.get("type") == "json_object":
+            payload["format"] = "json"
+
+        endpoint = f"{self.ollama_base_url}/api/generate"
+        req_data = json.dumps(payload).encode("utf-8")
+        req = urllib.request.Request(
+            endpoint,
+            data=req_data,
+            headers={"Content-Type": "application/json"},
+        )
+
+        try:
+            with urllib.request.urlopen(req, timeout=self.ollama_timeout) as response:
+                response_bytes = response.read()
+                data = json.loads(response_bytes.decode("utf-8"))
+
+            content = data.get("response", "")
+            if not content and not data.get("thinking"):
+                raise RuntimeError("Ollama returned an empty response")
+
+            return self._clean_content(content)
+
+        except urllib.error.HTTPError as e:
+            err_body = ""
+            try:
+                err_body = e.read().decode("utf-8")
+                err_json = json.loads(err_body)
+                err_msg = err_json.get("error", err_body)
+            except Exception:
+                err_msg = err_body or str(e)
+
+            if e.code == 404 and "not found" in err_msg.lower():
+                raise RuntimeError(
+                    f"Ollama model '{self.ollama_model}' not found at {self.ollama_base_url}. "
+                    f"Run `ollama pull {self.ollama_model}` to install it."
+                ) from e
+            raise RuntimeError(f"Ollama returned HTTP error {e.code}: {err_msg}") from e
+
+        except (socket.timeout, TimeoutError) as e:
+            raise RuntimeError(f"Ollama request timed out after {self.ollama_timeout}s at {self.ollama_base_url}") from e
+
+        except urllib.error.URLError as e:
+            if isinstance(e.reason, (socket.timeout, TimeoutError)):
+                raise RuntimeError(f"Ollama request timed out after {self.ollama_timeout}s at {self.ollama_base_url}") from e
+            raise RuntimeError(
+                f"Ollama is not reachable at {self.ollama_base_url}. Start Ollama and try again."
+            ) from e
+
+        except (ConnectionRefusedError, OSError) as e:
+            raise RuntimeError(
+                f"Ollama is not reachable at {self.ollama_base_url}. Start Ollama and try again."
+            ) from e
+
+        except json.JSONDecodeError as e:
+            raise RuntimeError(f"Failed to decode response from Ollama: {e}") from e
 
     def _chat_claude_cli(
         self,
@@ -165,6 +262,48 @@ class LLMClient:
         except subprocess.TimeoutExpired:
             raise RuntimeError("Codex CLI timed out after 180s")
 
+    @staticmethod
+    def _extract_json(content: str) -> Dict[str, Any]:
+        """Extract and parse JSON from model output handling markdown code blocks, think tags, and surrounding text."""
+        cleaned = re.sub(r'<think>[\s\S]*?</think>', '', content).strip()
+
+        # Check for markdown code blocks (```json ... ``` or ``` ... ```)
+        code_block_match = re.search(r'```(?:json)?\s*([\s\S]*?)\s*```', cleaned, flags=re.IGNORECASE)
+        if code_block_match:
+            candidate = code_block_match.group(1).strip()
+            try:
+                return json.loads(candidate)
+            except json.JSONDecodeError:
+                pass
+
+        # Try direct JSON parsing
+        try:
+            return json.loads(cleaned)
+        except json.JSONDecodeError:
+            pass
+
+        # Search for the outermost JSON object { ... }
+        first_brace = cleaned.find('{')
+        last_brace = cleaned.rfind('}')
+        if first_brace != -1 and last_brace > first_brace:
+            candidate = cleaned[first_brace:last_brace + 1]
+            try:
+                return json.loads(candidate)
+            except json.JSONDecodeError:
+                pass
+
+        # Search for the outermost JSON array [ ... ]
+        first_bracket = cleaned.find('[')
+        last_bracket = cleaned.rfind(']')
+        if first_bracket != -1 and last_bracket > first_bracket:
+            candidate = cleaned[first_bracket:last_bracket + 1]
+            try:
+                return json.loads(candidate)
+            except json.JSONDecodeError:
+                pass
+
+        raise ValueError(f"Invalid JSON returned by LLM: {cleaned[:500]}")
+
     def chat_json(
         self,
         messages: List[Dict[str, str]],
@@ -178,12 +317,5 @@ class LLMClient:
             max_tokens=max_tokens,
             response_format={"type": "json_object"}
         )
-        cleaned_response = response.strip()
-        cleaned_response = re.sub(r'^```(?:json)?\s*\n?', '', cleaned_response, flags=re.IGNORECASE)
-        cleaned_response = re.sub(r'\n?```\s*$', '', cleaned_response)
-        cleaned_response = cleaned_response.strip()
+        return self._extract_json(response)
 
-        try:
-            return json.loads(cleaned_response)
-        except json.JSONDecodeError:
-            raise ValueError(f"Invalid JSON returned by LLM: {cleaned_response[:500]}")
