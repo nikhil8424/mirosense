@@ -1,4 +1,4 @@
-# MiroFish
+# Mirosence
 
 A social simulation scenario engine. Feed it documents describing any scenario, and MiroFish simulates AI agents interacting on social media to explore how events might unfold. Designed for agent-driven workflows — outputs include a machine-readable `verdict.json` alongside visual snapshots and a comprehensive analytical report.
 
@@ -416,3 +416,4 @@ uv run mirofish runs export run_8cfa25d36dc9 --json
 - **`report/verdict.json`**: Machine-readable prediction, confidence score, and signals.
 - **`report/report.md`**: Full analytical report.
 - **`visuals/`**: SVG visual snapshots (`swarm-overview.svg`, `cluster-map.svg`, `timeline.svg`, `platform-split.svg`).
+"# mirosense" 

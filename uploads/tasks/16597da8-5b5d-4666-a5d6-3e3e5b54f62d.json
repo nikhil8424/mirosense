@@ -1,0 +1,26 @@
+{
+  "task_id": "16597da8-5b5d-4666-a5d6-3e3e5b54f62d",
+  "task_type": "simulation_prepare",
+  "status": "processing",
+  "created_at": "2026-08-31T13:58:48.634413",
+  "updated_at": "2026-08-31T13:58:48.762930",
+  "progress": 20,
+  "message": "[2/4] Generating Agent profiles: 0/9 - Starting generation...",
+  "progress_detail": {
+    "current_stage": "generating_profiles",
+    "current_stage_name": "Generating Agent profiles",
+    "stage_index": 2,
+    "total_stages": 4,
+    "stage_progress": 0,
+    "current_item": 0,
+    "total_items": 9,
+    "item_description": "Starting generation..."
+  },
+  "result": null,
+  "error": null,
+  "metadata": {
+    "simulation_id": "sim_f3c23248d80f",
+    "project_id": "proj_7e500db91b22",
+    "session_id": "wb_bf137b8a82a8"
+  }
+}

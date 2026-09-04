@@ -1,0 +1,93 @@
+{
+  "simulation_id": "sim_0076fd51a579",
+  "runner_status": "stopped",
+  "current_round": 2,
+  "total_rounds": 2,
+  "simulated_hours": 0,
+  "total_simulation_hours": 72,
+  "progress_percent": 100.0,
+  "twitter_current_round": 0,
+  "reddit_current_round": 2,
+  "twitter_simulated_hours": 0,
+  "reddit_simulated_hours": 0,
+  "twitter_running": false,
+  "reddit_running": false,
+  "twitter_completed": false,
+  "reddit_completed": true,
+  "twitter_actions_count": 0,
+  "reddit_actions_count": 5,
+  "total_actions_count": 5,
+  "started_at": "2026-09-03T15:11:39.144087",
+  "updated_at": "2026-09-03T15:13:31.452223",
+  "completed_at": "2026-09-03T15:47:42.627066",
+  "error": "Server shutdown, simulation was terminated",
+  "process_pid": 22284,
+  "recent_actions": [
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-03T15:13:31.139978",
+      "platform": "reddit",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "The 6-month pilot program aims to reduce traffic congestion, encourage public transit usage, and provide economic relief to local families."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-03T15:13:31.139978",
+      "platform": "reddit",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Taxpayers Alliance spokesperson Tom Bradley expressed concern regarding budget allocation, arguing the estimated $4.2 million shortfall might eventually lead to higher municipal property taxes."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-03T15:13:31.139978",
+      "platform": "reddit",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Local Business Coalition president Elena Vance praised the initiative for increasing foot traffic to downtown shops."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-03T15:13:31.139662",
+      "platform": "reddit",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "City Council member David Chen voiced support for the pilot program, citing potential environmental benefits."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-03T15:13:31.135832",
+      "platform": "reddit",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Mayor Sarah Jenkins and Transit Authority Director Mark Roberts announced that all city buses will be completely free of charge on Saturdays and Sundays starting next month."
+      },
+      "result": null,
+      "success": true
+    }
+  ],
+  "rounds_count": 0
+}

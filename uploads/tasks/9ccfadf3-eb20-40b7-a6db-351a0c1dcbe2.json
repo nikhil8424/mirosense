@@ -1,0 +1,23 @@
+{
+  "task_id": "9ccfadf3-eb20-40b7-a6db-351a0c1dcbe2",
+  "task_type": "report_generate",
+  "status": "completed",
+  "created_at": "2026-09-03T16:02:40.849088",
+  "updated_at": "2026-09-03T16:16:03.776377",
+  "progress": 100,
+  "message": "Task completed",
+  "progress_detail": {},
+  "result": {
+    "report_id": "report_f70d9a74467c",
+    "simulation_id": "sim_34ec9a012b79",
+    "status": "completed",
+    "session_id": "wb_952da07140cb"
+  },
+  "error": null,
+  "metadata": {
+    "simulation_id": "sim_34ec9a012b79",
+    "graph_id": "mirofish_6ae45c2463c540b8",
+    "report_id": "report_f70d9a74467c",
+    "session_id": "wb_952da07140cb"
+  }
+}

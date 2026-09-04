@@ -1,0 +1,102 @@
+[
+  {
+    "id": "de05316c-89e5-494c-a72b-3b58c0868956",
+    "name": "Sarah Jenkins",
+    "label": "Person",
+    "summary": "Mayor of Metro City",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-03T14:56:54.412772",
+    "updated_at": "2026-09-03T14:56:54.412772"
+  },
+  {
+    "id": "be7d1a32-4d56-45d0-8159-9eef2b6fa8c7",
+    "name": "Mark Roberts",
+    "label": "Person",
+    "summary": "Director of Transit Authority",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-03T14:56:54.414367",
+    "updated_at": "2026-09-03T14:56:54.414367"
+  },
+  {
+    "id": "6a6efcd5-b825-4807-9c6f-708061b94ed5",
+    "name": "Metro City Transit Authority",
+    "label": "Organization",
+    "summary": "Organization responsible for city bus transit",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-03T14:56:54.440377",
+    "updated_at": "2026-09-03T14:56:54.440377"
+  },
+  {
+    "id": "f3c3affc-52cd-4111-a4dd-2a3cbc98d215",
+    "name": "David Chen",
+    "label": "Person",
+    "summary": "City Council member who voiced support for the pilot program",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-03T14:56:54.469377",
+    "updated_at": "2026-09-03T14:56:54.469377"
+  },
+  {
+    "id": "86381b8e-cdfe-48c1-945f-39164b6da289",
+    "name": "Elena Vance",
+    "label": "Person",
+    "summary": "President of the Local Business Coalition who praised the initiative",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-03T14:56:54.494371",
+    "updated_at": "2026-09-03T14:56:54.494371"
+  },
+  {
+    "id": "b4b101e2-0dec-41cf-9594-6815f2c6a699",
+    "name": "Local Business Coalition",
+    "label": "Organization",
+    "summary": "Organization that praised the initiative for increasing foot traffic to downtown shops",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-03T14:56:54.534326",
+    "updated_at": "2026-09-03T14:56:54.534326"
+  },
+  {
+    "id": "82a9bcfb-75b1-4a0e-9cd3-c0e383b908d4",
+    "name": "City Council",
+    "label": "Organization",
+    "summary": "Organization whose member David Chen voiced support for the pilot program",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-03T14:56:54.556311",
+    "updated_at": "2026-09-03T14:56:54.556311"
+  },
+  {
+    "id": "993b8c09-4c1f-4386-aa74-5692a888d444",
+    "name": "Tom Bradley",
+    "label": "Person",
+    "summary": "Spokesperson for Taxpayers Alliance expressing concern about budget allocation and potential impact on municipal property taxes.",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-03T14:56:54.594574",
+    "updated_at": "2026-09-03T14:56:54.594574"
+  },
+  {
+    "id": "8fcceb8e-a045-467d-aa1e-d51b95a696b0",
+    "name": "Taxpayers Alliance",
+    "label": "Organization",
+    "summary": "Organization represented by Tom Bradley, expressing concern regarding budget allocation and potential municipal property tax increases.",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-03T14:56:54.628396",
+    "updated_at": "2026-09-03T14:56:54.628396"
+  },
+  {
+    "id": "dfc151ba-a1a0-41c2-be67-827847eec9de",
+    "name": "municipal property taxes",
+    "label": "Organization",
+    "summary": "Subject of concern regarding budget allocation and potential increases due to the estimated $4.2 million shortfall.",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-03T14:56:54.672708",
+    "updated_at": "2026-09-03T14:56:54.672708"
+  }
+]

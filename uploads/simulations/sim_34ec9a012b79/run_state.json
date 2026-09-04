@@ -1,0 +1,80 @@
+{
+  "simulation_id": "sim_34ec9a012b79",
+  "runner_status": "stopped",
+  "current_round": 2,
+  "total_rounds": 2,
+  "simulated_hours": 0,
+  "total_simulation_hours": 72,
+  "progress_percent": 100.0,
+  "twitter_current_round": 0,
+  "reddit_current_round": 2,
+  "twitter_simulated_hours": 0,
+  "reddit_simulated_hours": 0,
+  "twitter_running": false,
+  "reddit_running": false,
+  "twitter_completed": false,
+  "reddit_completed": true,
+  "twitter_actions_count": 0,
+  "reddit_actions_count": 4,
+  "total_actions_count": 4,
+  "started_at": "2026-09-03T16:01:14.557733",
+  "updated_at": "2026-09-03T16:02:38.777179",
+  "completed_at": "2026-09-03T16:19:05.140168",
+  "error": "Server shutdown, simulation was terminated",
+  "process_pid": 24348,
+  "recent_actions": [
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-03T16:02:37.484578",
+      "platform": "reddit",
+      "agent_id": 5,
+      "agent_name": "Metro City Transit Authority",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Taxpayers Alliance spokesperson Tom Bradley expressed concern regarding budget allocation, arguing the estimated $4.2 million shortfall might eventually lead to higher municipal property taxes."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-03T16:02:37.483588",
+      "platform": "reddit",
+      "agent_id": 3,
+      "agent_name": "Local Business Coalition",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Local Business Coalition president Elena Vance praised the initiative for increasing foot traffic to downtown shops."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-03T16:02:37.481572",
+      "platform": "reddit",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "City Council member David Chen voiced support for the pilot program, citing potential environmental benefits."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-03T16:02:37.480557",
+      "platform": "reddit",
+      "agent_id": 1,
+      "agent_name": "David Chen",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Mayor Sarah Jenkins announced that all city buses will be completely free of charge on Saturdays and Sundays starting next month."
+      },
+      "result": null,
+      "success": true
+    }
+  ],
+  "rounds_count": 0
+}

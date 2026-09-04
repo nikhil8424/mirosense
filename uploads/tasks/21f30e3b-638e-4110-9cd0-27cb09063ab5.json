@@ -1,0 +1,24 @@
+{
+  "task_id": "21f30e3b-638e-4110-9cd0-27cb09063ab5",
+  "task_type": "graph_build",
+  "status": "completed",
+  "created_at": "2026-08-31T13:41:51.014366",
+  "updated_at": "2026-08-31T13:58:46.632913",
+  "progress": 100,
+  "message": "Task completed",
+  "progress_detail": {},
+  "result": {
+    "project_id": "proj_7e500db91b22",
+    "session_id": "wb_bf137b8a82a8",
+    "graph_id": "mirofish_2310b426428e4e1a",
+    "node_count": 9,
+    "edge_count": 0,
+    "chunk_count": 3
+  },
+  "error": null,
+  "metadata": {
+    "project_id": "proj_7e500db91b22",
+    "graph_name": "demo_transit_policy",
+    "session_id": "wb_bf137b8a82a8"
+  }
+}

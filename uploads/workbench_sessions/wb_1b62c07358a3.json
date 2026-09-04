@@ -1,0 +1,15 @@
+{
+  "session_id": "wb_1b62c07358a3",
+  "created_at": "2026-09-04T22:23:32.995358",
+  "updated_at": "2026-09-04T22:23:33.026818",
+  "project_id": "proj_abe2c1f10d0e",
+  "graph_id": null,
+  "simulation_id": null,
+  "report_id": null,
+  "metadata": {
+    "entrypoint": "cli.run",
+    "run_id": "run_84bf361ec205",
+    "workflow": "foresight_workbench",
+    "phase": "ontology"
+  }
+}

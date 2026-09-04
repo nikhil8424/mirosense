@@ -1,0 +1,8 @@
+C:\Users\NIKHIL GUPTA\Documents\mirofish-cli\.venv\Lib\site-packages\sentence_transformers\evaluation\SentenceEvaluator.py:81: SyntaxWarning: invalid escape sequence '\g'
+  return re.sub(r"([a-z])([A-Z])", "\g<1> \g<2>", class_name)
+C:\Users\NIKHIL GUPTA\Documents\mirofish-cli\.venv\Lib\site-packages\sentence_transformers\model_card.py:515: SyntaxWarning: invalid escape sequence '\d'
+  if dataset_name and re.match("_dataset_\d+", dataset_name):
+C:\Users\NIKHIL GUPTA\Documents\mirofish-cli\.venv\Lib\site-packages\sentence_transformers\losses\DenoisingAutoEncoderLoss.py:16: SyntaxWarning: invalid escape sequence '\_'
+  """
+[13:03:04] INFO: OASIS model: provider=ollama, model=ollama, mode=cli-bridge
+[13:03:04] INFO: LLM client initialized: provider=ollama, model=qwen3:8b

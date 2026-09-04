@@ -1,0 +1,66 @@
+{
+  "project_id": "proj_ced96ce9e0a6",
+  "name": "demo_transit_policy",
+  "status": "graph_building",
+  "created_at": "2026-08-31T17:28:50.432642",
+  "updated_at": "2026-08-31T17:29:33.051752",
+  "files": [
+    {
+      "filename": "demo_transit_policy.md",
+      "size": 819
+    }
+  ],
+  "total_text_length": 850,
+  "ontology": {
+    "entity_types": [
+      {
+        "name": "Person",
+        "description": "Any individual person not fitting other specific person types.",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "Full name of the person"
+          },
+          {
+            "name": "role",
+            "type": "text",
+            "description": "Role or occupation"
+          }
+        ],
+        "examples": [
+          "ordinary citizen",
+          "anonymous netizen"
+        ]
+      },
+      {
+        "name": "Organization",
+        "description": "Any organization not fitting other specific organization types.",
+        "attributes": [
+          {
+            "name": "org_name",
+            "type": "text",
+            "description": "Name of the organization"
+          },
+          {
+            "name": "org_type",
+            "type": "text",
+            "description": "Type of organization"
+          }
+        ],
+        "examples": [
+          "small business",
+          "community group"
+        ]
+      }
+    ],
+    "edge_types": []
+  },
+  "analysis_summary": "",
+  "graph_id": "mirofish_67b358aae9644f31",
+  "graph_build_task_id": "d8f8b3cc-097a-4a63-b787-57b5d147ec43",
+  "simulation_requirement": "Predict how citizens and taxpayers will react to the fare-free weekend bus policy",
+  "chunk_size": 500,
+  "chunk_overlap": 50,
+  "error": null
+}

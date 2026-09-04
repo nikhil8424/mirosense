@@ -1,0 +1,22 @@
+{
+  "simulation_id": "sim_78fac6667667",
+  "project_id": "proj_de26e01631c3",
+  "graph_id": "mirofish_b804301420a7498e",
+  "enable_twitter": false,
+  "enable_reddit": true,
+  "status": "running",
+  "entities_count": 10,
+  "profiles_count": 10,
+  "entity_types": [
+    "Organization",
+    "Person"
+  ],
+  "config_generated": true,
+  "config_reasoning": "Time config: The fare-free weekend bus policy is a city-level initiative with broad public interest. Peak activity is expected in the evening as citizens discuss the policy, with increased activity during the afternoon as officials and stakeholders engage. Work hours are typical for professional engagement. Off-peak hours include late night and early morning when fewer people are active. | Event config: The initial posts cover the official announcement, key supporters, business benefits, taxpayer concerns, and program goals. The hot topics reflect the core issues of the policy and its potential impacts. The narrative direction sets up a progression from policy announcement to public reaction and long-term implications. | Agent config: successfully generated 10 | Initial post assignment: 5 posts assigned to publishers",
+  "current_round": 0,
+  "twitter_status": "not_started",
+  "reddit_status": "not_started",
+  "created_at": "2026-08-31T12:49:51.225234",
+  "updated_at": "2026-08-31T13:01:02.101375",
+  "error": null
+}

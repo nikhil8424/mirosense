@@ -1,0 +1,22 @@
+{
+  "simulation_id": "sim_0076fd51a579",
+  "project_id": "proj_b8f23d88f669",
+  "graph_id": "mirofish_bde27c7480d7446d",
+  "enable_twitter": false,
+  "enable_reddit": true,
+  "status": "stopped",
+  "entities_count": 10,
+  "profiles_count": 10,
+  "entity_types": [
+    "Person",
+    "Organization"
+  ],
+  "config_generated": true,
+  "config_reasoning": "Time config: The fare-free weekend bus policy is a public policy initiative that will generate discussion among citizens, taxpayers, and local businesses. The policy announcement is expected to have higher engagement during evenings when people are more likely to discuss and share opinions on social media. Since the policy is a weekend initiative, the simulation should focus on the weekend hours. The peak hours are adjusted to 6-10 PM to reflect the increased activity during the evening. The work hours are extended to include the evening hours when people are likely to engage with social media discussions. | Event config: The initial posts cover the official announcement, support from city officials and local businesses, and concerns from taxpayers. This establishes the foundation for public opinion analysis by presenting multiple perspectives on the policy. | Agent config: successfully generated 10 | Initial post assignment: 5 posts assigned to publishers",
+  "current_round": 0,
+  "twitter_status": "not_started",
+  "reddit_status": "not_started",
+  "created_at": "2026-09-03T14:56:55.482714",
+  "updated_at": "2026-09-03T15:47:42.842348",
+  "error": null
+}

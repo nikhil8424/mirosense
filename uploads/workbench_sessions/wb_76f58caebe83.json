@@ -1,0 +1,15 @@
+{
+  "session_id": "wb_76f58caebe83",
+  "created_at": "2026-09-03T14:55:26.859403",
+  "updated_at": "2026-09-03T15:13:35.400005",
+  "project_id": "proj_b8f23d88f669",
+  "graph_id": "mirofish_bde27c7480d7446d",
+  "simulation_id": "sim_0076fd51a579",
+  "report_id": null,
+  "metadata": {
+    "entrypoint": "cli.run",
+    "run_id": "run_2bfbe19ca4aa",
+    "workflow": "foresight_workbench",
+    "phase": "report"
+  }
+}

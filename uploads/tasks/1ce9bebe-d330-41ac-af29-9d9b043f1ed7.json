@@ -1,0 +1,18 @@
+{
+  "task_id": "1ce9bebe-d330-41ac-af29-9d9b043f1ed7",
+  "task_type": "report_generate",
+  "status": "failed",
+  "created_at": "2026-09-03T15:13:35.405711",
+  "updated_at": "2026-09-03T15:47:41.974423",
+  "progress": 40,
+  "message": "Task failed",
+  "progress_detail": {},
+  "result": null,
+  "error": "Ollama request timed out after 600.0s at http://localhost:11434",
+  "metadata": {
+    "simulation_id": "sim_0076fd51a579",
+    "graph_id": "mirofish_bde27c7480d7446d",
+    "report_id": "report_fbdb3debf1df",
+    "session_id": "wb_76f58caebe83"
+  }
+}
