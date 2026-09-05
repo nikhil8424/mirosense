@@ -1,0 +1,212 @@
+
+
+=== tmp8lbfm6jl_MiroFish_Community_Context_Urban_Flood_Evacuation.pdf ===
+MiroFish Community — Synthetic Context | Page 1
+MiroFish Community
+Community Context Document
+Urban Flood Evacuation Scenario — Synthetic Case Study
+Purpose: This document is designed as seed/context material for MiroFish Community. It provides a structured
+fictional community, stakeholder network, emergency scenario, alternative decisions, behavioural conditions and
+research variables for multi-agent social decision simulation.
+Important: All population figures, stakeholder descriptions, relationships, events and conditions in this document are synthetic
+assumptions created for research experimentation. They do not represent actual data about any real Mumbai community.
+1. Synthetic Community Profile
+Attribute
+Synthetic Description
+Community
+Harbour View Community
+Setting
+Dense fictional urban neighbourhood in the Mumbai metropolitan context
+Population
+Approximately 8,000 fictional residents
+Housing
+Apartment buildings, older low-rise buildings and rental housing
+Economy
+Small shops, local services, informal work and office commuters
+Mobility
+Walking, buses, auto-rickshaws, private vehicles and two-wheelers
+Facilities
+School, clinic, community hall, market and local transit points
+Main hazard
+Rapid urban flooding following intense rainfall
+Emergency challenge
+Limited time, transport, shelter capacity and emergency resources
+2. Flood Scenario and Timeline
+Harbour View Community receives a warning that intense rainfall is expected to continue. Water begins accumulating
+on several low-lying roads. As conditions deteriorate, residents must decide whether to evacuate, wait for additional
+information, assist neighbours, protect property or seek alternative routes.
+Stage
+Synthetic Event
+T−3 hours
+Weather conditions worsen. Informal messages begin circulating among residents.
+T−2 hours
+Local authorities issue an initial flood-risk warning.
+T−90 minutes
+Low-lying roads begin experiencing significant water accumulation.
+T−60 minutes
+Emergency responders recommend preparing vulnerable residents for evacuation.
+T−30 minutes
+Some transport routes become unreliable. Conflicting informal messages appear.
+T−0
+Authorities must select and communicate an evacuation strategy.
+T+30 minutes
+Residents react to official instructions and observations from neighbours.
+T+60 minutes
+Shelter demand, transport availability and information diffusion become important.
+T+120 minutes
+Community-level outcomes emerge from individual decisions and interactions.
+3. Stakeholder Groups
+
+MiroFish Community — Synthetic Context | Page 2
+The virtual community should not behave as a homogeneous population. Agents should represent different priorities,
+constraints, beliefs, relationships and levels of influence.
+General residents: Prioritize personal and household safety, reliable information and convenient evacuation.
+Parents and caregivers: Prioritize children and dependents; may delay evacuation until family members are
+together.
+Elderly residents: May have reduced mobility and greater dependence on assistance or accessible transport.
+Vulnerable / medically dependent residents: May require medication, medical support, accessible transport and
+appropriate shelter.
+Students and young adults: Generally more mobile and potentially active in peer-to-peer information sharing.
+Shopkeepers and small businesses: May worry about inventory, property security, income loss and evacuation
+timing.
+Daily-wage / informal workers: May face stronger economic pressure to continue working despite rising risk.
+Emergency responders: Prioritize rescue, route clearance, vulnerable households and efficient resource
+allocation.
+Local officials: Coordinate warnings, evacuation instructions, shelters, transport and public communication.
+Healthcare workers: Prioritize patients, medical supplies and continuity of essential services.
+Community volunteers: Help distribute information, identify vulnerable households and support evacuation.
+Transport operators: Balance passenger safety, route conditions and service availability.
+4. Community Relationships and Information Network
+Agents are connected through households, neighbourhood ties, workplaces, schools, businesses, community
+organizations and online communication. These relationships determine how information travels and how individual
+decisions can influence others.
+Family → shared decisions, responsibility and mutual assistance.
+Neighbours → local observations, evacuation assistance and informal warnings.
+Students / peers → rapid peer-to-peer information diffusion.
+Shopkeepers ↔ residents → local information and economic dependencies.
+Officials → residents → official warnings and evacuation instructions.
+Emergency responders → officials → operational information and resource constraints.
+Volunteers → vulnerable residents → assistance and local information.
+Healthcare workers → vulnerable residents → medical guidance and support.
+Social networks → community → rumours, verification, support and behavioural influence.
+5. Trust and Information Conditions
+Not all agents trust the same information source. Some residents strongly trust official alerts, while others rely on
+family members, neighbours, local leaders or direct observation. Information may arrive at different times and may
+sometimes conflict.
+Official messages are generally considered authoritative but may be perceived as delayed.
+Neighbour reports may be fast but incomplete.
+Family members can strongly influence individual decisions.
+Social-media-style messages may spread quickly and can contain both accurate information and rumours.
+
+MiroFish Community — Synthetic Context | Page 3
+Agents may seek confirmation before acting.
+Visible behaviour of nearby residents can become a signal that influences undecided agents.
+6. Flood-Related Constraints
+Some roads become difficult or impossible for vehicles to use.
+Emergency responders have limited vehicles, personnel and time.
+Shelter capacity is smaller than the total community population.
+Transport availability decreases as flood conditions worsen.
+Some households contain members who cannot evacuate independently.
+Residents may be reluctant to leave property unattended.
+Businesses may resist early evacuation because of economic losses.
+Communication quality differs between highly connected and isolated residents.
+Conflicting information may create hesitation, panic or disagreement.
+7. Candidate Community Decisions
+The same synthetic community should be exposed to alternative decisions so that their possible social consequences
+can be compared.
+Decision
+Strategy
+A — Immediate Mass Evacuation
+Issue a broad evacuation order and encourage residents to leave as quickly as possible.
+B — Phased Evacuation
+Evacuate the highest-risk areas first, followed progressively by lower-risk areas.
+C — Vulnerable-First Evacuation
+Prioritize elderly residents, children, people with disabilities and medically vulnerable households.
+D — Shelter-in-Place + Targeted Evacuation
+Keep residents in safer buildings where appropriate while evacuating households in the highest-risk locat
+8. Possible Behavioural Reactions
+Immediate compliance with an official evacuation order.
+Delayed compliance while waiting for additional confirmation.
+Refusal to evacuate because of property or economic concerns.
+Households splitting temporarily because members receive different information.
+Residents helping elderly or vulnerable neighbours.
+Residents sharing warnings through informal networks.
+Rumours increasing uncertainty or resistance.
+Groups forming around trusted local information sources.
+Conflict between safety priorities and business continuity.
+Increased cooperation after residents observe successful evacuation by others.
+Changes in perceived risk after direct observation of flooding.
+9. Research Questions
+Which evacuation strategy produces the highest simulated community acceptance?
+Which strategy produces the strongest consensus and lowest polarization?
+
+MiroFish Community — Synthetic Context | Page 4
+How rapidly does evacuation information diffuse through the community?
+Which stakeholder groups show the greatest support or resistance?
+Which agents become influential during the decision process?
+How does behaviour change when agents observe the actions of others?
+What unintended social consequences emerge under each strategy?
+Does prioritizing vulnerable residents affect overall community cooperation?
+Are scenario outcomes consistent across repeated stochastic simulation runs?
+Can multi-agent simulation provide useful comparative evidence for community decision support?
+10. Social Impact Metrics
+Metric
+What it represents
+Acceptance
+Degree of support or compliance with a proposed decision.
+Consensus
+Extent to which agents converge toward a shared position.
+Polarization
+Separation of agents into opposing behavioural or opinion groups.
+Conflict
+Frequency or intensity of disagreement and competing priorities.
+Information diffusion
+How quickly and widely important information spreads.
+Influence
+Agents or groups that substantially affect others' decisions.
+Adoption / compliance
+Extent to which agents follow the selected strategy.
+Equity
+Differences in outcomes experienced by stakeholder groups.
+Stability
+Consistency of observed outcomes across repeated simulations.
+11. Experimental Design
+For comparison, the community context and stakeholder-generation process should remain as consistent as possible
+while the candidate decision changes. Each scenario can be simulated multiple times with different stochastic
+conditions. Results should be reported as distributions or ranges where appropriate rather than relying on a single
+run.
+Example: Scenario A → repeated simulation runs → social impact metrics → Scenario B → repeated runs → metrics
+→ Scenario C → repeated runs → metrics → Scenario D → repeated runs → metrics → comparative analysis.
+12. Expected Simulation Outputs
+Stakeholder-level reactions and opinions.
+Timeline of major interactions and behavioural changes.
+Information diffusion patterns.
+Support and resistance patterns.
+Emergent cooperation, conflict or polarization.
+Influential agents and groups.
+Scenario-level social impact indicators.
+Comparative analysis of Decisions A, B, C and D.
+Decision-support report describing trade-offs, risks and simulated social viability.
+
+MiroFish Community — Synthetic Context | Page 5
+13. Interpretation Guidelines
+The simulation represents a virtual community, not the actual population. Its outputs should be treated as possible
+outcomes under specified assumptions. A strategy receiving stronger simulated acceptance does not automatically
+mean it will succeed in the real world.
+The research should distinguish between simulation outcome, comparative scenario result and real-world
+evidence. Real-world deployment would require empirical data, calibration, validation and human oversight.
+14. Seed Entities and Relationships
+Entities: Harbour View Community; Residents; Parents; Children; Elderly Residents; Vulnerable Residents;
+Students; Shopkeepers; Daily-Wage Workers; Emergency Responders; Local Officials; Healthcare Workers;
+Community Volunteers; Transport Operators; Community Hall; School; Clinic; Market; Evacuation Routes; Shelters;
+Flood Warning; Evacuation Strategy A; Evacuation Strategy B; Evacuation Strategy C; Evacuation Strategy D.
+Key relationships: Residents live in Community; Parents care for Children; Volunteers assist Vulnerable Residents;
+Officials issue Flood Warnings; Emergency Responders coordinate with Officials; Healthcare Workers support
+Vulnerable Residents; Shopkeepers depend on Residents; Residents exchange information with Neighbours;
+Students exchange information with Peers; Transport Operators support Evacuation; Evacuation Strategies affect
+Residents; Shelters receive Evacuated Residents; Flood Conditions affect Routes and Transport.
+15. Synthetic Data Notice
+This entire document is fictional and was created specifically for testing and demonstrating the MiroFish Community research
+framework. The population size, stakeholder characteristics, timeline, infrastructure, relationships, behavioural assumptions and
+candidate strategies are synthetic. They must not be interpreted as verified statistics, forecasts or recommendations for an
+actual Mumbai locality.

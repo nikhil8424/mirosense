@@ -1,0 +1,252 @@
+[
+  {
+    "id": "38192834-4e8f-4973-bb16-7eb99a7f365b",
+    "name": "Harbour View Community",
+    "label": "Organization",
+    "summary": "A community area mentioned in the text",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.269100",
+    "updated_at": "2026-09-05T21:09:43.269100"
+  },
+  {
+    "id": "31af8d31-edae-4e80-912d-3188fb803c8d",
+    "name": "Residents",
+    "label": "Person",
+    "summary": "Individuals living in the community",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.287811",
+    "updated_at": "2026-09-05T21:09:43.287811"
+  },
+  {
+    "id": "1156ac9b-8e2f-495b-9c1b-51d8dd17f0ea",
+    "name": "Parents",
+    "label": "Person",
+    "summary": "Parents within the community",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.336105",
+    "updated_at": "2026-09-05T21:09:43.336105"
+  },
+  {
+    "id": "b45e310d-18ee-4120-a807-04de92e87b3b",
+    "name": "Children",
+    "label": "Person",
+    "summary": "Children within the community",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.397321",
+    "updated_at": "2026-09-05T21:09:43.397321"
+  },
+  {
+    "id": "91bdc1aa-cbb6-44d9-8bc9-cac8c86e33a9",
+    "name": "Elderly Residents",
+    "label": "Person",
+    "summary": "Elderly individuals living in the community",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.478131",
+    "updated_at": "2026-09-05T21:09:43.478131"
+  },
+  {
+    "id": "5fd75d4e-49a6-4ac2-9a5a-5e660099bfc5",
+    "name": "Vulnerable Residents",
+    "label": "Person",
+    "summary": "Residents considered vulnerable in the community",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.530903",
+    "updated_at": "2026-09-05T21:09:43.530903"
+  },
+  {
+    "id": "da8c3f33-c076-4d74-a632-bd7433f68213",
+    "name": "Students",
+    "label": "Person",
+    "summary": "Students within the community",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.661484",
+    "updated_at": "2026-09-05T21:09:43.661484"
+  },
+  {
+    "id": "e1ba3e88-f34c-427a-b57e-ff6d2f4aae46",
+    "name": "Shopkeepers",
+    "label": "Person",
+    "summary": "Shopkeepers within the community",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.705100",
+    "updated_at": "2026-09-05T21:09:43.705100"
+  },
+  {
+    "id": "10813749-3784-4fdb-b690-f9ff8e055ce0",
+    "name": "Daily-Wage Workers",
+    "label": "Person",
+    "summary": "Workers earning daily wages",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.796026",
+    "updated_at": "2026-09-05T21:09:43.796026"
+  },
+  {
+    "id": "a420dfd3-93ab-4912-80e9-0afcf36a06f6",
+    "name": "Emergency Responders",
+    "label": "Person",
+    "summary": "Individuals responding to emergencies",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.840954",
+    "updated_at": "2026-09-05T21:09:43.840954"
+  },
+  {
+    "id": "7b0ac476-6cfc-4a85-8ccf-62b6ca721226",
+    "name": "Local Officials",
+    "label": "Organization",
+    "summary": "Local government officials",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.869231",
+    "updated_at": "2026-09-05T21:09:43.869231"
+  },
+  {
+    "id": "cedad7c8-517b-4f8c-972d-8c0c4fd38481",
+    "name": "Healthcare Workers",
+    "label": "Person",
+    "summary": "Workers in the healthcare sector",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.918563",
+    "updated_at": "2026-09-05T21:09:43.918563"
+  },
+  {
+    "id": "e292aea7-920f-41fe-9e4f-11e5fd75627b",
+    "name": "Community Volunteers",
+    "label": "Person",
+    "summary": "Volunteers in the community",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:43.985668",
+    "updated_at": "2026-09-05T21:09:43.985668"
+  },
+  {
+    "id": "dca4e8d9-d8b0-439d-a150-539bbaa5f982",
+    "name": "Transport Operators",
+    "label": "Person",
+    "summary": "Operators responsible for transportation",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:44.041247",
+    "updated_at": "2026-09-05T21:09:44.041247"
+  },
+  {
+    "id": "89d71733-f637-44e1-8949-65db75611cd1",
+    "name": "Community Hall",
+    "label": "Organization",
+    "summary": "A community building used for gatherings",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:44.095043",
+    "updated_at": "2026-09-05T21:09:44.095043"
+  },
+  {
+    "id": "925d8fb3-b490-4351-af27-1ce455a36d47",
+    "name": "School",
+    "label": "Organization",
+    "summary": "An educational institution",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:44.138731",
+    "updated_at": "2026-09-05T21:09:44.138731"
+  },
+  {
+    "id": "053c05a0-1e50-41b8-8797-f09fe7f8c58a",
+    "name": "Clinic",
+    "label": "Organization",
+    "summary": "A healthcare facility",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:44.181173",
+    "updated_at": "2026-09-05T21:09:44.181173"
+  },
+  {
+    "id": "0fe16cba-088f-4819-9581-d5e7f41f0f51",
+    "name": "Market",
+    "label": "Organization",
+    "summary": "A place for buying and selling goods",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:44.211376",
+    "updated_at": "2026-09-05T21:09:44.211376"
+  },
+  {
+    "id": "75331f32-2437-43d7-9089-425c82de3998",
+    "name": "Evacuation Routes",
+    "label": "Organization",
+    "summary": "Routes designated for evacuation",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:44.241610",
+    "updated_at": "2026-09-05T21:09:44.241610"
+  },
+  {
+    "id": "cc58f3bc-1f0b-4b33-9121-fe7896ae811c",
+    "name": "Shelters",
+    "label": "Organization",
+    "summary": "Places providing temporary shelter",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:44.287405",
+    "updated_at": "2026-09-05T21:09:44.287405"
+  },
+  {
+    "id": "0b692810-9664-4d04-a9ba-dd904ff88229",
+    "name": "Flood Warning",
+    "label": "Organization",
+    "summary": "A warning system for floods",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:44.329764",
+    "updated_at": "2026-09-05T21:09:44.329764"
+  },
+  {
+    "id": "31398f1d-350d-4cee-932f-91813b5b2d6d",
+    "name": "Evacuation Strategy A",
+    "label": "Organization",
+    "summary": "An evacuation strategy labeled A",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:44.376163",
+    "updated_at": "2026-09-05T21:09:44.376163"
+  },
+  {
+    "id": "10af5df9-5dce-4a57-a64c-5cdf5255acd3",
+    "name": "Evacuation Strategy B",
+    "label": "Organization",
+    "summary": "An evacuation strategy labeled B",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:44.413444",
+    "updated_at": "2026-09-05T21:09:44.413444"
+  },
+  {
+    "id": "345b1e9f-6db3-43bc-9c45-b7f306dc3b21",
+    "name": "Evacuation Strategy C",
+    "label": "Organization",
+    "summary": "An evacuation strategy labeled C",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:44.461079",
+    "updated_at": "2026-09-05T21:09:44.461079"
+  },
+  {
+    "id": "2674d0d4-5352-43a0-9bb0-41488f1a724d",
+    "name": "Evacuation",
+    "label": "Organization",
+    "summary": "The process of evacuating people",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-05T21:09:44.505640",
+    "updated_at": "2026-09-05T21:09:44.505640"
+  }
+]

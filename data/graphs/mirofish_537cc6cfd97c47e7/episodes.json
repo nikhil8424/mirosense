@@ -1,0 +1,258 @@
+[
+  {
+    "id": "bb484f1a-ce89-493a-b5b4-d7188cae2ee4",
+    "content": "=== tmp8lbfm6jl_MiroFish_Community_Context_Urban_Flood_Evacuation.pdf ===\nMiroFish Community — Synthetic Context | Page 1\nMiroFish Community\nCommunity Context Document\nUrban Flood Evacuation Scenario — Synthetic Case Study\nPurpose: This document is designed as seed/context material for MiroFish Community.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "18c7b846-5694-4963-8667-5a83e85e29ab",
+    "content": "as seed/context material for MiroFish Community. It provides a structured\nfictional community, stakeholder network, emergency scenario, alternative decisions, behavioural conditions and\nresearch variables for multi-agent social decision simulation.\nImportant: All population figures, stakeholder descriptions, relationships, events and conditions in this document are synthetic\nassumptions created for research experimentation. They do not represent actual data about any real Mumbai community.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "c8326965-9bbd-4e0d-bcfa-16eaae112a16",
+    "content": "sent actual data about any real Mumbai community.\n1. Synthetic Community Profile\nAttribute\nSynthetic Description\nCommunity\nHarbour View Community\nSetting\nDense fictional urban neighbourhood in the Mumbai metropolitan context\nPopulation\nApproximately 8,000 fictional residents\nHousing\nApartment buildings, older low-rise buildings and rental housing\nEconomy\nSmall shops, local services, informal work and office commuters\nMobility\nWalking, buses, auto-rickshaws, private vehicles and two-wheelers\nFaci",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "216539f6-d18d-468f-bc69-2aac4722299b",
+    "content": "-rickshaws, private vehicles and two-wheelers\nFacilities\nSchool, clinic, community hall, market and local transit points\nMain hazard\nRapid urban flooding following intense rainfall\nEmergency challenge\nLimited time, transport, shelter capacity and emergency resources\n2. Flood Scenario and Timeline\nHarbour View Community receives a warning that intense rainfall is expected to continue. Water begins accumulating\non several low-lying roads.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "556d7caa-35e0-46ba-a5e8-381ebe92a44f",
+    "content": "r begins accumulating\non several low-lying roads. As conditions deteriorate, residents must decide whether to evacuate, wait for additional\ninformation, assist neighbours, protect property or seek alternative routes.\nStage\nSynthetic Event\nT−3 hours\nWeather conditions worsen. Informal messages begin circulating among residents.\nT−2 hours\nLocal authorities issue an initial flood-risk warning.\nT−90 minutes\nLow-lying roads begin experiencing significant water accumulation.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "83a42940-d198-465a-aa17-d1a84d407ab3",
+    "content": "egin experiencing significant water accumulation.\nT−60 minutes\nEmergency responders recommend preparing vulnerable residents for evacuation.\nT−30 minutes\nSome transport routes become unreliable. Conflicting informal messages appear.\nT−0\nAuthorities must select and communicate an evacuation strategy.\nT+30 minutes\nResidents react to official instructions and observations from neighbours.\nT+60 minutes\nShelter demand, transport availability and information diffusion become important.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "d17f6ea2-fc50-434b-8489-b5dce75b779c",
+    "content": "ility and information diffusion become important.\nT+120 minutes\nCommunity-level outcomes emerge from individual decisions and interactions.\n3. Stakeholder Groups\n\nMiroFish Community — Synthetic Context | Page 2\nThe virtual community should not behave as a homogeneous population. Agents should represent different priorities,\nconstraints, beliefs, relationships and levels of influence.\nGeneral residents: Prioritize personal and household safety, reliable information and convenient evacuation.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "c07e164b-ead1-4ff6-9cf2-7fedb600ac98",
+    "content": ", reliable information and convenient evacuation.\nParents and caregivers: Prioritize children and dependents; may delay evacuation until family members are\ntogether.\nElderly residents: May have reduced mobility and greater dependence on assistance or accessible transport.\nVulnerable / medically dependent residents: May require medication, medical support, accessible transport and\nappropriate shelter.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "02e50cc8-74f2-4592-94d8-4e770f9071e9",
+    "content": "rt, accessible transport and\nappropriate shelter.\nStudents and young adults: Generally more mobile and potentially active in peer-to-peer information sharing.\nShopkeepers and small businesses: May worry about inventory, property security, income loss and evacuation\ntiming.\nDaily-wage / informal workers: May face stronger economic pressure to continue working despite rising risk.\nEmergency responders: Prioritize rescue, route clearance, vulnerable households and efficient resource\nallocation.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "c8297618-aea2-40d8-9309-7d9eabb869dc",
+    "content": "ble households and efficient resource\nallocation.\nLocal officials: Coordinate warnings, evacuation instructions, shelters, transport and public communication.\nHealthcare workers: Prioritize patients, medical supplies and continuity of essential services.\nCommunity volunteers: Help distribute information, identify vulnerable households and support evacuation.\nTransport operators: Balance passenger safety, route conditions and service availability.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "e656ac63-2b71-41a3-b4d4-48caf1bbe9b7",
+    "content": "afety, route conditions and service availability.\n4. Community Relationships and Information Network\nAgents are connected through households, neighbourhood ties, workplaces, schools, businesses, community\norganizations and online communication. These relationships determine how information travels and how individual\ndecisions can influence others.\nFamily → shared decisions, responsibility and mutual assistance.\nNeighbours → local observations, evacuation assistance and informal warnings.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "fb25838d-2387-4b2c-83c8-439c43a6361a",
+    "content": "ons, evacuation assistance and informal warnings.\nStudents / peers → rapid peer-to-peer information diffusion.\nShopkeepers ↔ residents → local information and economic dependencies.\nOfficials → residents → official warnings and evacuation instructions.\nEmergency responders → officials → operational information and resource constraints.\nVolunteers → vulnerable residents → assistance and local information.\nHealthcare workers → vulnerable residents → medical guidance and support.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "831feb80-b8f8-4072-b569-d310f660181e",
+    "content": "nerable residents → medical guidance and support.\nSocial networks → community → rumours, verification, support and behavioural influence.\n5. Trust and Information Conditions\nNot all agents trust the same information source. Some residents strongly trust official alerts, while others rely on\nfamily members, neighbours, local leaders or direct observation. Information may arrive at different times and may\nsometimes conflict.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "63dfacaf-3278-49d1-a30b-2236b4c83757",
+    "content": "ve at different times and may\nsometimes conflict.\nOfficial messages are generally considered authoritative but may be perceived as delayed.\nNeighbour reports may be fast but incomplete.\nFamily members can strongly influence individual decisions.\nSocial-media-style messages may spread quickly and can contain both accurate information and rumours.\n\nMiroFish Community — Synthetic Context | Page 3\nAgents may seek confirmation before acting.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "0a711ccd-6c46-4284-897a-cfa5a24bfe4f",
+    "content": "age 3\nAgents may seek confirmation before acting.\nVisible behaviour of nearby residents can become a signal that influences undecided agents.\n6. Flood-Related Constraints\nSome roads become difficult or impossible for vehicles to use.\nEmergency responders have limited vehicles, personnel and time.\nShelter capacity is smaller than the total community population.\nTransport availability decreases as flood conditions worsen.\nSome households contain members who cannot evacuate independently.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "f7933342-4885-4bd0-ac3e-2f9089d1cc86",
+    "content": "ontain members who cannot evacuate independently.\nResidents may be reluctant to leave property unattended.\nBusinesses may resist early evacuation because of economic losses.\nCommunication quality differs between highly connected and isolated residents.\nConflicting information may create hesitation, panic or disagreement.\n7. Candidate Community Decisions\nThe same synthetic community should be exposed to alternative decisions so that their possible social consequences\ncan be compared.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "39a5c94e-a70b-4a01-bcd7-d76cf16e59f1",
+    "content": "eir possible social consequences\ncan be compared.\nDecision\nStrategy\nA — Immediate Mass Evacuation\nIssue a broad evacuation order and encourage residents to leave as quickly as possible.\nB — Phased Evacuation\nEvacuate the highest-risk areas first, followed progressively by lower-risk areas.\nC — Vulnerable-First Evacuation\nPrioritize elderly residents, children, people with disabilities and medically vulnerable households.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "68ad8916-eddf-4d4c-be5b-888ebdd2b06f",
+    "content": "disabilities and medically vulnerable households.\nD — Shelter-in-Place + Targeted Evacuation\nKeep residents in safer buildings where appropriate while evacuating households in the highest-risk locat\n8. Possible Behavioural Reactions\nImmediate compliance with an official evacuation order.\nDelayed compliance while waiting for additional confirmation.\nRefusal to evacuate because of property or economic concerns.\nHouseholds splitting temporarily because members receive different information.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "c19dc569-c196-409c-a2e9-bb25fe8a5e9f",
+    "content": "ly because members receive different information.\nResidents helping elderly or vulnerable neighbours.\nResidents sharing warnings through informal networks.\nRumours increasing uncertainty or resistance.\nGroups forming around trusted local information sources.\nConflict between safety priorities and business continuity.\nIncreased cooperation after residents observe successful evacuation by others.\nChanges in perceived risk after direct observation of flooding.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "5be7d3bf-6da3-4537-ba4a-c8379660fa11",
+    "content": "ceived risk after direct observation of flooding.\n9. Research Questions\nWhich evacuation strategy produces the highest simulated community acceptance?\nWhich strategy produces the strongest consensus and lowest polarization?\n\nMiroFish Community — Synthetic Context | Page 4\nHow rapidly does evacuation information diffuse through the community?\nWhich stakeholder groups show the greatest support or resistance?\nWhich agents become influential during the decision process?",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "18ff2533-0964-478c-9aae-2e9b3c4c6637",
+    "content": "s become influential during the decision process?\nHow does behaviour change when agents observe the actions of others?\nWhat unintended social consequences emerge under each strategy?\nDoes prioritizing vulnerable residents affect overall community cooperation?\nAre scenario outcomes consistent across repeated stochastic simulation runs?\nCan multi-agent simulation provide useful comparative evidence for community decision support?",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "c80e54ba-1b49-4a62-b729-e7f767593950",
+    "content": "parative evidence for community decision support?\n10. Social Impact Metrics\nMetric\nWhat it represents\nAcceptance\nDegree of support or compliance with a proposed decision.\nConsensus\nExtent to which agents converge toward a shared position.\nPolarization\nSeparation of agents into opposing behavioural or opinion groups.\nConflict\nFrequency or intensity of disagreement and competing priorities.\nInformation diffusion\nHow quickly and widely important information spreads.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "c79b95ef-f2aa-474d-82c3-e826e5c2a75f",
+    "content": "quickly and widely important information spreads.\nInfluence\nAgents or groups that substantially affect others' decisions.\nAdoption / compliance\nExtent to which agents follow the selected strategy.\nEquity\nDifferences in outcomes experienced by stakeholder groups.\nStability\nConsistency of observed outcomes across repeated simulations.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "a1133875-402a-4a67-b0be-16d779f630b1",
+    "content": "of observed outcomes across repeated simulations.\n11. Experimental Design\nFor comparison, the community context and stakeholder-generation process should remain as consistent as possible\nwhile the candidate decision changes. Each scenario can be simulated multiple times with different stochastic\nconditions. Results should be reported as distributions or ranges where appropriate rather than relying on a single\nrun.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "c2a893d6-8687-40ce-8e78-655d6d3a3aa3",
+    "content": "appropriate rather than relying on a single\nrun.\nExample: Scenario A → repeated simulation runs → social impact metrics → Scenario B → repeated runs → metrics\n→ Scenario C → repeated runs → metrics → Scenario D → repeated runs → metrics → comparative analysis.\n12. Expected Simulation Outputs\nStakeholder-level reactions and opinions.\nTimeline of major interactions and behavioural changes.\nInformation diffusion patterns.\nSupport and resistance patterns.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "27692a3d-e88a-426a-9743-3e09d78aec28",
+    "content": "fusion patterns.\nSupport and resistance patterns.\nEmergent cooperation, conflict or polarization.\nInfluential agents and groups.\nScenario-level social impact indicators.\nComparative analysis of Decisions A, B, C and D.\nDecision-support report describing trade-offs, risks and simulated social viability.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "0beeb62a-fb37-4ada-9995-bb78c190c4a5",
+    "content": "trade-offs, risks and simulated social viability.\n\nMiroFish Community — Synthetic Context | Page 5\n13. Interpretation Guidelines\nThe simulation represents a virtual community, not the actual population. Its outputs should be treated as possible\noutcomes under specified assumptions. A strategy receiving stronger simulated acceptance does not automatically\nmean it will succeed in the real world.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "802e3ad6-b840-4539-bf20-0e92070a0234",
+    "content": "matically\nmean it will succeed in the real world.\nThe research should distinguish between simulation outcome, comparative scenario result and real-world\nevidence. Real-world deployment would require empirical data, calibration, validation and human oversight.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "d5a51e43-1775-42c5-8240-91afbd255029",
+    "content": "ata, calibration, validation and human oversight.\n14. Seed Entities and Relationships\nEntities: Harbour View Community; Residents; Parents; Children; Elderly Residents; Vulnerable Residents;\nStudents; Shopkeepers; Daily-Wage Workers; Emergency Responders; Local Officials; Healthcare Workers;\nCommunity Volunteers; Transport Operators; Community Hall; School; Clinic; Market; Evacuation Routes; Shelters;\nFlood Warning; Evacuation Strategy A; Evacuation Strategy B; Evacuation Strategy C; Evacuation",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "b67fa717-1604-413d-ac0b-311f8d79927d",
+    "content": "ion Strategy B; Evacuation Strategy C; Evacuation Strategy D.\nKey relationships: Residents live in Community; Parents care for Children; Volunteers assist Vulnerable Residents;\nOfficials issue Flood Warnings; Emergency Responders coordinate with Officials; Healthcare Workers support\nVulnerable Residents; Shopkeepers depend on Residents; Residents exchange information with Neighbours;\nStudents exchange information with Peers; Transport Operators support Evacuation; Evacuation Strategies affect\nRe",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "45350c81-5e1b-450e-bccc-57b795edd65e",
+    "content": "upport Evacuation; Evacuation Strategies affect\nResidents; Shelters receive Evacuated Residents; Flood Conditions affect Routes and Transport.\n15. Synthetic Data Notice\nThis entire document is fictional and was created specifically for testing and demonstrating the MiroFish Community research\nframework. The population size, stakeholder characteristics, timeline, infrastructure, relationships, behavioural assumptions and\ncandidate strategies are synthetic.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  },
+  {
+    "id": "544c7861-f4df-49c4-946e-22ee96b7ec02",
+    "content": "sumptions and\ncandidate strategies are synthetic. They must not be interpreted as verified statistics, forecasts or recommendations for an\nactual Mumbai locality.",
+    "source": "document",
+    "node_ids": [],
+    "processed": true,
+    "created_at": "2026-09-05T21:02:09.903586"
+  }
+]

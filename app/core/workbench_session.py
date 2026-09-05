@@ -171,6 +171,7 @@ class WorkbenchSession:
         entity_types: Optional[List[str]] = None,
         use_llm_for_profiles: bool = True,
         parallel_profile_count: int = 5,
+        agent_count: Optional[int] = None,
         force_regenerate: bool = False,
     ) -> Dict[str, Any]:
         result = self.prepare_simulation_tool.start(
@@ -178,6 +179,7 @@ class WorkbenchSession:
             entity_types=entity_types,
             use_llm_for_profiles=use_llm_for_profiles,
             parallel_profile_count=parallel_profile_count,
+            agent_count=agent_count,
             force_regenerate=force_regenerate,
             session_id=self.session_id,
         )

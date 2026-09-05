@@ -1,0 +1,66 @@
+{
+  "project_id": "proj_924676814c48",
+  "name": "MiroFish_Community_Context_Urban_Flood_Evacuation",
+  "status": "graph_completed",
+  "created_at": "2026-09-05T20:58:58.206065",
+  "updated_at": "2026-09-05T21:09:45.913154",
+  "files": [
+    {
+      "filename": "tmp8lbfm6jl_MiroFish_Community_Context_Urban_Flood_Evacuation.pdf",
+      "size": 13961
+    }
+  ],
+  "total_text_length": 12369,
+  "ontology": {
+    "entity_types": [
+      {
+        "name": "Person",
+        "description": "Any individual person not fitting other specific person types.",
+        "attributes": [
+          {
+            "name": "full_name",
+            "type": "text",
+            "description": "Full name of the person"
+          },
+          {
+            "name": "role",
+            "type": "text",
+            "description": "Role or occupation"
+          }
+        ],
+        "examples": [
+          "ordinary citizen",
+          "anonymous netizen"
+        ]
+      },
+      {
+        "name": "Organization",
+        "description": "Any organization not fitting other specific organization types.",
+        "attributes": [
+          {
+            "name": "org_name",
+            "type": "text",
+            "description": "Name of the organization"
+          },
+          {
+            "name": "org_type",
+            "type": "text",
+            "description": "Type of organization"
+          }
+        ],
+        "examples": [
+          "small business",
+          "community group"
+        ]
+      }
+    ],
+    "edge_types": []
+  },
+  "analysis_summary": "",
+  "graph_id": "mirofish_537cc6cfd97c47e7",
+  "graph_build_task_id": "7761e1c1-68ac-4091-8b50-5af69fcc6415",
+  "simulation_requirement": "Simulate how a heterogeneous urban community responds to four alternative flood-evacuation strategies: Immediate Mass Evacuation, Phased Evacuation, Vulnerable-First Evacuation, and Shelter-in-Place with Targeted Evacuation.",
+  "chunk_size": 500,
+  "chunk_overlap": 50,
+  "error": null
+}
