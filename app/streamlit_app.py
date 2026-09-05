@@ -1,4 +1,4 @@
-"""Streamlit UI for MiroFish - AI-powered social decision simulator."""
+"""Streamlit UI for MiroFish Community - AI-Powered Social Decision Simulator."""
 
 from __future__ import annotations
 
@@ -23,11 +23,18 @@ from app.run_artifacts import RunStore
 from app.services.simulation_runner import SimulationRunner, RunnerStatus
 from app.services.simulation_manager import SimulationManager
 from app.visual_snapshots import generate_visual_snapshots
+from app.research import (
+    ScenarioManager,
+    EmergentBehaviourAnalyzer,
+    SocialImpactModel,
+    DecisionComparisonEngine,
+    DecisionIntelligenceEngine,
+)
 
 
 # Page configuration
 st.set_page_config(
-    page_title="MiroFish",
+    page_title="MiroFish Community",
     page_icon="🐟",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -82,6 +89,10 @@ def init_session_state():
         st.session_state.pipeline_stage = None
     if 'temp_files' not in st.session_state:
         st.session_state.temp_files = []  # Store temporary file paths for cleanup
+    if 'scenario_manager' not in st.session_state:
+        st.session_state.scenario_manager = ScenarioManager()
+    if 'current_problem_id' not in st.session_state:
+        st.session_state.current_problem_id = None
 
 
 init_session_state()
@@ -91,12 +102,20 @@ init_session_state()
 def render_navigation():
     """Render sidebar navigation."""
     with st.sidebar:
-        st.title("🐟 MiroFish")
+        st.title("🐟 MiroFish Community")
         st.markdown("---")
         
         pages = [
             ("Dashboard", "dashboard"),
-            ("New Simulation", "new_simulation"),
+            ("Community Problem", "community_problem"),
+            ("Stakeholder Config", "stakeholder_config"),
+            ("Candidate Decisions", "candidate_decisions"),
+            ("Simulation Parameters", "simulation_params"),
+            ("Run Simulation", "run_simulation"),
+            ("Emergent Behaviour", "emergent_behaviour"),
+            ("Social Impact", "social_impact"),
+            ("Scenario Comparison", "scenario_comparison"),
+            ("Recommendation", "recommendation"),
             ("Run History", "history"),
             ("Explore Run", "explore_run"),
             ("About", "about"),
@@ -127,35 +146,43 @@ def render_navigation():
 # Dashboard page
 def render_dashboard():
     """Render dashboard page."""
-    st.markdown('<div class="main-header">MiroFish</div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header">MiroFish Community</div>', unsafe_allow_html=True)
     st.markdown('<div class="sub-header">AI-Powered Social Decision Simulator</div>', unsafe_allow_html=True)
     
-    st.markdown("Turn real-world evidence into a simulated social world.")
+    st.markdown("Turn real-world evidence into a simulated social world for decision support.")
     
-    # New simulation button
-    if st.button("🚀 New Simulation", type="primary", use_container_width=True):
-        st.session_state.current_page = 'new_simulation'
-        st.rerun()
+    # Quick action buttons
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("🚀 New Decision Analysis", type="primary", use_container_width=True):
+            st.session_state.current_page = 'community_problem'
+            st.rerun()
+    with col2:
+        if st.button("📊 View Recent Runs", use_container_width=True):
+            st.session_state.current_page = 'history'
+            st.rerun()
     
     st.markdown("---")
     
-    # Pipeline visualization
-    st.subheader("Pipeline")
+    # Research pipeline visualization
+    st.subheader("Research Pipeline")
     
     pipeline_steps = [
-        ("Documents", "📄"),
-        ("Ontology", "🔍"),
-        ("Knowledge Graph", "🕸️"),
-        ("Agent Profiles", "👥"),
-        ("Social Simulation", "🎭"),
-        ("Report", "📝"),
-        ("Verdict", "⚖️"),
+        ("Community Problem", "�"),
+        ("Community Context", "🏛️"),
+        ("Stakeholder Digital Twin", "�"),
+        ("Scenario Designer", "🎯"),
+        ("Social Interaction Core", "🎭"),
+        ("Emergent Behaviour", "📊"),
+        ("Social Impact", "⚖️"),
+        ("Decision Comparison", "🔀"),
+        ("Decision Intelligence", "🧠"),
     ]
     
     cols = st.columns(len(pipeline_steps))
     for i, (label, icon) in enumerate(pipeline_steps):
         with cols[i]:
-            st.markdown(f"<div style='text-align: center; padding: 1rem;'>"
+            st.markdown(f"<div style='text-align: center; padding: 0.5rem; font-size: 0.8rem;'>"
                        f"{icon}<br><small>{label}</small></div>", 
                        unsafe_allow_html=True)
             if i < len(pipeline_steps) - 1:
@@ -164,7 +191,7 @@ def render_dashboard():
     st.markdown("---")
     
     # Recent runs
-    st.subheader("Recent Runs")
+    st.subheader("Recent Decision Analyses")
     store = RunStore()
     runs = store.list(limit=5)
     
@@ -190,7 +217,7 @@ def render_dashboard():
                 st.session_state.current_page = 'explore_run'
                 st.rerun()
     else:
-        st.info("No runs yet. Create your first simulation!")
+        st.info("No decision analyses yet. Start by defining a community problem!")
 
 
 # New simulation page
@@ -1031,46 +1058,307 @@ def render_history():
 # About page
 def render_about():
     """Render about page."""
-    st.markdown('<div class="main-header">About MiroFish</div>', unsafe_allow_html=True)
+    st.markdown('<div class="main-header">About MiroFish Community</div>', unsafe_allow_html=True)
     
     st.markdown("""
-    ## What is MiroFish?
+    ## What is MiroFish Community?
     
-    MiroFish is an AI-powered multi-agent social simulation engine that transforms 
-    real-world evidence into simulated social worlds. It helps you understand how 
-    complex social systems might respond to different scenarios and interventions.
+    MiroFish Community is an AI-powered social decision simulator that transforms 
+    real-world evidence into simulated social worlds for decision support. It helps 
+    communities and decision-makers explore possible outcomes of different interventions 
+    by simulating heterogeneous stakeholder reactions and emergent social consequences.
     
-    ## How it Works
+    ## Research Contribution
     
-    1. **Document Analysis**: Upload documents (PDF, MD, TXT) containing evidence and context
-    2. **Ontology Generation**: AI extracts entities and relationships from your documents
-    3. **Knowledge Graph**: Build a structured network of entities and their connections
-    4. **Agent Profiles**: Generate detailed personas for social media agents based on the ontology
-    5. **Social Simulation**: Run OASIS-powered simulations on Twitter and Reddit platforms
-    6. **Report Generation**: AI analyzes simulation results and generates comprehensive reports
-    7. **Verdict**: Get machine-readable predictions with confidence scores and key dynamics
+    MiroFish Community builds on foundational technologies (MiroFish and OASIS) to provide:
     
-    ## Architecture
+    - **Community Digital Twin**: Structured representation of community context and stakeholders
+    - **Scenario-Based Decision Simulation**: Evaluate multiple candidate decisions
+    - **Emergent Behaviour Analysis**: Identify community-level behaviour patterns
+    - **Social Impact Evaluation**: Quantify acceptance, consensus, polarization, and other metrics
+    - **Multi-Scenario Decision Comparison**: Compare alternative decisions side-by-side
+    - **Decision Intelligence**: Evidence-based recommendations with uncertainty quantification
     
-    MiroFish uses a pipeline architecture with the following components:
+    ## Research Pipeline
     
-    - **WorkbenchSession**: Orchestrates the entire pipeline
-    - **TaskManager**: Manages long-running background tasks
-    - **SimulationRunner**: Executes OASIS social media simulations
-    - **RunStore**: Provides persistent artifact storage
-    - **Visual Snapshots**: Generates SVG visualizations of results
+    1. **Community Problem**: Define the decision problem and context
+    2. **Community Context Engine**: Extract entities, relationships, and stakeholder information
+    3. **Stakeholder Digital Twin**: Generate heterogeneous agent personas
+    4. **Scenario Designer**: Define candidate decisions/interventions
+    5. **Social Interaction Core**: Run OASIS-powered multi-agent simulations
+    6. **Emergent Behaviour Analyzer**: Derive community-level behaviour patterns
+    7. **Social Impact Model**: Evaluate social consequences across multiple dimensions
+    8. **Decision Comparison Engine**: Compare scenarios across impact metrics
+    9. **Decision Intelligence**: Generate comprehensive recommendations
+    
+    ## Foundational Technologies
+    
+    - **MiroFish**: Multi-agent social simulation framework
+    - **OASIS**: Social media simulation environment (camel-oasis==0.2.5, camel-ai==0.2.78)
     
     ## Configuration
     
-    MiroFish uses environment variables for configuration:
+    MiroFish Community uses environment variables for configuration:
     
     - `LLM_PROVIDER`: claude-cli, codex-cli, or ollama
     - `OLLAMA_BASE_URL`: Ollama server URL (default: http://localhost:11434)
     - `OLLAMA_MODEL`: Ollama model name (default: qwen3:8b)
     
+    ## Important Note
+    
+    Results are based on simulated agent behaviour and should be interpreted as 
+    scenario-analysis evidence for decision support, not as guaranteed real-world predictions.
+    Simulated agents are not equivalent to actual community members.
+    
     ## License
     
     AGPL-3.0
+    """)
+
+
+# Research workflow pages
+def render_community_problem():
+    """Render community problem definition page."""
+    st.markdown('<div class="main-header">Community Problem</div>', unsafe_allow_html=True)
+    st.markdown("Define the community decision problem you want to analyze.")
+    
+    problem_statement = st.text_area(
+        "Problem Statement",
+        placeholder="e.g., Should the community introduce a new traffic restriction policy?",
+        height=150,
+        help="Describe the community problem or decision that needs to be addressed"
+    )
+    
+    st.subheader("Community Context Documents")
+    uploaded_files = st.file_uploader(
+        "Upload context documents (PDF, MD, TXT)",
+        type=['pdf', 'md', 'txt'],
+        accept_multiple_files=True,
+        help="Upload documents that provide context about the community and the problem"
+    )
+    
+    if st.button("Save Problem & Continue", type="primary"):
+        if problem_statement and uploaded_files:
+            st.session_state.problem_statement = problem_statement
+            st.session_state.uploaded_files = uploaded_files
+            
+            # Create problem ID
+            import uuid as _uuid
+            problem_id = f"problem_{_uuid.uuid4().hex[:12]}"
+            st.session_state.current_problem_id = problem_id
+            
+            st.success("Problem saved! Continue to Stakeholder Configuration.")
+            st.session_state.current_page = 'stakeholder_config'
+            st.rerun()
+        else:
+            st.error("Please provide a problem statement and upload at least one document")
+
+
+def render_stakeholder_config():
+    """Render stakeholder configuration page."""
+    st.markdown('<div class="main-header">Stakeholder Configuration</div>', unsafe_allow_html=True)
+    st.markdown("Configure the stakeholder digital twin parameters.")
+    
+    if 'problem_statement' not in st.session_state:
+        st.warning("Please define a community problem first.")
+        if st.button("Go to Problem Definition"):
+            st.session_state.current_page = 'community_problem'
+            st.rerun()
+        return
+    
+    st.info(f"Problem: {st.session_state.problem_statement}")
+    
+    agent_count = st.number_input(
+        "Number of Stakeholders to Simulate",
+        min_value=5,
+        max_value=500,
+        value=50,
+        step=5,
+        help="Number of simulated community members (5-500)"
+    )
+    
+    st.subheader("Stakeholder Entity Types")
+    st.info("Entity types will be extracted from your documents during context analysis.")
+    
+    if st.button("Continue to Candidate Decisions"):
+        st.session_state.agent_count = agent_count
+        st.session_state.current_page = 'candidate_decisions'
+        st.rerun()
+
+
+def render_candidate_decisions():
+    """Render candidate decisions page."""
+    st.markdown('<div class="main-header">Candidate Decisions</div>', unsafe_allow_html=True)
+    st.markdown("Define the candidate decisions/interventions to compare.")
+    
+    if 'current_problem_id' not in st.session_state:
+        st.warning("Please define a community problem first.")
+        if st.button("Go to Problem Definition"):
+            st.session_state.current_page = 'community_problem'
+            st.rerun()
+        return
+    
+    st.info(f"Problem ID: {st.session_state.current_problem_id}")
+    
+    num_decisions = st.number_input(
+        "Number of Candidate Decisions",
+        min_value=1,
+        max_value=5,
+        value=2,
+        help="How many alternative decisions do you want to compare?"
+    )
+    
+    decisions = []
+    for i in range(num_decisions):
+        with st.expander(f"Decision {i+1}", expanded=True):
+            name = st.text_input(f"Decision Name", key=f"decision_name_{i}")
+            description = st.text_area(f"Description", key=f"decision_desc_{i}", height=100)
+            intervention = st.text_area(f"Intervention/Action", key=f"decision_intervention_{i}", height=80)
+            
+            decisions.append({
+                'name': name,
+                'description': description,
+                'intervention': intervention
+            })
+    
+    if st.button("Save Decisions & Continue", type="primary"):
+        st.session_state.candidate_decisions = decisions
+        st.session_state.current_page = 'simulation_params'
+        st.rerun()
+
+
+def render_simulation_params():
+    """Render simulation parameters page."""
+    st.markdown('<div class="main-header">Simulation Parameters</div>', unsafe_allow_html=True)
+    st.markdown("Configure simulation parameters for all scenarios.")
+    
+    platform = st.selectbox(
+        "Social Platform",
+        ["parallel", "twitter", "reddit"],
+        help="Choose which social media platform to simulate"
+    )
+    
+    max_rounds = st.number_input(
+        "Max Simulation Rounds",
+        min_value=1,
+        max_value=100,
+        value=10,
+        help="Maximum number of simulation rounds per scenario"
+    )
+    
+    parallel_profile_count = st.number_input(
+        "Parallel Profile Generation",
+        min_value=1,
+        max_value=10,
+        value=5,
+        help="Number of agent profiles to generate in parallel"
+    )
+    
+    if st.button("Continue to Run Simulation"):
+        st.session_state.platform = platform
+        st.session_state.max_rounds = max_rounds
+        st.session_state.parallel_profile_count = parallel_profile_count
+        st.session_state.current_page = 'run_simulation'
+        st.rerun()
+
+
+def render_run_simulation():
+    """Render run simulation page."""
+    st.markdown('<div class="main-header">Run Simulation</div>', unsafe_allow_html=True)
+    st.markdown("Execute simulations for all candidate decisions.")
+    
+    if 'candidate_decisions' not in st.session_state:
+        st.warning("Please define candidate decisions first.")
+        if st.button("Go to Candidate Decisions"):
+            st.session_state.current_page = 'candidate_decisions'
+            st.rerun()
+        return
+    
+    st.info(f"Running {len(st.session_state.candidate_decisions)} scenario simulations...")
+    
+    # For now, redirect to the existing new_simulation workflow
+    # This will be enhanced to run multiple scenarios
+    st.info("Multi-scenario simulation will be implemented. For now, using single simulation workflow.")
+    
+    if st.button("Launch Single Simulation (Current Workflow)", type="primary"):
+        st.session_state.current_page = 'new_simulation'
+        st.rerun()
+
+
+def render_emergent_behaviour():
+    """Render emergent behaviour analysis page."""
+    st.markdown('<div class="main-header">Emergent Behaviour Analysis</div>', unsafe_allow_html=True)
+    st.markdown("Analyze community-level behaviour patterns from simulation results.")
+    
+    st.info("Emergent behaviour analysis requires completed simulation results.")
+    st.info("This page will display:")
+    st.markdown("""
+    - Consensus metrics
+    - Polarization analysis
+    - Sentiment patterns
+    - Conflict intensity
+    - Information diffusion
+    - Agent influence distribution
+    - Community/group behaviour
+    - Adoption and support patterns
+    """)
+
+
+def render_social_impact():
+    """Render social impact evaluation page."""
+    st.markdown('<div class="main-header">Social Impact Evaluation</div>', unsafe_allow_html=True)
+    st.markdown("Evaluate social consequences across multiple dimensions.")
+    
+    st.info("Social impact evaluation requires completed simulation results.")
+    st.info("This page will display:")
+    st.markdown("""
+    - Acceptance score
+    - Consensus score
+    - Polarization score
+    - Conflict score
+    - Equity score
+    - Adoption score
+    - Stability score
+    - Overall social viability score
+    - Risk assessment
+    """)
+
+
+def render_scenario_comparison():
+    """Render scenario comparison page."""
+    st.markdown('<div class="main-header">Scenario Comparison</div>', unsafe_allow_html=True)
+    st.markdown("Compare candidate decisions across impact metrics.")
+    
+    st.info("Scenario comparison requires multiple completed simulations.")
+    st.info("This page will display:")
+    st.markdown("""
+    - Comparison table across all dimensions
+    - Rankings by overall score
+    - Rankings by acceptance
+    - Rankings by consensus
+    - Rankings by conflict (low to high)
+    - Side-by-side metric visualization
+    """)
+
+
+def render_recommendation():
+    """Render recommendation page."""
+    st.markdown('<div class="main-header">Decision Intelligence</div>', unsafe_allow_html=True)
+    st.markdown("Comprehensive decision intelligence and recommendation.")
+    
+    st.info("Decision intelligence requires completed scenario comparison.")
+    st.info("This page will display:")
+    st.markdown("""
+    - Recommended scenario
+    - Recommendation rationale
+    - Metric comparison summary
+    - Supporting evidence
+    - Key findings
+    - Major risks
+    - Emergent behaviours
+    - Stakeholder reactions
+    - Limitations and uncertainty
+    - Confidence intervals
     """)
 
 
@@ -1084,6 +1372,24 @@ def main():
     
     if page == 'dashboard':
         render_dashboard()
+    elif page == 'community_problem':
+        render_community_problem()
+    elif page == 'stakeholder_config':
+        render_stakeholder_config()
+    elif page == 'candidate_decisions':
+        render_candidate_decisions()
+    elif page == 'simulation_params':
+        render_simulation_params()
+    elif page == 'run_simulation':
+        render_run_simulation()
+    elif page == 'emergent_behaviour':
+        render_emergent_behaviour()
+    elif page == 'social_impact':
+        render_social_impact()
+    elif page == 'scenario_comparison':
+        render_scenario_comparison()
+    elif page == 'recommendation':
+        render_recommendation()
     elif page == 'new_simulation':
         render_new_simulation()
     elif page == 'pipeline_progress':
