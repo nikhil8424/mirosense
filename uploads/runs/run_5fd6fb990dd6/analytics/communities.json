@@ -1,0 +1,121 @@
+{
+  "community_count": 4,
+  "modularity": 0.0,
+  "cross_community_interaction_ratio": 0.0,
+  "algorithm": "louvain",
+  "seed": 42,
+  "communities": [
+    {
+      "community_id": "comm_0",
+      "member_agent_ids": [
+        "1"
+      ],
+      "size": 1,
+      "density": 1.0,
+      "internal_edges": 0,
+      "external_edges": 0,
+      "dominant_roles": [
+        "Citizen"
+      ],
+      "dominant_topics": [],
+      "mean_stance": 0.0,
+      "stance_distribution": {
+        "supportive": 0.0,
+        "opposed": 0.0,
+        "neutral": 1.0
+      },
+      "top_agents": [
+        {
+          "agent_id": "1",
+          "name": "David Chen",
+          "role": "Citizen",
+          "degree": 0
+        }
+      ]
+    },
+    {
+      "community_id": "comm_1",
+      "member_agent_ids": [
+        "0"
+      ],
+      "size": 1,
+      "density": 1.0,
+      "internal_edges": 0,
+      "external_edges": 0,
+      "dominant_roles": [
+        "Citizen"
+      ],
+      "dominant_topics": [],
+      "mean_stance": 1.0,
+      "stance_distribution": {
+        "supportive": 1.0,
+        "opposed": 0.0,
+        "neutral": 0.0
+      },
+      "top_agents": [
+        {
+          "agent_id": "0",
+          "name": "City Council",
+          "role": "Citizen",
+          "degree": 0
+        }
+      ]
+    },
+    {
+      "community_id": "comm_2",
+      "member_agent_ids": [
+        "3"
+      ],
+      "size": 1,
+      "density": 1.0,
+      "internal_edges": 0,
+      "external_edges": 0,
+      "dominant_roles": [
+        "Citizen"
+      ],
+      "dominant_topics": [],
+      "mean_stance": 1.0,
+      "stance_distribution": {
+        "supportive": 1.0,
+        "opposed": 0.0,
+        "neutral": 0.0
+      },
+      "top_agents": [
+        {
+          "agent_id": "3",
+          "name": "Local Business Coalition",
+          "role": "Citizen",
+          "degree": 0
+        }
+      ]
+    },
+    {
+      "community_id": "comm_3",
+      "member_agent_ids": [
+        "5"
+      ],
+      "size": 1,
+      "density": 1.0,
+      "internal_edges": 0,
+      "external_edges": 0,
+      "dominant_roles": [
+        "Citizen"
+      ],
+      "dominant_topics": [],
+      "mean_stance": -1.0,
+      "stance_distribution": {
+        "supportive": 0.0,
+        "opposed": 1.0,
+        "neutral": 0.0
+      },
+      "top_agents": [
+        {
+          "agent_id": "5",
+          "name": "Metro City Transit Authority",
+          "role": "Citizen",
+          "degree": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "p_total": 0.683,
+  "p_opinion": 0.9574,
+  "p_network": 0.0,
+  "p_interaction": 1.0,
+  "weights": {
+    "w_opinion": 0.4,
+    "w_network": 0.3,
+    "w_interaction": 0.3
+  },
+  "opinion_std": 0.9574,
+  "modularity": 0.0,
+  "cross_group_ratio": 0.0,
+  "interpretation": "Moderate Polarization (Noticeable Factional Divergence)"
+}

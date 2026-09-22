@@ -1,0 +1,32 @@
+{
+  "total_rounds": 1,
+  "total_actions": 4,
+  "snapshots": [
+    {
+      "round_id": 0,
+      "action_count": 4,
+      "cumulative_actions": 4,
+      "active_agents": 4,
+      "mean_stance": 0.25,
+      "stance_variance": 0.6875,
+      "acceptance": 0.575,
+      "agreement": 0.1708,
+      "conflict_count": 1,
+      "conflict_rate": 0.25,
+      "share_count": 0,
+      "diffusion_rate": 0.0
+    }
+  ],
+  "stance_trajectory": [
+    0.25
+  ],
+  "acceptance_trajectory": [
+    0.575
+  ],
+  "conflict_trajectory": [
+    0.25
+  ],
+  "diffusion_trajectory": [
+    0.0
+  ]
+}

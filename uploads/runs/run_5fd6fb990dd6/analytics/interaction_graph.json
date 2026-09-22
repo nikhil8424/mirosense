@@ -1,0 +1,133 @@
+{
+  "metrics": {
+    "node_count": 4,
+    "edge_count": 0,
+    "density": 0.0,
+    "reciprocity": 0.0,
+    "weakly_connected_components": 4,
+    "strongly_connected_components": 4,
+    "average_clustering": 0.0,
+    "is_directed": true,
+    "top_pagerank_agents": [
+      {
+        "agent_id": "1",
+        "name": "David Chen",
+        "role": "Citizen",
+        "score": 0.25
+      },
+      {
+        "agent_id": "0",
+        "name": "City Council",
+        "role": "Citizen",
+        "score": 0.25
+      },
+      {
+        "agent_id": "3",
+        "name": "Local Business Coalition",
+        "role": "Citizen",
+        "score": 0.25
+      },
+      {
+        "agent_id": "5",
+        "name": "Metro City Transit Authority",
+        "role": "Citizen",
+        "score": 0.25
+      }
+    ],
+    "top_betweenness_agents": [
+      {
+        "agent_id": "1",
+        "name": "David Chen",
+        "role": "Citizen",
+        "score": 0.0
+      },
+      {
+        "agent_id": "0",
+        "name": "City Council",
+        "role": "Citizen",
+        "score": 0.0
+      },
+      {
+        "agent_id": "3",
+        "name": "Local Business Coalition",
+        "role": "Citizen",
+        "score": 0.0
+      },
+      {
+        "agent_id": "5",
+        "name": "Metro City Transit Authority",
+        "role": "Citizen",
+        "score": 0.0
+      }
+    ],
+    "top_degree_agents": [
+      {
+        "agent_id": "1",
+        "name": "David Chen",
+        "role": "Citizen",
+        "score": 0.0
+      },
+      {
+        "agent_id": "0",
+        "name": "City Council",
+        "role": "Citizen",
+        "score": 0.0
+      },
+      {
+        "agent_id": "3",
+        "name": "Local Business Coalition",
+        "role": "Citizen",
+        "score": 0.0
+      },
+      {
+        "agent_id": "5",
+        "name": "Metro City Transit Authority",
+        "role": "Citizen",
+        "score": 0.0
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "1",
+      "name": "David Chen",
+      "role": "Citizen",
+      "node_type": "agent",
+      "in_degree": 0,
+      "out_degree": 0,
+      "pagerank": 0.25,
+      "betweenness": 0.0
+    },
+    {
+      "id": "0",
+      "name": "City Council",
+      "role": "Citizen",
+      "node_type": "agent",
+      "in_degree": 0,
+      "out_degree": 0,
+      "pagerank": 0.25,
+      "betweenness": 0.0
+    },
+    {
+      "id": "3",
+      "name": "Local Business Coalition",
+      "role": "Citizen",
+      "node_type": "agent",
+      "in_degree": 0,
+      "out_degree": 0,
+      "pagerank": 0.25,
+      "betweenness": 0.0
+    },
+    {
+      "id": "5",
+      "name": "Metro City Transit Authority",
+      "role": "Citizen",
+      "node_type": "agent",
+      "in_degree": 0,
+      "out_degree": 0,
+      "pagerank": 0.25,
+      "betweenness": 0.0
+    }
+  ],
+  "edges": []
+}

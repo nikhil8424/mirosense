@@ -1,0 +1,51 @@
+{
+  "top_influential_agents": [
+    {
+      "rank": 1,
+      "agent_id": "1",
+      "name": "David Chen",
+      "role": "Citizen",
+      "simulated_influence_score": 0.25,
+      "pagerank": 0.25,
+      "in_degree": 0,
+      "betweenness": 0.0,
+      "posts_authored": 1
+    },
+    {
+      "rank": 2,
+      "agent_id": "0",
+      "name": "City Council",
+      "role": "Citizen",
+      "simulated_influence_score": 0.25,
+      "pagerank": 0.25,
+      "in_degree": 0,
+      "betweenness": 0.0,
+      "posts_authored": 1
+    },
+    {
+      "rank": 3,
+      "agent_id": "3",
+      "name": "Local Business Coalition",
+      "role": "Citizen",
+      "simulated_influence_score": 0.25,
+      "pagerank": 0.25,
+      "in_degree": 0,
+      "betweenness": 0.0,
+      "posts_authored": 1
+    },
+    {
+      "rank": 4,
+      "agent_id": "5",
+      "name": "Metro City Transit Authority",
+      "role": "Citizen",
+      "simulated_influence_score": 0.25,
+      "pagerank": 0.25,
+      "in_degree": 0,
+      "betweenness": 0.0,
+      "posts_authored": 1
+    }
+  ],
+  "influence_concentration_gini": 0.0,
+  "influence_by_community": {},
+  "total_evaluated_agents": 4
+}

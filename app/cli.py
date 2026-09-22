@@ -123,10 +123,23 @@ def _wait_for_simulation(simulation_id: str, poll_interval: float = 2.0, on_upda
 
 def _write_action_log(output_path: str, actions: List[Any]) -> str:
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    ordered = sorted(actions, key=lambda action: action.timestamp)
+
+    def _get_ts(action: Any) -> str:
+        if isinstance(action, dict):
+            return str(action.get("timestamp") or "")
+        return str(getattr(action, "timestamp", "") or "")
+
+    def _to_dict(action: Any) -> Dict[str, Any]:
+        if isinstance(action, dict):
+            return action
+        if hasattr(action, "to_dict"):
+            return action.to_dict()
+        return getattr(action, "__dict__", {})
+
+    ordered = sorted(actions, key=_get_ts)
     with open(output_path, "w", encoding="utf-8") as handle:
         for action in ordered:
-            handle.write(json.dumps(action.to_dict(), ensure_ascii=False) + "\n")
+            handle.write(json.dumps(_to_dict(action), ensure_ascii=False) + "\n")
     return output_path
 
 
@@ -282,11 +295,29 @@ def _collect_run_outputs(
     _write_action_log(os.path.join(store.run_dir(run_id), "simulation", "actions.jsonl"), actions)
     store.record_artifact(run_id, "actions_log", "simulation/actions.jsonl")
 
-    sim_dir = _simulation_dir(manifest["simulation_id"])
-    _record_if_copied(store, run_id, "simulation_config", os.path.join(sim_dir, "simulation_config.json"), "simulation/config.json")
-    _record_if_copied(store, run_id, "reddit_profiles", os.path.join(sim_dir, "reddit_profiles.json"), "simulation/reddit_profiles.json")
-    _record_if_copied(store, run_id, "twitter_profiles", os.path.join(sim_dir, "twitter_profiles.csv"), "simulation/twitter_profiles.csv")
-    _record_if_copied(store, run_id, "simulation_log", os.path.join(sim_dir, "simulation.log"), "logs/simulation.log")
+    # Generate canonical event ledger & execute research analytics
+    canonical_events = []
+    try:
+        from .mirosense.adapters.oasis_adapter import OasisEventAdapter
+        oasis_adapter = OasisEventAdapter(simulation_id=manifest.get("simulation_id") or run_id)
+        raw_action_dicts = [a if isinstance(a, dict) else (a.to_dict() if hasattr(a, "to_dict") else getattr(a, "__dict__", {})) for a in actions]
+        canonical_events = oasis_adapter.normalize_actions(raw_action_dicts, simulation_id=run_id)
+        canonical_path = os.path.join(store.run_dir(run_id), "simulation", "canonical_events.jsonl")
+        oasis_adapter.export_canonical_jsonl(canonical_events, canonical_path)
+        store.record_artifact(run_id, "canonical_events", "simulation/canonical_events.jsonl")
+
+        # Run complete analytics suite if events exist
+        if canonical_events:
+            _execute_mirosense_analytics(store, run_id, manifest, canonical_events)
+    except Exception as e:
+        logger.warning(f"Canonical event / research analytics generation failed (non-fatal): {e}")
+
+    if manifest.get("simulation_id"):
+        sim_dir = _simulation_dir(manifest["simulation_id"])
+        _record_if_copied(store, run_id, "simulation_config", os.path.join(sim_dir, "simulation_config.json"), "simulation/config.json")
+        _record_if_copied(store, run_id, "reddit_profiles", os.path.join(sim_dir, "reddit_profiles.json"), "simulation/reddit_profiles.json")
+        _record_if_copied(store, run_id, "twitter_profiles", os.path.join(sim_dir, "twitter_profiles.csv"), "simulation/twitter_profiles.csv")
+        _record_if_copied(store, run_id, "simulation_log", os.path.join(sim_dir, "simulation.log"), "logs/simulation.log")
 
     if report_payload is not None:
         store.write_json(run_id, "report/meta.json", report_payload)
@@ -623,6 +654,108 @@ def cmd_doctor() -> int:
     return doctor_runner(checks, exit_on_fail=False)
 
 
+def _execute_mirosense_analytics(
+    store: RunStore,
+    run_id: str,
+    manifest: Dict[str, Any],
+    canonical_events: List[Any],
+) -> Dict[str, Any]:
+    """Execute complete MiroSense analytics suite and persist research artifacts."""
+    from .mirosense.analytics.interaction_graph import InteractionGraphBuilder
+    from .mirosense.analytics.community_detection import CommunityDetector
+    from .mirosense.analytics.opinion_dynamics import OpinionDynamicsAnalyzer
+    from .mirosense.analytics.polarization import PolarizationAnalyzer
+    from .mirosense.analytics.temporal_analysis import TemporalAnalyzer
+    from .mirosense.analytics.conflict_analysis import ConflictAnalyzer
+    from .mirosense.analytics.influence_analysis import InfluenceAnalyzer
+    from .mirosense.analytics.information_diffusion import DiffusionAnalyzer
+    from .mirosense.provenance.metric_provenance import MetricProvenanceTracker
+    from .mirosense.reporting.research_report import ResearchReportGenerator
+
+    builder = InteractionGraphBuilder()
+    graph = builder.build_graph(canonical_events)
+    network_metrics = builder.compute_metrics(graph)
+    builder.export_graph_json(graph, network_metrics, os.path.join(store.run_dir(run_id), "analytics", "interaction_graph.json"))
+    store.record_artifact(run_id, "interaction_graph", "analytics/interaction_graph.json")
+    store.write_json(run_id, "analytics/network_metrics.json", network_metrics.to_dict())
+    store.record_artifact(run_id, "network_metrics", "analytics/network_metrics.json")
+
+    comm_detector = CommunityDetector()
+    partition = comm_detector.detect(graph, canonical_events)
+    comm_detector.export_communities_json(partition, os.path.join(store.run_dir(run_id), "analytics", "communities.json"))
+    store.record_artifact(run_id, "communities", "analytics/communities.json")
+
+    op_analyzer = OpinionDynamicsAnalyzer()
+    opinion_metrics = op_analyzer.analyze(canonical_events)
+    op_analyzer.export_opinion_json(opinion_metrics, os.path.join(store.run_dir(run_id), "analytics", "opinion_dynamics.json"))
+    store.record_artifact(run_id, "opinion_dynamics", "analytics/opinion_dynamics.json")
+
+    pol_analyzer = PolarizationAnalyzer()
+    polarization = pol_analyzer.analyze(canonical_events, partition=partition)
+    pol_analyzer.export_polarization_json(polarization, os.path.join(store.run_dir(run_id), "analytics", "polarization.json"))
+    store.record_artifact(run_id, "polarization", "analytics/polarization.json")
+
+    temp_analyzer = TemporalAnalyzer()
+    temporal_metrics = temp_analyzer.analyze(canonical_events)
+    temp_analyzer.export_temporal_json(temporal_metrics, os.path.join(store.run_dir(run_id), "analytics", "temporal_metrics.json"))
+    store.record_artifact(run_id, "temporal_metrics", "analytics/temporal_metrics.json")
+
+    conf_analyzer = ConflictAnalyzer()
+    conflict_metrics = conf_analyzer.analyze(canonical_events, partition=partition)
+    conf_analyzer.export_conflict_json(conflict_metrics, os.path.join(store.run_dir(run_id), "analytics", "conflict.json"))
+    store.record_artifact(run_id, "conflict", "analytics/conflict.json")
+
+    inf_analyzer = InfluenceAnalyzer()
+    influence_metrics = inf_analyzer.analyze(graph, canonical_events)
+    inf_analyzer.export_influence_json(influence_metrics, os.path.join(store.run_dir(run_id), "analytics", "influence.json"))
+    store.record_artifact(run_id, "influence", "analytics/influence.json")
+
+    diff_analyzer = DiffusionAnalyzer()
+    diffusion_metrics = diff_analyzer.analyze(canonical_events, partition=partition)
+    diff_analyzer.export_diffusion_json(diffusion_metrics, os.path.join(store.run_dir(run_id), "analytics", "diffusion.json"))
+    store.record_artifact(run_id, "diffusion", "analytics/diffusion.json")
+
+    prov_tracker = MetricProvenanceTracker()
+    prov_records = prov_tracker.build_provenance_index(
+        simulation_id=manifest.get("simulation_id") or run_id,
+        run_id=run_id,
+        events=canonical_events,
+        opinion_metrics=opinion_metrics,
+        polarization=polarization,
+        conflict_metrics=conflict_metrics,
+        partition=partition,
+        source_files=manifest.get("source_files", []),
+    )
+    prov_tracker.export_provenance_json(prov_records, os.path.join(store.run_dir(run_id), "provenance", "provenance.json"))
+    store.record_artifact(run_id, "provenance", "provenance/provenance.json")
+
+    report_gen = ResearchReportGenerator()
+    report_md = report_gen.generate_report(
+        run_id=run_id,
+        manifest=manifest,
+        opinion_metrics=opinion_metrics.to_dict(),
+        polarization=polarization.to_dict(),
+        communities=partition.to_dict(),
+        network_metrics=network_metrics.to_dict(),
+        conflict_metrics=conflict_metrics.to_dict(),
+        influence_metrics=influence_metrics.to_dict(),
+        diffusion_metrics=diffusion_metrics.to_dict(),
+        temporal_metrics=temporal_metrics.to_dict(),
+    )
+    store.write_text(run_id, "report/research_report.md", report_md)
+    store.record_artifact(run_id, "research_report", "report/research_report.md")
+
+    return {
+        "network_metrics": network_metrics.to_dict(),
+        "communities": partition.to_dict(),
+        "opinion_metrics": opinion_metrics.to_dict(),
+        "polarization": polarization.to_dict(),
+        "conflict": conflict_metrics.to_dict(),
+        "influence": influence_metrics.to_dict(),
+        "diffusion": diffusion_metrics.to_dict(),
+    }
+
+
 def _handle_command(args: argparse.Namespace) -> Dict[str, Any]:
     if args.command == "runs" and args.runs_command == "list":
         store = RunStore(root_dir=args.output_dir)
@@ -657,13 +790,86 @@ def _handle_command(args: argparse.Namespace) -> Dict[str, Any]:
             "count": len(artifacts),
             "artifacts": artifacts,
         }
+    if args.command == "analyze":
+        store = RunStore(root_dir=args.output_dir)
+        manifest = _refresh_run_manifest(store, args.run_id)
+        canonical_path = os.path.join(store.run_dir(args.run_id), "simulation", "canonical_events.jsonl")
+        actions_path = os.path.join(store.run_dir(args.run_id), "simulation", "actions.jsonl")
+        from .mirosense.adapters.oasis_adapter import OasisEventAdapter
+        adapter = OasisEventAdapter(simulation_id=args.run_id)
+        if os.path.exists(canonical_path):
+            events = adapter.parse_actions_file(canonical_path)
+        elif os.path.exists(actions_path):
+            events = adapter.parse_actions_file(actions_path)
+            adapter.export_canonical_jsonl(events, canonical_path)
+            store.record_artifact(args.run_id, "canonical_events", "simulation/canonical_events.jsonl")
+        else:
+            raise FileNotFoundError(f"No simulation events found for run: {args.run_id}")
+        return _execute_mirosense_analytics(store, args.run_id, manifest, events)
+    if args.command == "communities":
+        store = RunStore(root_dir=args.output_dir)
+        comm_path = os.path.join(store.run_dir(args.run_id), "analytics", "communities.json")
+        if not os.path.exists(comm_path):
+            _handle_command(argparse.Namespace(command="analyze", run_id=args.run_id, output_dir=args.output_dir, json=True))
+        with open(comm_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    if args.command == "polarization":
+        store = RunStore(root_dir=args.output_dir)
+        pol_path = os.path.join(store.run_dir(args.run_id), "analytics", "polarization.json")
+        if not os.path.exists(pol_path):
+            _handle_command(argparse.Namespace(command="analyze", run_id=args.run_id, output_dir=args.output_dir, json=True))
+        with open(pol_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    if args.command == "compare":
+        store = RunStore(root_dir=args.output_dir)
+        from .mirosense.evaluation.scenario_comparison import ScenarioComparator, ScenarioProfile
+        def _load_profile(rid: str) -> ScenarioProfile:
+            op_p = os.path.join(store.run_dir(rid), "analytics", "opinion_dynamics.json")
+            pol_p = os.path.join(store.run_dir(rid), "analytics", "polarization.json")
+            conf_p = os.path.join(store.run_dir(rid), "analytics", "conflict.json")
+            comm_p = os.path.join(store.run_dir(rid), "analytics", "communities.json")
+            if not os.path.exists(op_p):
+                _handle_command(argparse.Namespace(command="analyze", run_id=rid, output_dir=args.output_dir, json=True))
+            with open(op_p, "r", encoding="utf-8") as f: op_d = json.load(f)
+            with open(pol_p, "r", encoding="utf-8") as f: pol_d = json.load(f)
+            with open(conf_p, "r", encoding="utf-8") as f: conf_d = json.load(f)
+            with open(comm_p, "r", encoding="utf-8") as f: comm_d = json.load(f)
+            return ScenarioProfile(
+                scenario_id=rid,
+                scenario_name=f"Run {rid}",
+                acceptance=op_d.get("acceptance", 0.0),
+                agreement=op_d.get("agreement", 0.0),
+                polarization=pol_d.get("p_total", 0.0),
+                conflict_rate=conf_d.get("conflict_rate", 0.0),
+                modularity=comm_d.get("modularity", 0.0),
+            )
+        comparator = ScenarioComparator()
+        report = comparator.compare_scenarios([_load_profile(args.run_id1), _load_profile(args.run_id2)], baseline_id=args.run_id1)
+        return report.to_dict()
+    if args.command == "provenance":
+        store = RunStore(root_dir=args.output_dir)
+        prov_path = os.path.join(store.run_dir(args.run_id), "provenance", "provenance.json")
+        if not os.path.exists(prov_path):
+            _handle_command(argparse.Namespace(command="analyze", run_id=args.run_id, output_dir=args.output_dir, json=True))
+        with open(prov_path, "r", encoding="utf-8") as f:
+            prov_data = json.load(f)
+        if getattr(args, "metric", None):
+            return prov_data.get(args.metric, {"error": f"Metric not found: {args.metric}"})
+        return prov_data
+    if args.command == "report":
+        store = RunStore(root_dir=args.output_dir)
+        rep_path = os.path.join(store.run_dir(args.run_id), "report", "research_report.md")
+        if not os.path.exists(rep_path):
+            _handle_command(argparse.Namespace(command="analyze", run_id=args.run_id, output_dir=args.output_dir, json=True))
+        with open(rep_path, "r", encoding="utf-8") as f:
+            return {"run_id": args.run_id, "report_markdown": f.read()}
     if args.command == "run":
         return _run_pipeline(args)
     raise RuntimeError("Unknown command")
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="mirofish", description="Minimal run-first CLI for MiroFish")
+    parser = argparse.ArgumentParser(prog="mirofish", description="MiroSense Research & Simulation CLI")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     run_parser = subparsers.add_parser("run", help="Run the full workflow and persist artifacts")
@@ -700,6 +906,39 @@ def build_parser() -> argparse.ArgumentParser:
     runs_export.add_argument("--artifact")
     runs_export.add_argument("--output-dir")
     runs_export.add_argument("--json", action="store_true")
+
+    # Research Analysis CLI Commands
+    analyze_parser = subparsers.add_parser("analyze", help="Execute complete MiroSense research analytics on a run")
+    analyze_parser.add_argument("run_id", help="Target run ID")
+    analyze_parser.add_argument("--output-dir")
+    analyze_parser.add_argument("--json", action="store_true")
+
+    comm_parser = subparsers.add_parser("communities", help="Show detected community structure & modularity Q")
+    comm_parser.add_argument("run_id", help="Target run ID")
+    comm_parser.add_argument("--output-dir")
+    comm_parser.add_argument("--json", action="store_true")
+
+    pol_parser = subparsers.add_parser("polarization", help="Show decomposed 3-part polarization metric")
+    pol_parser.add_argument("run_id", help="Target run ID")
+    pol_parser.add_argument("--output-dir")
+    pol_parser.add_argument("--json", action="store_true")
+
+    comp_parser = subparsers.add_parser("compare", help="Compare two simulation runs/scenarios")
+    comp_parser.add_argument("run_id1", help="Baseline run ID")
+    comp_parser.add_argument("run_id2", help="Comparison run ID")
+    comp_parser.add_argument("--output-dir")
+    comp_parser.add_argument("--json", action="store_true")
+
+    prov_parser = subparsers.add_parser("provenance", help="Query metric audit trails and event provenance")
+    prov_parser.add_argument("run_id", help="Target run ID")
+    prov_parser.add_argument("--metric", help="Optional specific metric name")
+    prov_parser.add_argument("--output-dir")
+    prov_parser.add_argument("--json", action="store_true")
+
+    rep_parser = subparsers.add_parser("report", help="Output comprehensive research report")
+    rep_parser.add_argument("run_id", help="Target run ID")
+    rep_parser.add_argument("--output-dir")
+    rep_parser.add_argument("--json", action="store_true")
 
     subparsers.add_parser(
         "doctor",

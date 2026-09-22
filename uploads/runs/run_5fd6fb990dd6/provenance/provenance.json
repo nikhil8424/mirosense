@@ -1,0 +1,126 @@
+{
+  "acceptance": {
+    "metric_id": "prov_sim_34ec9a012b79_acceptance",
+    "metric_name": "acceptance",
+    "metric_value": 0.575,
+    "simulation_id": "sim_34ec9a012b79",
+    "run_id": "run_5fd6fb990dd6",
+    "scenario_id": null,
+    "round_ids": [],
+    "constituent_event_ids": [
+      "evt_run_5fd6fb990dd6_reddit_r0_1",
+      "evt_run_5fd6fb990dd6_reddit_r0_2"
+    ],
+    "constituent_agent_ids": [
+      "0",
+      "3",
+      "1",
+      "5"
+    ],
+    "community_ids": [
+      "comm_0",
+      "comm_1",
+      "comm_2",
+      "comm_3"
+    ],
+    "source_evidence_files": [
+      "C:\\Users\\NIKHIL GUPTA\\documents\\mirofish-cli\\demo_transit_policy.md"
+    ],
+    "source_entities": [],
+    "method_or_formula": "0.6 * normalized_mean_stance + 0.4 * support_ratio",
+    "timestamp": "2026-09-21T23:14:37.671667"
+  },
+  "polarization": {
+    "metric_id": "prov_sim_34ec9a012b79_polarization",
+    "metric_name": "polarization",
+    "metric_value": 0.6829708431025352,
+    "simulation_id": "sim_34ec9a012b79",
+    "run_id": "run_5fd6fb990dd6",
+    "scenario_id": null,
+    "round_ids": [],
+    "constituent_event_ids": [
+      "evt_run_5fd6fb990dd6_reddit_r0_0",
+      "evt_run_5fd6fb990dd6_reddit_r0_1",
+      "evt_run_5fd6fb990dd6_reddit_r0_2",
+      "evt_run_5fd6fb990dd6_reddit_r0_3"
+    ],
+    "constituent_agent_ids": [
+      "0",
+      "3",
+      "1",
+      "5"
+    ],
+    "community_ids": [
+      "comm_0",
+      "comm_1",
+      "comm_2",
+      "comm_3"
+    ],
+    "source_evidence_files": [
+      "C:\\Users\\NIKHIL GUPTA\\documents\\mirofish-cli\\demo_transit_policy.md"
+    ],
+    "source_entities": [],
+    "method_or_formula": "w_opinion * P_opinion + w_network * P_network + w_interaction * P_interaction",
+    "timestamp": "2026-09-21T23:14:37.671667"
+  },
+  "conflict_rate": {
+    "metric_id": "prov_sim_34ec9a012b79_conflict_rate",
+    "metric_name": "conflict_rate",
+    "metric_value": 0.25,
+    "simulation_id": "sim_34ec9a012b79",
+    "run_id": "run_5fd6fb990dd6",
+    "scenario_id": null,
+    "round_ids": [],
+    "constituent_event_ids": [
+      "evt_run_5fd6fb990dd6_reddit_r0_3"
+    ],
+    "constituent_agent_ids": [
+      "5"
+    ],
+    "community_ids": [
+      "comm_0",
+      "comm_1",
+      "comm_2",
+      "comm_3"
+    ],
+    "source_evidence_files": [
+      "C:\\Users\\NIKHIL GUPTA\\documents\\mirofish-cli\\demo_transit_policy.md"
+    ],
+    "source_entities": [],
+    "method_or_formula": "total_conflict_actions / total_simulation_actions",
+    "timestamp": "2026-09-21T23:14:37.671667"
+  },
+  "modularity": {
+    "metric_id": "prov_sim_34ec9a012b79_modularity",
+    "metric_name": "modularity",
+    "metric_value": 0.0,
+    "simulation_id": "sim_34ec9a012b79",
+    "run_id": "run_5fd6fb990dd6",
+    "scenario_id": null,
+    "round_ids": [],
+    "constituent_event_ids": [
+      "evt_run_5fd6fb990dd6_reddit_r0_0",
+      "evt_run_5fd6fb990dd6_reddit_r0_1",
+      "evt_run_5fd6fb990dd6_reddit_r0_2",
+      "evt_run_5fd6fb990dd6_reddit_r0_3"
+    ],
+    "constituent_agent_ids": [
+      "0",
+      "3",
+      "1",
+      "5"
+    ],
+    "community_ids": [
+      "comm_0",
+      "comm_1",
+      "comm_2",
+      "comm_3"
+    ],
+    "source_evidence_files": [
+      "C:\\Users\\NIKHIL GUPTA\\documents\\mirofish-cli\\demo_transit_policy.md"
+    ],
+    "source_entities": [],
+    "method_or_formula": "Newman-Girvan Modularity Q over interaction multi-graph",
+    "timestamp": "2026-09-21T23:14:37.671667"
+  }
+}

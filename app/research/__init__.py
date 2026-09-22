@@ -1,21 +1,19 @@
-"""Research-oriented architecture for MiroFish Community - AI-Powered Social Decision Simulator.
+"""Legacy research package for MiroFish.
 
-This module provides the research framework layers built on top of the foundational
-MiroFish/OASIS simulation technology. The research contribution is the decision-oriented
-framework, scenario comparison, social impact analysis, and decision intelligence layer.
-
-Foundational Technologies:
-- MiroFish: Multi-agent social simulation framework
-- OASIS: Social media simulation environment (camel-oasis==0.2.5, camel-ai==0.2.78)
-
-Research Contribution:
-- Community Digital Twin framework
-- Scenario-based decision simulation
-- Emergent behaviour analysis
-- Social impact evaluation
-- Multi-scenario decision comparison
-- Decision intelligence with uncertainty quantification
+.. deprecated:: 0.2.0
+    The `app.research` module contains legacy prototype heuristics (including arbitrary
+    fixed-weight scoring and mock confidence intervals) and is superseded by the scientifically
+    verified `app.mirosense` research extension architecture.
+    Please use `app.mirosense` for all research analytics, scenario evaluations, and validations.
 """
+
+import warnings
+
+warnings.warn(
+    "The 'app.research' module is deprecated and superseded by 'app.mirosense'.",
+    DeprecationWarning,
+    stacklevel=2,
+)
 
 from .community_context_engine import CommunityContextEngine
 from .stakeholder_digital_twin import StakeholderDigitalTwin

@@ -717,10 +717,23 @@ def _top_agents(agent_stats: List[Dict[str, Any]], limit: int = 20) -> List[Dict
 def _write_action_log(output_path: str, actions: List[Any]) -> str:
     """Write action log to file."""
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    ordered = sorted(actions, key=lambda action: action.timestamp)
+
+    def _get_ts(action: Any) -> str:
+        if isinstance(action, dict):
+            return str(action.get("timestamp") or "")
+        return str(getattr(action, "timestamp", "") or "")
+
+    def _to_dict(action: Any) -> Dict[str, Any]:
+        if isinstance(action, dict):
+            return action
+        if hasattr(action, "to_dict"):
+            return action.to_dict()
+        return getattr(action, "__dict__", {})
+
+    ordered = sorted(actions, key=_get_ts)
     with open(output_path, "w", encoding="utf-8") as handle:
         for action in ordered:
-            handle.write(json.dumps(action.to_dict(), ensure_ascii=False) + "\n")
+            handle.write(json.dumps(_to_dict(action), ensure_ascii=False) + "\n")
     return output_path
 
 
@@ -751,11 +764,24 @@ def collect_run_outputs(store, manifest, graph_data, graph_stats, timeline, agen
     _write_action_log(os.path.join(store.run_dir(run_id), "simulation", "actions.jsonl"), actions)
     store.record_artifact(run_id, "actions_log", "simulation/actions.jsonl")
     
-    sim_dir = _simulation_dir(manifest["simulation_id"])
-    _record_if_copied(store, run_id, "simulation_config", os.path.join(sim_dir, "simulation_config.json"), "simulation/config.json")
-    _record_if_copied(store, run_id, "reddit_profiles", os.path.join(sim_dir, "reddit_profiles.json"), "simulation/reddit_profiles.json")
-    _record_if_copied(store, run_id, "twitter_profiles", os.path.join(sim_dir, "twitter_profiles.csv"), "simulation/twitter_profiles.csv")
-    _record_if_copied(store, run_id, "simulation_log", os.path.join(sim_dir, "simulation.log"), "logs/simulation.log")
+    # Generate canonical event ledger for research analytics
+    try:
+        from .mirosense.adapters.oasis_adapter import OasisEventAdapter
+        oasis_adapter = OasisEventAdapter(simulation_id=manifest.get("simulation_id") or run_id)
+        raw_action_dicts = [a if isinstance(a, dict) else (a.to_dict() if hasattr(a, "to_dict") else getattr(a, "__dict__", {})) for a in actions]
+        canonical_events = oasis_adapter.normalize_actions(raw_action_dicts, simulation_id=run_id)
+        canonical_path = os.path.join(store.run_dir(run_id), "simulation", "canonical_events.jsonl")
+        oasis_adapter.export_canonical_jsonl(canonical_events, canonical_path)
+        store.record_artifact(run_id, "canonical_events", "simulation/canonical_events.jsonl")
+    except Exception as e:
+        logger.warning(f"Canonical event generation failed (non-fatal): {e}")
+    
+    if manifest.get("simulation_id"):
+        sim_dir = _simulation_dir(manifest["simulation_id"])
+        _record_if_copied(store, run_id, "simulation_config", os.path.join(sim_dir, "simulation_config.json"), "simulation/config.json")
+        _record_if_copied(store, run_id, "reddit_profiles", os.path.join(sim_dir, "reddit_profiles.json"), "simulation/reddit_profiles.json")
+        _record_if_copied(store, run_id, "twitter_profiles", os.path.join(sim_dir, "twitter_profiles.csv"), "simulation/twitter_profiles.csv")
+        _record_if_copied(store, run_id, "simulation_log", os.path.join(sim_dir, "simulation.log"), "logs/simulation.log")
     
     if report_payload is not None:
         store.write_json(run_id, "report/meta.json", report_payload)
@@ -1285,81 +1311,274 @@ def render_run_simulation():
         st.rerun()
 
 
+def _get_active_run_id() -> Optional[str]:
+    """Helper to select an active run for research visualization."""
+    store = RunStore()
+    runs = store.list(limit=50)
+    if not runs:
+        st.info("No runs found in RunStore. Please run a simulation first.")
+        return None
+    
+    run_ids = [r.get('run_id') for r in runs if r.get('run_id')]
+    default_idx = 0
+    if st.session_state.selected_run_id in run_ids:
+        default_idx = run_ids.index(st.session_state.selected_run_id)
+    
+    col1, col2 = st.columns([3, 1])
+    selected = col1.selectbox("Select Simulation Run for Research Analytics", run_ids, index=default_idx, key="active_research_run_selector")
+    st.session_state.selected_run_id = selected
+    return selected
+
+
 def render_emergent_behaviour():
     """Render emergent behaviour analysis page."""
-    st.markdown('<div class="main-header">Emergent Behaviour Analysis</div>', unsafe_allow_html=True)
-    st.markdown("Analyze community-level behaviour patterns from simulation results.")
+    st.markdown('<div class="main-header">Emergent Behaviour & Opinion Dynamics</div>', unsafe_allow_html=True)
+    st.markdown("Analyze multi-agent opinion trajectories, sub-community factions, and polarization decomposition.")
     
-    st.info("Emergent behaviour analysis requires completed simulation results.")
-    st.info("This page will display:")
-    st.markdown("""
-    - Consensus metrics
-    - Polarization analysis
-    - Sentiment patterns
-    - Conflict intensity
-    - Information diffusion
-    - Agent influence distribution
-    - Community/group behaviour
-    - Adoption and support patterns
-    """)
+    run_id = _get_active_run_id()
+    if not run_id:
+        return
+    
+    store = RunStore()
+    run_dir = store.run_dir(run_id)
+    op_path = os.path.join(run_dir, "analytics", "opinion_dynamics.json")
+    comm_path = os.path.join(run_dir, "analytics", "communities.json")
+    pol_path = os.path.join(run_dir, "analytics", "polarization.json")
+    temp_path = os.path.join(run_dir, "analytics", "temporal_metrics.json")
+    
+    if not os.path.exists(op_path):
+        st.info(f"Research analytics not yet computed for {run_id}. Computing now...")
+        from app.cli import _handle_command
+        import argparse
+        _handle_command(argparse.Namespace(command="analyze", run_id=run_id, output_dir=None, json=True))
+    
+    try:
+        with open(op_path, 'r', encoding='utf-8') as f: op_data = json.load(f)
+        with open(comm_path, 'r', encoding='utf-8') as f: comm_data = json.load(f)
+        with open(pol_path, 'r', encoding='utf-8') as f: pol_data = json.load(f)
+        with open(temp_path, 'r', encoding='utf-8') as f: temp_data = json.load(f)
+    except Exception as e:
+        st.error(f"Error loading analytics data: {e}")
+        return
+    
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Simulated Acceptance", f"{op_data.get('acceptance', 0.0):.2%}")
+    col2.metric("Mean Stance", f"{op_data.get('mean_stance', 0.0):+.3f}")
+    col3.metric("Polarization (P_total)", f"{pol_data.get('p_total', 0.0):.3f}")
+    col4.metric("Modularity (Q)", f"{comm_data.get('modularity', 0.0):.3f}")
+    
+    st.markdown("---")
+    st.subheader("Opinion Distribution & Stance Dispersion")
+    
+    hist = op_data.get("stance_histogram", {})
+    if hist:
+        st.bar_chart(hist)
+    
+    st.subheader("Temporal Opinion Evolution Across Rounds")
+    traj = temp_data.get("snapshots", [])
+    if traj:
+        import pandas as pd
+        df_traj = pd.DataFrame([
+            {
+                "Round": s.get("round_id"),
+                "Mean Stance": s.get("mean_stance"),
+                "Acceptance": s.get("acceptance"),
+                "Conflict Rate": s.get("conflict_rate"),
+            }
+            for s in traj
+        ]).set_index("Round")
+        st.line_chart(df_traj)
+    
+    st.subheader("Detected Sub-Communities")
+    comm_list = comm_data.get("communities", [])
+    if comm_list:
+        import pandas as pd
+        df_comm = pd.DataFrame([
+            {
+                "Community ID": c.get("community_id"),
+                "Size": c.get("size"),
+                "Mean Stance": f"{c.get('mean_stance', 0.0):+.2f}",
+                "Internal Edges": c.get("internal_edges"),
+                "External Edges": c.get("external_edges"),
+                "Members": ", ".join(c.get("member_agent_ids", [])[:5]),
+            }
+            for c in comm_list
+        ])
+        st.dataframe(df_comm, use_container_width=True)
 
 
 def render_social_impact():
     """Render social impact evaluation page."""
-    st.markdown('<div class="main-header">Social Impact Evaluation</div>', unsafe_allow_html=True)
-    st.markdown("Evaluate social consequences across multiple dimensions.")
+    st.markdown('<div class="main-header">Conflict, Influence & Information Diffusion</div>', unsafe_allow_html=True)
+    st.markdown("Evaluate contested interactions, network centrality rankings, and information propagation cascades.")
     
-    st.info("Social impact evaluation requires completed simulation results.")
-    st.info("This page will display:")
-    st.markdown("""
-    - Acceptance score
-    - Consensus score
-    - Polarization score
-    - Conflict score
-    - Equity score
-    - Adoption score
-    - Stability score
-    - Overall social viability score
-    - Risk assessment
-    """)
+    run_id = _get_active_run_id()
+    if not run_id:
+        return
+    
+    store = RunStore()
+    run_dir = store.run_dir(run_id)
+    conf_path = os.path.join(run_dir, "analytics", "conflict.json")
+    inf_path = os.path.join(run_dir, "analytics", "influence.json")
+    diff_path = os.path.join(run_dir, "analytics", "diffusion.json")
+    
+    if not os.path.exists(conf_path):
+        st.info(f"Computing research analytics for {run_id}...")
+        from app.cli import _handle_command
+        import argparse
+        _handle_command(argparse.Namespace(command="analyze", run_id=run_id, output_dir=None, json=True))
+    
+    try:
+        with open(conf_path, 'r', encoding='utf-8') as f: conf_data = json.load(f)
+        with open(inf_path, 'r', encoding='utf-8') as f: inf_data = json.load(f)
+        with open(diff_path, 'r', encoding='utf-8') as f: diff_data = json.load(f)
+    except Exception as e:
+        st.error(f"Error loading impact analytics: {e}")
+        return
+    
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Total Conflicts", conf_data.get("total_conflicts", 0))
+    col2.metric("Conflict Rate", f"{conf_data.get('conflict_rate', 0.0):.2%}")
+    col3.metric("Gini Influence Index", f"{inf_data.get('influence_concentration_gini', 0.0):.3f}")
+    col4.metric("Total Cascades", diff_data.get("total_cascades", 0))
+    
+    st.markdown("---")
+    st.subheader("Top Influential Stakeholder Agents (Simulated Network Centrality)")
+    top_agents = inf_data.get("top_influential_agents", [])
+    if top_agents:
+        import pandas as pd
+        df_agents = pd.DataFrame([
+            {
+                "Rank": a.get("rank"),
+                "Agent ID": a.get("agent_id"),
+                "Name / Role": f"{a.get('name', 'Agent')} ({a.get('role', 'Citizen')})",
+                "Influence Score": round(a.get("simulated_influence_score", 0.0), 4),
+                "PageRank": round(a.get("pagerank", 0.0), 4),
+                "In-Degree": a.get("in_degree", 0),
+                "Betweenness": round(a.get("betweenness", 0.0), 4),
+            }
+            for a in top_agents
+        ])
+        st.dataframe(df_agents, use_container_width=True)
+    
+    st.subheader("Information Cascades & Propagation Spread")
+    cascades = diff_data.get("top_cascades", [])
+    if cascades:
+        for casc in cascades[:5]:
+            with st.expander(f"Cascade #{casc.get('cascade_id')}: Root Agent {casc.get('root_agent_name')} (Size: {casc.get('cascade_size')}, Depth: {casc.get('cascade_depth')})"):
+                st.markdown(f"**Root Post:** {casc.get('root_content')}")
+                st.markdown(f"- **Participating Agents:** {', '.join(casc.get('participating_agents', []))}")
+                st.markdown(f"- **Cross-Community Spread Count:** {casc.get('cross_community_count')}")
 
 
 def render_scenario_comparison():
     """Render scenario comparison page."""
-    st.markdown('<div class="main-header">Scenario Comparison</div>', unsafe_allow_html=True)
-    st.markdown("Compare candidate decisions across impact metrics.")
+    st.markdown('<div class="main-header">Evidence-Supported Scenario Comparison</div>', unsafe_allow_html=True)
+    st.markdown("Compare behavioral outcomes across simulated policy interventions with statistical effect size.")
     
-    st.info("Scenario comparison requires multiple completed simulations.")
-    st.info("This page will display:")
-    st.markdown("""
-    - Comparison table across all dimensions
-    - Rankings by overall score
-    - Rankings by acceptance
-    - Rankings by consensus
-    - Rankings by conflict (low to high)
-    - Side-by-side metric visualization
-    """)
+    store = RunStore()
+    runs = store.list(limit=50)
+    run_ids = [r.get('run_id') for r in runs if r.get('run_id')]
+    
+    if len(run_ids) < 2:
+        st.info("At least 2 completed runs are required for side-by-side comparison.")
+        return
+    
+    col1, col2 = st.columns(2)
+    run_a = col1.selectbox("Baseline Scenario (Run A)", run_ids, index=0, key="comp_run_a")
+    run_b = col2.selectbox("Alternative Scenario (Run B)", run_ids, index=min(1, len(run_ids)-1), key="comp_run_b")
+    
+    if st.button("Execute Comparative Analysis", type="primary"):
+        from app.mirosense.evaluation.scenario_comparison import ScenarioComparator, ScenarioProfile
+        def _load_p(rid: str) -> ScenarioProfile:
+            r_dir = store.run_dir(rid)
+            op_f = os.path.join(r_dir, "analytics", "opinion_dynamics.json")
+            pol_f = os.path.join(r_dir, "analytics", "polarization.json")
+            conf_f = os.path.join(r_dir, "analytics", "conflict.json")
+            comm_f = os.path.join(r_dir, "analytics", "communities.json")
+            if not os.path.exists(op_f):
+                from app.cli import _handle_command
+                import argparse
+                _handle_command(argparse.Namespace(command="analyze", run_id=rid, output_dir=None, json=True))
+            with open(op_f, 'r', encoding='utf-8') as f: op = json.load(f)
+            with open(pol_f, 'r', encoding='utf-8') as f: pol = json.load(f)
+            with open(conf_f, 'r', encoding='utf-8') as f: conf = json.load(f)
+            with open(comm_f, 'r', encoding='utf-8') as f: comm = json.load(f)
+            return ScenarioProfile(
+                scenario_id=rid,
+                scenario_name=f"Scenario ({rid[:8]})",
+                acceptance=op.get("acceptance", 0.0),
+                agreement=op.get("agreement", 0.0),
+                polarization=pol.get("p_total", 0.0),
+                conflict_rate=conf.get("conflict_rate", 0.0),
+                modularity=comm.get("modularity", 0.0),
+            )
+        
+        prof_a = _load_p(run_a)
+        prof_b = _load_p(run_b)
+        
+        comparator = ScenarioComparator()
+        report = comparator.compare_scenarios([prof_a, prof_b], baseline_id=run_a)
+        rep_dict = report.to_dict()
+        
+        st.subheader("Behavioral Comparison Matrix")
+        import pandas as pd
+        comp_rows = []
+        for dim, vals in rep_dict.get("comparisons", {}).get(run_b, {}).items():
+            comp_rows.append({
+                "Metric Dimension": dim.title(),
+                "Baseline (Run A)": getattr(prof_a, dim, 0.0),
+                "Alternative (Run B)": getattr(prof_b, dim, 0.0),
+                "Delta (B - A)": vals.get("delta"),
+                "Cohen's d Effect Size": vals.get("effect_size_cohens_d"),
+                "Effect Magnitude": vals.get("effect_magnitude"),
+            })
+        st.dataframe(pd.DataFrame(comp_rows), use_container_width=True)
 
 
 def render_recommendation():
-    """Render recommendation page."""
-    st.markdown('<div class="main-header">Decision Intelligence</div>', unsafe_allow_html=True)
-    st.markdown("Comprehensive decision intelligence and recommendation.")
+    """Render Decision Intelligence, Research Report, and Provenance Explorer."""
+    st.markdown('<div class="main-header">Decision Intelligence & Provenance Audit</div>', unsafe_allow_html=True)
+    st.markdown("Inspect comprehensive research findings and trace metrics back to supporting canonical simulation events.")
     
-    st.info("Decision intelligence requires completed scenario comparison.")
-    st.info("This page will display:")
-    st.markdown("""
-    - Recommended scenario
-    - Recommendation rationale
-    - Metric comparison summary
-    - Supporting evidence
-    - Key findings
-    - Major risks
-    - Emergent behaviours
-    - Stakeholder reactions
-    - Limitations and uncertainty
-    - Confidence intervals
-    """)
+    run_id = _get_active_run_id()
+    if not run_id:
+        return
+    
+    store = RunStore()
+    rep_path = os.path.join(store.run_dir(run_id), "report", "research_report.md")
+    prov_path = os.path.join(store.run_dir(run_id), "provenance", "provenance.json")
+    
+    if not os.path.exists(rep_path):
+        from app.cli import _handle_command
+        import argparse
+        _handle_command(argparse.Namespace(command="analyze", run_id=run_id, output_dir=None, json=True))
+    
+    tab_report, tab_prov = st.tabs(["📄 Comprehensive Research Report", "🔍 Metric Provenance & Audit Trail"])
+    
+    with tab_report:
+        if os.path.exists(rep_path):
+            with open(rep_path, 'r', encoding='utf-8') as f:
+                st.markdown(f.read())
+        else:
+            st.info("Research report not available.")
+    
+    with tab_prov:
+        if os.path.exists(prov_path):
+            with open(prov_path, 'r', encoding='utf-8') as f:
+                prov_data = json.load(f)
+            
+            metric_choice = st.selectbox("Select Metric to Audit", list(prov_data.keys()))
+            if metric_choice and metric_choice in prov_data:
+                rec = prov_data[metric_choice]
+                st.markdown(f"### Provenance Record for `{metric_choice}`")
+                st.markdown(f"- **Calculated Value:** `{rec.get('metric_value')}`")
+                st.markdown(f"- **Mathematical Formula:** `{rec.get('method_or_formula')}`")
+                st.markdown(f"- **Source Evidence Ingested:** `{', '.join(rec.get('source_evidence_files', []))}`")
+                st.markdown(f"- **Contributing Events Count:** `{len(rec.get('constituent_event_ids', []))}`")
+                st.markdown(f"- **Participating Stakeholders Count:** `{len(rec.get('constituent_agent_ids', []))}`")
+                with st.expander("Show Contributing Event IDs"):
+                    st.write(rec.get("constituent_event_ids", []))
 
 
 # Main app

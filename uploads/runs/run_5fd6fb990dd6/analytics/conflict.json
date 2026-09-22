@@ -1,0 +1,15 @@
+{
+  "total_conflicts": 1,
+  "total_actions": 4,
+  "conflict_rate": 0.25,
+  "cross_community_conflicts": 0,
+  "internal_community_conflicts": 0,
+  "cross_community_conflict_ratio": 0.0,
+  "conflict_by_round": {
+    "0": 1
+  },
+  "conflict_by_agent": {
+    "5": 1
+  },
+  "conflict_by_topic": {}
+}

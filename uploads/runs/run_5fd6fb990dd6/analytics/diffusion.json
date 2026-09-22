@@ -1,0 +1,82 @@
+{
+  "total_cascades": 4,
+  "total_downstream_actions": 0,
+  "mean_cascade_size": 1.0,
+  "max_cascade_depth": 0,
+  "overall_diffusion_rate": 0.0,
+  "repost_ratio": 0.0,
+  "top_cascades": [
+    {
+      "cascade_id": "cascade_0_evt_run_5fd6fb990dd6_reddit_r0_0",
+      "root_event_id": "evt_run_5fd6fb990dd6_reddit_r0_0",
+      "root_agent_id": "1",
+      "root_agent_name": "David Chen",
+      "root_content": "Mayor Sarah Jenkins announced that all city buses will be completely free of charge on Saturdays and Sundays starting next month.",
+      "root_round": 0,
+      "cascade_size": 1,
+      "cascade_depth": 0,
+      "cascade_duration_rounds": 0,
+      "repost_count": 0,
+      "reply_count": 0,
+      "like_count": 0,
+      "participating_agents": [
+        "1"
+      ],
+      "cross_community_count": 0
+    },
+    {
+      "cascade_id": "cascade_1_evt_run_5fd6fb990dd6_reddit_r0_1",
+      "root_event_id": "evt_run_5fd6fb990dd6_reddit_r0_1",
+      "root_agent_id": "0",
+      "root_agent_name": "City Council",
+      "root_content": "City Council member David Chen voiced support for the pilot program, citing potential environmental benefits.",
+      "root_round": 0,
+      "cascade_size": 1,
+      "cascade_depth": 0,
+      "cascade_duration_rounds": 0,
+      "repost_count": 0,
+      "reply_count": 0,
+      "like_count": 0,
+      "participating_agents": [
+        "0"
+      ],
+      "cross_community_count": 0
+    },
+    {
+      "cascade_id": "cascade_2_evt_run_5fd6fb990dd6_reddit_r0_2",
+      "root_event_id": "evt_run_5fd6fb990dd6_reddit_r0_2",
+      "root_agent_id": "3",
+      "root_agent_name": "Local Business Coalition",
+      "root_content": "Local Business Coalition president Elena Vance praised the initiative for increasing foot traffic to downtown shops.",
+      "root_round": 0,
+      "cascade_size": 1,
+      "cascade_depth": 0,
+      "cascade_duration_rounds": 0,
+      "repost_count": 0,
+      "reply_count": 0,
+      "like_count": 0,
+      "participating_agents": [
+        "3"
+      ],
+      "cross_community_count": 0
+    },
+    {
+      "cascade_id": "cascade_3_evt_run_5fd6fb990dd6_reddit_r0_3",
+      "root_event_id": "evt_run_5fd6fb990dd6_reddit_r0_3",
+      "root_agent_id": "5",
+      "root_agent_name": "Metro City Transit Authority",
+      "root_content": "Taxpayers Alliance spokesperson Tom Bradley expressed concern regarding budget allocation, arguing the estimated $4.2 million shortfall might eventually lead to higher municipal property taxes.",
+      "root_round": 0,
+      "cascade_size": 1,
+      "cascade_depth": 0,
+      "cascade_duration_rounds": 0,
+      "repost_count": 0,
+      "reply_count": 0,
+      "like_count": 0,
+      "participating_agents": [
+        "5"
+      ],
+      "cross_community_count": 0
+    }
+  ]
+}
