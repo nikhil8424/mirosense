@@ -1,0 +1,324 @@
+{
+  "simulation_id": "sim_19bdb65a3d9f",
+  "runner_status": "stopped",
+  "current_round": 10,
+  "total_rounds": 10,
+  "simulated_hours": 0,
+  "total_simulation_hours": 72,
+  "progress_percent": 100.0,
+  "twitter_current_round": 10,
+  "reddit_current_round": 10,
+  "twitter_simulated_hours": 0,
+  "reddit_simulated_hours": 0,
+  "twitter_running": false,
+  "reddit_running": false,
+  "twitter_completed": true,
+  "reddit_completed": true,
+  "twitter_actions_count": 10,
+  "reddit_actions_count": 12,
+  "total_actions_count": 22,
+  "started_at": "2026-09-22T19:58:54.867251",
+  "updated_at": "2026-09-22T20:09:17.229722",
+  "completed_at": "2026-09-22T20:26:08.181529",
+  "error": "Server shutdown, simulation was terminated",
+  "process_pid": 16392,
+  "recent_actions": [
+    {
+      "round_num": 10,
+      "timestamp": "2026-09-22T20:09:16.874154",
+      "platform": "reddit",
+      "agent_id": 3,
+      "agent_name": "Transit Authority",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Transit Authority states that the pilot could enhance mobility and provide critical data for future policy decisions.",
+        "post_id": 6
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 10,
+      "timestamp": "2026-09-22T20:09:16.874154",
+      "platform": "reddit",
+      "agent_id": 1,
+      "agent_name": "Environmental Advocates",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Environmental Advocates argue that free weekend transit could significantly reduce private vehicle use and carbon emissions.",
+        "post_id": 5
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 10,
+      "timestamp": "2026-09-22T20:09:16.874154",
+      "platform": "reddit",
+      "agent_id": 2,
+      "agent_name": "Mayor",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Mayor announces support for the pilot, highlighting improved mobility and environmental benefits.",
+        "post_id": 4
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 10,
+      "timestamp": "2026-09-22T20:09:16.874154",
+      "platform": "reddit",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Local businesses express mixed opinions, with some supporting increased foot traffic while others worry about overcrowding and reliability.",
+        "post_id": 3
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 10,
+      "timestamp": "2026-09-22T20:09:16.872143",
+      "platform": "reddit",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Taxpayer groups raise concerns about the fiscal sustainability of the fare-free weekend program and the need for clear funding sources.",
+        "post_id": 2
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 10,
+      "timestamp": "2026-09-22T20:09:16.872143",
+      "platform": "reddit",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "The City Council supports the fare-free weekend bus pilot, emphasizing its potential to improve equity and reduce vehicle emissions.",
+        "post_id": 1
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 10,
+      "timestamp": "2026-09-22T20:06:59.000614",
+      "platform": "twitter",
+      "agent_id": 3,
+      "agent_name": "Transit Authority",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Transit Authority states that the pilot could enhance mobility and provide critical data for future policy decisions.",
+        "post_id": 4
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 10,
+      "timestamp": "2026-09-22T20:06:59.000045",
+      "platform": "twitter",
+      "agent_id": 1,
+      "agent_name": "Environmental Advocates",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Environmental Advocates argue that free weekend transit could significantly reduce private vehicle use and carbon emissions.",
+        "post_id": 3
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 10,
+      "timestamp": "2026-09-22T20:06:58.999362",
+      "platform": "twitter",
+      "agent_id": 2,
+      "agent_name": "Mayor",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Mayor announces support for the pilot, highlighting improved mobility and environmental benefits.",
+        "post_id": 2
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 10,
+      "timestamp": "2026-09-22T20:06:58.998176",
+      "platform": "twitter",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Local businesses express mixed opinions, with some supporting increased foot traffic while others worry about overcrowding and reliability.",
+        "post_id": 1
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-22T19:59:57.466708",
+      "platform": "reddit",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Local businesses express mixed opinions, with some supporting increased foot traffic while others worry about overcrowding and reliability."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-22T19:59:57.466708",
+      "platform": "reddit",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Taxpayer groups raise concerns about the fiscal sustainability of the fare-free weekend program and the need for clear funding sources."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-22T19:59:57.466708",
+      "platform": "reddit",
+      "agent_id": 3,
+      "agent_name": "Transit Authority",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Transit Authority states that the pilot could enhance mobility and provide critical data for future policy decisions."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-22T19:59:57.466708",
+      "platform": "reddit",
+      "agent_id": 1,
+      "agent_name": "Environmental Advocates",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Environmental Advocates argue that free weekend transit could significantly reduce private vehicle use and carbon emissions."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-22T19:59:57.466708",
+      "platform": "reddit",
+      "agent_id": 2,
+      "agent_name": "Mayor",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Mayor announces support for the pilot, highlighting improved mobility and environmental benefits."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-22T19:59:57.466708",
+      "platform": "reddit",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "The City Council supports the fare-free weekend bus pilot, emphasizing its potential to improve equity and reduce vehicle emissions."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-22T19:59:57.359587",
+      "platform": "twitter",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Local businesses express mixed opinions, with some supporting increased foot traffic while others worry about overcrowding and reliability."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-22T19:59:57.359587",
+      "platform": "twitter",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Taxpayer groups raise concerns about the fiscal sustainability of the fare-free weekend program and the need for clear funding sources."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-22T19:59:57.359587",
+      "platform": "twitter",
+      "agent_id": 3,
+      "agent_name": "Transit Authority",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Transit Authority states that the pilot could enhance mobility and provide critical data for future policy decisions."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-22T19:59:57.359587",
+      "platform": "twitter",
+      "agent_id": 1,
+      "agent_name": "Environmental Advocates",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Environmental Advocates argue that free weekend transit could significantly reduce private vehicle use and carbon emissions."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-22T19:59:57.357577",
+      "platform": "twitter",
+      "agent_id": 2,
+      "agent_name": "Mayor",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "Mayor announces support for the pilot, highlighting improved mobility and environmental benefits."
+      },
+      "result": null,
+      "success": true
+    },
+    {
+      "round_num": 0,
+      "timestamp": "2026-09-22T19:59:57.357577",
+      "platform": "twitter",
+      "agent_id": 0,
+      "agent_name": "City Council",
+      "action_type": "CREATE_POST",
+      "action_args": {
+        "content": "The City Council supports the fare-free weekend bus pilot, emphasizing its potential to improve equity and reduce vehicle emissions."
+      },
+      "result": null,
+      "success": true
+    }
+  ],
+  "rounds_count": 0
+}

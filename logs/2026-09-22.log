@@ -24,3 +24,204 @@
 [2026-09-22 08:24:53] INFO [mirofish.research.scenario_designer.__init__:276] ScenarioManager initialized
 [2026-09-22 08:37:09] INFO [mirofish.research.scenario_designer.__init__:87] ScenarioDesigner initialized
 [2026-09-22 08:37:09] INFO [mirofish.research.scenario_designer.__init__:276] ScenarioManager initialized
+[2026-09-22 11:27:27] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 11:27:27] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 11:27:27] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 11:27:27] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 11:27:27] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 11:27:27] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 11:27:27] WARNING [mirofish.llm_client.chat:75] LLM call failed (attempt 1/3), retrying in 2.0s: Ollama is not reachable at http://localhost:11434. Start Ollama and try again.
+[2026-09-22 11:27:29] WARNING [mirofish.llm_client.chat:75] LLM call failed (attempt 2/3), retrying in 4.0s: Ollama is not reachable at http://localhost:11434. Start Ollama and try again.
+[2026-09-22 11:27:33] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 11:27:33] WARNING [mirofish.llm_client.chat:75] LLM call failed (attempt 1/3), retrying in 2.0s: Ollama model 'qwen3:8b' not found at http://localhost:11434. Run `ollama pull qwen3:8b` to install it.
+[2026-09-22 11:27:35] WARNING [mirofish.llm_client.chat:75] LLM call failed (attempt 2/3), retrying in 4.0s: Ollama model 'qwen3:8b' not found at http://localhost:11434. Run `ollama pull qwen3:8b` to install it.
+[2026-09-22 11:27:39] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 11:27:39] WARNING [mirofish.llm_client.chat:75] LLM call failed (attempt 1/3), retrying in 2.0s: Ollama request timed out after 600.0s at http://localhost:11434
+[2026-09-22 11:27:41] WARNING [mirofish.llm_client.chat:75] LLM call failed (attempt 2/3), retrying in 4.0s: Ollama request timed out after 600.0s at http://localhost:11434
+[2026-09-22 11:27:45] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 11:27:45] WARNING [mirofish.llm_client.chat:75] LLM call failed (attempt 1/3), retrying in 2.0s: Ollama returned an empty response
+[2026-09-22 11:27:47] WARNING [mirofish.llm_client.chat:75] LLM call failed (attempt 2/3), retrying in 4.0s: Ollama returned an empty response
+[2026-09-22 11:27:51] INFO [mirofish.oasis_llm.create_oasis_model:149] OASIS model: provider=ollama, model=qwen3:8b, mode=cli-bridge
+[2026-09-22 11:27:51] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 19:44:02] INFO [mirofish.research.scenario_designer.__init__:87] ScenarioDesigner initialized
+[2026-09-22 19:44:02] INFO [mirofish.research.scenario_designer.__init__:276] ScenarioManager initialized
+[2026-09-22 19:50:59] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 19:51:29] INFO [mirofish.tools.generate_ontology.execute:113] Ontology generated for project proj_a99f3edccd21
+[2026-09-22 19:51:29] INFO [mirofish.build.run_build:93] [965ae925-b02d-479d-80c4-7ed5b37b9f83] Starting graph build...
+[2026-09-22 19:51:29] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 19:51:30] INFO [mirofish.graph_db.create_graph:207] Created graph: mirofish_37faecbbede34536 (demo_transit_policy)
+[2026-09-22 19:51:30] INFO [mirofish.graph_db.set_ontology:222] Set ontology for graph mirofish_37faecbbede34536: 2 entity types, 0 edge types
+[2026-09-22 19:51:35] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:51:38] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:01] DEBUG [mirofish.entity_extractor.extract:134] Extracted 4 entities, 0 relationships
+[2026-09-22 19:52:05] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:09] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:13] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:16] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:20] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:24] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:28] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:32] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:36] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:40] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:43] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:47] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:51] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:55] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:52:59] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:53:03] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:53:06] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:53:10] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:53:14] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:53:18] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:53:21] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:53:25] DEBUG [mirofish.entity_extractor.extract:134] Extracted 0 entities, 0 relationships
+[2026-09-22 19:53:25] INFO [mirofish.entity_extractor.extract_batch:215] Batch extraction complete: 4 unique entities, 0 unique relationships from 25 chunks
+[2026-09-22 19:53:25] INFO [mirofish.graph_builder._populate_graph:334] Graph mirofish_37faecbbede34536 populated: 4 nodes, 0 edges
+[2026-09-22 19:53:27] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 19:53:27] INFO [mirofish.simulation.create_simulation:270] Created simulation: sim_19bdb65a3d9f, project=proj_a99f3edccd21, graph=mirofish_37faecbbede34536
+[2026-09-22 19:53:27] INFO [mirofish.entity_reader.filter_defined_entities:216] Filtering entities in graph mirofish_37faecbbede34536...
+[2026-09-22 19:53:27] INFO [mirofish.entity_reader.get_all_nodes:117] Fetching all nodes from graph mirofish_37faecbbede34536...
+[2026-09-22 19:53:27] INFO [mirofish.entity_reader.get_all_nodes:130] Fetched 4 nodes
+[2026-09-22 19:53:27] INFO [mirofish.entity_reader.filter_defined_entities:290] Filtering complete: 4 total nodes, 4 matched, types: {'Organization', 'Person'}
+[2026-09-22 19:53:27] INFO [mirofish.tools.prepare_simulation.start:116] Expected entity count for sim_19bdb65a3d9f: 4
+[2026-09-22 19:53:27] INFO [mirofish.entity_reader.filter_defined_entities:216] Filtering entities in graph mirofish_37faecbbede34536...
+[2026-09-22 19:53:27] INFO [mirofish.entity_reader.get_all_nodes:117] Fetching all nodes from graph mirofish_37faecbbede34536...
+[2026-09-22 19:53:27] INFO [mirofish.entity_reader.get_all_nodes:130] Fetched 4 nodes
+[2026-09-22 19:53:27] INFO [mirofish.entity_reader.get_all_edges:143] Fetching all edges from graph mirofish_37faecbbede34536...
+[2026-09-22 19:53:27] INFO [mirofish.entity_reader.get_all_edges:157] Fetched 0 edges
+[2026-09-22 19:53:27] INFO [mirofish.entity_reader.filter_defined_entities:290] Filtering complete: 4 total nodes, 4 matched, types: {'Organization', 'Person'}
+[2026-09-22 19:53:27] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 19:53:27] INFO [mirofish.oasis_profile.generate_profiles_from_entities:804] CLI/local LLM provider detected (ollama), setting profile generation parallelism from 5 to 1
+[2026-09-22 19:53:27] INFO [mirofish.oasis_profile.generate_profiles_from_entities:876] Starting parallel generation of 4 Agent personas (parallelism: 1)...
+[2026-09-22 19:53:27] INFO [mirofish.oasis_profile._search_kuzu_for_entity:341] Graph search completed: City Council, retrieved 0 facts, 1 related nodes
+[2026-09-22 19:53:55] DEBUG [mirofish.oasis_profile._print_generated_profile:961] 
+----------------------------------------------------------------------
+[Generated] City Council (Organization)
+----------------------------------------------------------------------
+Username: city_council_303
+
+[Bio]
+Promoting equitable, sustainable urban solutions through reduced vehicle use and environmental stewardship.
+
+[Detailed Persona]
+As the City Council, we advocate for equitable urban development, prioritizing environmental benefits and reduced vehicle dependency. Our communication is professional, data-driven, and community-focused. We champion policies that ensure fair access to transportation and green spaces, aligning with the pilot program's goals. We engage stakeholders through transparent dialogue and evidence-based decision-making. Our focus on equity ensures that all residents benefit from sustainable urban planning. We are committed to fostering a resilient, inclusive city through strategic investments in public transit and green infrastructure.
+
+[Basic Attributes]
+Age: 30 | Gender: other | MBTI: ISTJ
+Profession: Urban policy and governance | Country: United States
+Interested Topics: sustainable urban development, equitable transportation, environmental policy, public infrastructure, community engagement
+----------------------------------------------------------------------
+[2026-09-22 19:53:55] INFO [mirofish.oasis_profile._search_kuzu_for_entity:341] Graph search completed: Environmental Advocates, retrieved 0 facts, 6 related nodes
+[2026-09-22 19:53:55] INFO [mirofish.oasis_profile.generate_profiles_from_entities:912] [1/4] Successfully generated persona: City Council (Organization)
+[2026-09-22 19:54:23] DEBUG [mirofish.oasis_profile._print_generated_profile:961] 
+----------------------------------------------------------------------
+[Generated] Environmental Advocates (Organization)
+----------------------------------------------------------------------
+Username: environmental_advocates_404
+
+[Bio]
+Promoting equitable mobility and environmental justice through sustainable urban solutions.
+
+[Detailed Persona]
+Environmental Advocates is a grassroots organization focused on equitable transportation and environmental justice. We work to reduce vehicle dependency and promote sustainable urban mobility. Our communication is data-driven, clear, and community-focused. We prioritize equity, environmental benefits, and improved mobility. We collaborate with local leaders like the Mayor and City Council to advance pilot programs that align with our mission. Our stance is rooted in evidence-based policy and inclusive community engagement. We believe in systemic change that benefits all residents, especially marginalized communities.
+
+[Basic Attributes]
+Age: 30 | Gender: other | MBTI: ISTJ
+Profession: Environmental advocacy organization | Country: United States
+Interested Topics: sustainable urban mobility, equity in transportation, environmental justice, community engagement, policy advocacy
+----------------------------------------------------------------------
+[2026-09-22 19:54:23] INFO [mirofish.oasis_profile._search_kuzu_for_entity:341] Graph search completed: Mayor, retrieved 0 facts, 1 related nodes
+[2026-09-22 19:54:23] INFO [mirofish.oasis_profile.generate_profiles_from_entities:912] [2/4] Successfully generated persona: Environmental Advocates (Organization)
+[2026-09-22 19:54:52] DEBUG [mirofish.oasis_profile._print_generated_profile:961] 
+----------------------------------------------------------------------
+[Generated] Mayor (Person)
+----------------------------------------------------------------------
+Username: mayor_275
+
+[Bio]
+Advocating for smarter city solutions. Championing green mobility for a cleaner, more connected future.
+
+[Detailed Persona]
+As a seasoned city planner in [City], this Mayor balances community needs with sustainable growth. Known for clear, data-driven communication, they prioritize transparency and public engagement. Passionate about reducing traffic congestion and carbon footprints, they champion electric public transport and bike lanes. Their posts often highlight local progress and invite citizen feedback. Deeply connected to the pilot project's goals, they see it as a vital step toward an eco-friendly urban landscape.
+
+[Basic Attributes]
+Age: 52 | Gender: male | MBTI: ISTJ
+Profession: Mayor | Country: United States
+Interested Topics: sustainable urban development, public transportation, climate change, community engagement, smart city initiatives
+----------------------------------------------------------------------
+[2026-09-22 19:54:52] INFO [mirofish.oasis_profile._search_kuzu_for_entity:341] Graph search completed: Transit Authority, retrieved 0 facts, 1 related nodes
+[2026-09-22 19:54:52] INFO [mirofish.oasis_profile.generate_profiles_from_entities:912] [3/4] Successfully generated persona: Mayor (Person)
+[2026-09-22 19:55:40] DEBUG [mirofish.oasis_profile._print_generated_profile:961] 
+----------------------------------------------------------------------
+[Generated] Transit Authority (Organization)
+----------------------------------------------------------------------
+Username: transit_authority_170
+
+[Bio]
+Promoting sustainable transit solutions for smarter mobility. Enhancing urban connectivity through eco-friendly transportation initiatives.
+
+[Detailed Persona]
+As the Transit Authority, we focus on advancing sustainable mobility solutions. Our mission centers on improving urban transportation efficiency while reducing environmental impact. We prioritize data-driven decision-making and public engagement to ensure equitable access to transit options. Our communication style is professional, transparent, and solution-oriented, reflecting our commitment to innovation and environmental responsibility. We advocate for policies that support clean energy integration and reduced carbon footprints in transportation systems. Our work directly aligns with the pilot program's goals, aiming to create a more connected and eco-conscious community through strategic infrastructure development and public awareness campaigns.
+
+[Basic Attributes]
+Age: 30 | Gender: other | MBTI: ISTJ
+Profession: Public transportation infrastructure and policy development | Country: United States
+Interested Topics: sustainable urban mobility, electric public transit, climate action, public transportation equity, smart city technologies
+----------------------------------------------------------------------
+[2026-09-22 19:55:40] INFO [mirofish.oasis_profile.generate_profiles_from_entities:912] [4/4] Successfully generated persona: Transit Authority (Organization)
+[2026-09-22 19:55:40] INFO [mirofish.oasis_profile.generate_profiles_from_entities:930] Persona generation complete: 4 agents
+[2026-09-22 19:55:40] INFO [mirofish.oasis_profile._save_reddit_json:1109] Saved 4 Reddit Profiles to C:\Users\NIKHIL GUPTA\Documents\mirofish-cli\app\services\../../uploads/simulations\sim_19bdb65a3d9f\reddit_profiles.json (JSON format, includes user_id field)
+[2026-09-22 19:55:40] INFO [mirofish.oasis_profile._save_twitter_csv:1035] Saved 4 Twitter Profiles to C:\Users\NIKHIL GUPTA\Documents\mirofish-cli\app\services\../../uploads/simulations\sim_19bdb65a3d9f\twitter_profiles.csv (OASIS CSV format)
+[2026-09-22 19:55:40] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 19:55:40] INFO [mirofish.simulation_config.generate_config:260] Starting intelligent simulation config generation: simulation_id=sim_19bdb65a3d9f, entity_count=4
+[2026-09-22 19:55:40] INFO [mirofish.simulation_config.report_progress:272] [1/4] Generating time configuration...
+[2026-09-22 19:56:42] WARNING [mirofish.simulation_config._parse_time_config:577] agents_per_hour_min (5) exceeds total Agent count (4), corrected
+[2026-09-22 19:56:42] WARNING [mirofish.simulation_config._parse_time_config:581] agents_per_hour_max (30) exceeds total Agent count (4), corrected
+[2026-09-22 19:56:42] INFO [mirofish.simulation_config.report_progress:272] [2/4] Generating event configuration and trending topics...
+[2026-09-22 19:58:45] INFO [mirofish.simulation_config.report_progress:272] [3/4] Generating Agent configs (1-4/4)...
+[2026-09-22 19:58:54] INFO [mirofish.simulation_config.generate_config:319] Assigning suitable publisher Agents to initial posts...
+[2026-09-22 19:58:54] INFO [mirofish.simulation_config._assign_initial_post_agents:765] Initial post assignment: poster_type='organization' -> agent_id=0
+[2026-09-22 19:58:54] INFO [mirofish.simulation_config._assign_initial_post_agents:765] Initial post assignment: poster_type='person' -> agent_id=2
+[2026-09-22 19:58:54] INFO [mirofish.simulation_config._assign_initial_post_agents:765] Initial post assignment: poster_type='organization' -> agent_id=1
+[2026-09-22 19:58:54] INFO [mirofish.simulation_config._assign_initial_post_agents:765] Initial post assignment: poster_type='organization' -> agent_id=3
+[2026-09-22 19:58:54] WARNING [mirofish.simulation_config._assign_initial_post_agents:751] No matching Agent found for type '', using agent with highest influence
+[2026-09-22 19:58:54] INFO [mirofish.simulation_config._assign_initial_post_agents:765] Initial post assignment: poster_type='' -> agent_id=0
+[2026-09-22 19:58:54] INFO [mirofish.simulation_config._assign_initial_post_agents:765] Initial post assignment: poster_type='organization' -> agent_id=0
+[2026-09-22 19:58:54] INFO [mirofish.simulation_config.report_progress:272] [4/4] Generating platform configuration...
+[2026-09-22 19:58:54] INFO [mirofish.simulation_config.generate_config:366] Simulation config generation complete: 4 Agent configs
+[2026-09-22 19:58:54] INFO [mirofish.simulation.prepare_simulation:509] Simulation preparation completed: sim_19bdb65a3d9f, entities=4, profiles=4
+[2026-09-22 19:58:54] INFO [mirofish.simulation_runner.start_simulation:357] Rounds truncated: 72 -> 10 (max_rounds=10)
+[2026-09-22 19:58:54] INFO [mirofish.simulation_runner.start_simulation:452] Simulation started successfully: sim_19bdb65a3d9f, pid=16392, platform=parallel
+[2026-09-22 19:59:54] INFO [mirofish.oasis_llm.create_oasis_model:149] OASIS model: provider=ollama, model=ollama, mode=cli-bridge
+[2026-09-22 19:59:54] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 19:59:56] INFO [mirofish.oasis_llm.create_oasis_model:149] OASIS model: provider=ollama, model=ollama, mode=cli-bridge
+[2026-09-22 19:59:56] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 20:03:38] WARNING [mirofish.oasis_llm._request_chat_completion:92] CLIModel ignores tool schemas; tool calling is not supported in OASIS CLI mode
+[2026-09-22 20:03:39] WARNING [mirofish.oasis_llm._request_chat_completion:92] CLIModel ignores tool schemas; tool calling is not supported in OASIS CLI mode
+[2026-09-22 20:07:00] INFO [mirofish.simulation_runner._read_action_log:605] Twitter simulation completed: sim_19bdb65a3d9f, total_rounds=10, total_actions=10
+[2026-09-22 20:09:17] INFO [mirofish.simulation_runner._read_action_log:609] Reddit simulation completed: sim_19bdb65a3d9f, total_rounds=10, total_actions=12
+[2026-09-22 20:09:17] INFO [mirofish.simulation_runner._read_action_log:618] All platform simulations completed: sim_19bdb65a3d9f
+[2026-09-22 20:09:19] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 20:09:19] INFO [mirofish.report_agent.__init__:125] ReportAgent initialized: graph_id=mirofish_37faecbbede34536, simulation_id=sim_19bdb65a3d9f
+[2026-09-22 20:09:19] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 20:10:19] INFO [mirofish.simulation_runner.interview_agents_batch:1337] Sending batch Interview command: simulation_id=sim_19bdb65a3d9f, count=4, platform=None
+[2026-09-22 20:10:19] INFO [mirofish.simulation_ipc.send_command:151] Sent IPC command: batch_interview, command_id=06c958e5-a2a8-4fda-a37a-c9f6ccde13d8
+[2026-09-22 20:13:20] ERROR [mirofish.simulation_ipc.send_command:179] Timed out waiting for IPC response: command_id=06c958e5-a2a8-4fda-a37a-c9f6ccde13d8
+[2026-09-22 20:13:20] ERROR [mirofish.graph_tools.interview_agents:412] Interview API call exception: Timed out waiting for command response (180.0s)
+[2026-09-22 20:21:19] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 20:23:22] WARNING [mirofish.llm_client.chat:75] LLM call failed (attempt 1/3), retrying in 2.0s: Ollama request timed out after 600.0s at http://localhost:11434
+[2026-09-22 20:25:23] WARNING [mirofish.llm_client.chat:75] LLM call failed (attempt 1/3), retrying in 2.0s: Ollama request timed out after 600.0s at http://localhost:11434
+[2026-09-22 20:25:38] INFO [mirofish.tools.generate_ontology.execute:113] Ontology generated for project proj_b0522465d770
+[2026-09-22 20:25:38] INFO [mirofish.build.run_build:93] [0becef26-ba5d-4b88-a0a8-ae914c964efb] Starting graph build...
+[2026-09-22 20:25:38] INFO [mirofish.llm_client.__init__:33] LLM client initialized: provider=ollama, model=qwen3:8b
+[2026-09-22 20:25:38] INFO [mirofish.graph_db.create_graph:207] Created graph: mirofish_63927cc9104f4d8e (demo_transit_policy)
+[2026-09-22 20:25:39] INFO [mirofish.graph_db.set_ontology:222] Set ontology for graph mirofish_63927cc9104f4d8e: 2 entity types, 0 edge types
+[2026-09-22 20:26:07] INFO [mirofish.simulation_runner.cleanup_all_simulations:1207] Cleaning up all simulation processes...
+[2026-09-22 20:26:07] INFO [mirofish.graph_memory_updater.stop_all:434] All graph memory updaters stopped
+[2026-09-22 20:26:07] INFO [mirofish.simulation_runner.cleanup_all_simulations:1220] Terminating simulation process: sim_19bdb65a3d9f, pid=16392
+[2026-09-22 20:26:07] INFO [mirofish.simulation_runner._terminate_process:711] Terminating process tree (Windows): simulation=sim_19bdb65a3d9f, pid=16392
+[2026-09-22 20:26:08] WARNING [mirofish.simulation_runner._terminate_process:731] taskkill failed, trying terminate: can't create new thread at interpreter shutdown
+[2026-09-22 20:26:08] INFO [mirofish.simulation_runner.cleanup_all_simulations:1247] Attempting to update state.json: C:\Users\NIKHIL GUPTA\Documents\mirofish-cli\app\services\../../uploads/simulations\sim_19bdb65a3d9f\state.json
+[2026-09-22 20:26:08] INFO [mirofish.simulation_runner.cleanup_all_simulations:1255] Updated state.json status to stopped: sim_19bdb65a3d9f
+[2026-09-22 20:26:08] INFO [mirofish.simulation_runner.cleanup_all_simulations:1279] Simulation process cleanup completed

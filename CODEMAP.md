@@ -1,10 +1,44 @@
 # CODEMAP
 
-Navigation map for the MiroFish codebase. 63 Python files.
+Navigation map for the MiroFish / MiroSense codebase.
 
 ## Entry point
 
-- `app/cli.py` — CLI (`mirofish run`, `mirofish runs`). Orchestrates full pipeline via WorkbenchSession.
+- `app/cli.py` — Unified CLI (`mirofish run`, `analyze`, `communities`, `polarization`, `compare`, `provenance`, `report`, `runs`, `doctor`). Orchestrates full pipeline and research analytics.
+
+## MiroSense Research Layer (`app/mirosense/`)
+
+Core computational analytics, statistical validation, and canonical data models:
+
+- **`schemas/`**
+  - `events.py` — `SimulationEvent` dataclass, `ActionType` enum, deterministic hashing
+  - `scenarios.py` — `Scenario`, `ScenarioIsolation` models
+  - `manifest.py` — `ExperimentManifest` & SHA-256 config hashing
+- **`adapters/`**
+  - `oasis_adapter.py` — `OasisEventAdapter` (`actions.jsonl` -> `canonical_events.jsonl`, stance mapping $s \in [-1, 1]$, parent resolution)
+- **`analytics/`**
+  - `interaction_graph.py` — MultiDiGraph, PageRank, betweenness centrality, density, reciprocity
+  - `community_detection.py` — Deterministic Louvain modularity $Q$ & faction detection
+  - `opinion_dynamics.py` — Continuous stance distribution $[-1, 1]$, acceptance ratio, agreement cohesion
+  - `temporal_analysis.py` — Round-by-round trajectory series across all analytical dimensions
+  - `polarization.py` — Tri-part decomposed polarization model ($P_{\text{total}} = w_o P_o + w_n P_n + w_i P_i$)
+  - `conflict_analysis.py` — Contestation rates, dispute intensity, cross-community conflict
+  - `influence_analysis.py` — Network centrality influence & Gini inequality index
+  - `information_diffusion.py` — Cascade propagation trees & depth analysis
+- **`evaluation/`**
+  - `effect_size.py` — Cohen's $d$ and Hedges' $g$ effect size calculations
+  - `scenario_engine.py` — Multi-scenario manager with parameter isolation
+  - `scenario_comparison.py` — `ScenarioProfile` behavioral profiling & comparative matrices
+- **`validation/`**
+  - `uncertainty.py` — Student-$t$ distribution 95% confidence intervals & standard deviations
+  - `monte_carlo.py` — Monte Carlo multi-seed stochastic experiment engine
+  - `sensitivity.py` — One-at-a-time (OAT) parameter sweeps
+  - `ablation.py` — Subsystem feature ablation framework (No Graph, No Community, etc.)
+  - `baselines.py` — Random Interaction and Direct LLM benchmark engines
+- **`provenance/`**
+  - `metric_provenance.py` — End-to-end evidence $\to$ entity $\to$ agent $\to$ event $\to$ metric audit trail
+- **`reporting/`**
+  - `research_report.py` — Academic research dossier synthesizer (`research_report.md`, JSON)
 
 ## Core orchestration (`app/core/`)
 
@@ -21,29 +55,29 @@ Composable steps called by WorkbenchSession in sequence:
 2. `build_graph.py` — Ontology → JSON graph
 3. `prepare_simulation.py` — Generate agent profiles via LLM
 4. `run_simulation.py` — Launch OASIS subprocess, track progress
-5. `generate_report.py` — Single-pass report generation (calls `generate_report_fast`)
+5. `generate_report.py` — Single-pass report generation
 6. `simulation_support.py` — Shared utilities across tools
 
 ## Services (`app/services/`)
 
-Heavy business logic:
+Upstream simulation substrate and infrastructure logic:
 
-- `graph_storage.py` — Abstract GraphStorage + JSON backend (~420 lines)
+- `graph_storage.py` — Abstract GraphStorage + JSON backend
 - `graph_db.py` — Query facade over graph storage
 - `graph_builder.py` — Ontology → graph construction pipeline
 - `entity_extractor.py` — Structured LLM extraction
 - `entity_reader.py` — Entity filtering and enrichment
 - `ontology_generator.py` — LLM prompts for extraction
-- `oasis_profile_generator.py` — Agent persona generation
+- `oasis_profile_generator.py` — Agent persona generation (bounded $\le 150$ words)
 - `simulation_config_generator.py` — Simulation config assembly
 - `simulation_manager.py` — Simulation lifecycle state machine
-- `simulation_runner.py` — Subprocess spawning, IPC, monitoring, atexit cleanup, action caching (~1470 lines)
+- `simulation_runner.py` — Subprocess spawning, IPC, monitoring, atexit cleanup, action caching
 - `simulation_ipc.py` — File-based IPC with OASIS processes
 - `simulation_platforms.py` — Twitter/Reddit data normalization
-- `report_agent.py` — Single-pass report generation + ReportManager persistence (~450 lines)
-- `graph_tools.py` — Graph queries + agent interview (~570 lines)
+- `report_agent.py` — Single-pass report generation + ReportManager persistence
+- `graph_tools.py` — Graph queries + agent interview
 - `graph_memory_updater.py` — Post-simulation graph updates
-- `text_processor.py` — Encoding detection
+- `text_processor.py` — Encoding detection and chunking
 
 ## Resources (`app/resources/`)
 
@@ -58,15 +92,20 @@ Persistence adapters (thin wrappers over filesystem):
 
 ## Utils (`app/utils/`)
 
-- `llm_client.py` — CLI-only LLM client with retry (claude-cli, codex-cli)
+- `llm_client.py` — CLI-only LLM client with retry (claude-cli, codex-cli, ollama)
 - `oasis_llm.py` — CAMEL/OASIS CLI bridge (fakes OpenAI ChatCompletion for simulation engine)
-- `file_parser.py` — PDF/text extraction
+- `file_parser.py` — PyMuPDF PDF/text extraction
 - `logger.py` — Structured logging
 
-## Artifacts
+## Artifacts & Visuals
 
-- `app/run_artifacts.py` — RunStore: immutable run directories with manifest
-- `app/visual_snapshots.py` — SVG generation (swarm, cluster, timeline, platform-split)
+- `app/run_artifacts.py` — RunStore: immutable run directories with manifest (`uploads/runs/<run_id>/`)
+- `app/visual_snapshots.py` — Deterministic SVG generation (swarm, cluster, timeline, platform-split)
+
+## UI & CLI Displays
+
+- `app/cli_display.py` — Rich terminal live pipeline renderer
+- `app/streamlit_app.py` — Interactive Streamlit research web dashboard
 
 ## Scripts (`scripts/`)
 

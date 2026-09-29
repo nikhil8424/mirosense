@@ -1,0 +1,17 @@
+{
+  "task_id": "0becef26-ba5d-4b88-a0a8-ae914c964efb",
+  "task_type": "graph_build",
+  "status": "processing",
+  "created_at": "2026-09-22T20:25:38.742490",
+  "updated_at": "2026-09-22T20:25:42.587085",
+  "progress": 16,
+  "message": "Extracting entities from chunk 1/25...",
+  "progress_detail": {},
+  "result": null,
+  "error": null,
+  "metadata": {
+    "project_id": "proj_b0522465d770",
+    "graph_name": "demo_transit_policy",
+    "session_id": "wb_9c64f0972e3e"
+  }
+}

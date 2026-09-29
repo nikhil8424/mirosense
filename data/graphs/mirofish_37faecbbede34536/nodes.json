@@ -1,0 +1,42 @@
+[
+  {
+    "id": "6699e96a-c752-4828-93cd-3883203c1dc7",
+    "name": "Mayor",
+    "label": "Person",
+    "summary": "A public official who supports the pilot for improved mobility and environmental benefits",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-22T19:53:25.751669",
+    "updated_at": "2026-09-22T19:53:25.751669"
+  },
+  {
+    "id": "b7fd8eb7-5cf7-4ce7-9ba0-0561c1d62666",
+    "name": "Transit Authority",
+    "label": "Organization",
+    "summary": "An organization that supports the pilot for improved mobility and environmental benefits",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-22T19:53:25.758056",
+    "updated_at": "2026-09-22T19:53:25.758056"
+  },
+  {
+    "id": "50755f93-756a-420e-977f-1670e7416871",
+    "name": "City Council",
+    "label": "Organization",
+    "summary": "A group that supports the pilot emphasizing equity, reduced vehicle use, and environmental benefits",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-22T19:53:25.772532",
+    "updated_at": "2026-09-22T19:53:25.772532"
+  },
+  {
+    "id": "f0c52c24-735f-4ec6-bc27-ae4d7acd6075",
+    "name": "Environmental Advocates",
+    "label": "Organization",
+    "summary": "A group that supports the pilot emphasizing equity, reduced vehicle use, and environmental benefits",
+    "facts": [],
+    "attributes": {},
+    "created_at": "2026-09-22T19:53:25.788562",
+    "updated_at": "2026-09-22T19:53:25.788562"
+  }
+]

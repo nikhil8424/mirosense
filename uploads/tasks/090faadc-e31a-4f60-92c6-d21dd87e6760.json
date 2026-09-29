@@ -1,0 +1,18 @@
+{
+  "task_id": "090faadc-e31a-4f60-92c6-d21dd87e6760",
+  "task_type": "report_generate",
+  "status": "processing",
+  "created_at": "2026-09-22T20:09:19.128982",
+  "updated_at": "2026-09-22T20:13:20.066269",
+  "progress": 40,
+  "message": "[generating] Generating report...",
+  "progress_detail": {},
+  "result": null,
+  "error": null,
+  "metadata": {
+    "simulation_id": "sim_19bdb65a3d9f",
+    "graph_id": "mirofish_37faecbbede34536",
+    "report_id": "report_e0ad0441c362",
+    "session_id": "wb_f5e5c640e6c7"
+  }
+}

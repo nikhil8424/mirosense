@@ -1,0 +1,39 @@
+{
+  "task_id": "63223018-0f99-41a1-ad78-db1cc52b4701",
+  "task_type": "simulation_prepare",
+  "status": "completed",
+  "created_at": "2026-09-22T19:53:27.515592",
+  "updated_at": "2026-09-22T19:58:54.457529",
+  "progress": 100,
+  "message": "Task completed",
+  "progress_detail": {
+    "current_stage": "generating_config",
+    "current_stage_name": "Generating simulation configuration",
+    "stage_index": 3,
+    "total_stages": 4,
+    "stage_progress": 100,
+    "current_item": 3,
+    "total_items": 3,
+    "item_description": "Configuration generation completed"
+  },
+  "result": {
+    "simulation_id": "sim_19bdb65a3d9f",
+    "project_id": "proj_a99f3edccd21",
+    "graph_id": "mirofish_37faecbbede34536",
+    "status": "ready",
+    "entities_count": 4,
+    "profiles_count": 4,
+    "entity_types": [
+      "Organization",
+      "Person"
+    ],
+    "config_generated": true,
+    "error": null
+  },
+  "error": null,
+  "metadata": {
+    "simulation_id": "sim_19bdb65a3d9f",
+    "project_id": "proj_a99f3edccd21",
+    "session_id": "wb_f5e5c640e6c7"
+  }
+}

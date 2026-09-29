@@ -1,0 +1,29 @@
+{
+  "run_id": "run_7fdc08592ced",
+  "status": "graph_building",
+  "project_name": "demo_transit_policy",
+  "requirement": "Simulate how a heterogeneous community responds to three alternative weekend public transit decisions: (1) maintaining the current fare system, (2) implementing a six-month fare-free weekend bus pilot across the municipal network, and (3) implementing a targeted fare-free weekend pilot on selected routes or periods serving underserved communities.\n\nModel interactions among public officials, transit riders, local businesses, taxpayers, environmental advocates, and general residents. Across multiple rounds of simulated social interaction, examine changes in policy stance, acceptance, agreement, disagreement, coalition formation, community structure, polarization, conflict, information diffusion, and stakeholder influence.\n\nKeep the stakeholder population and core simulation conditions consistent across scenarios so that differences in outcomes can be attributed to the candidate decision being simulated. Record the reasoning and interactions that contribute to major changes in stakeholder stance.\n\nThis is a computational scenario analysis. Treat simulated behavior as exploratory evidence rather than a prediction of real human behavior.",
+  "source_files": [
+    "C:\\Users\\NIKHIL~1\\AppData\\Local\\Temp\\tmpei575xob_demo_transit_policy.md",
+    "C:\\Users\\NIKHIL~1\\AppData\\Local\\Temp\\tmpv7dbquc1_fiscal_environmental_context.md",
+    "C:\\Users\\NIKHIL~1\\AppData\\Local\\Temp\\tmp4c21sjm4_stakeholder_profiles.md",
+    "C:\\Users\\NIKHIL~1\\AppData\\Local\\Temp\\tmplq2bgtkk_transit_policy_context.md"
+  ],
+  "project_id": "proj_b0522465d770",
+  "graph_id": "mirofish_37faecbbede34536",
+  "simulation_id": "sim_19bdb65a3d9f",
+  "report_id": "report_e0ad0441c362",
+  "graph_build_task_id": "0becef26-ba5d-4b88-a0a8-ae914c964efb",
+  "prepare_task_id": "63223018-0f99-41a1-ad78-db1cc52b4701",
+  "report_task_id": "090faadc-e31a-4f60-92c6-d21dd87e6760",
+  "task_progress": 20,
+  "task_message": "Ontology generated",
+  "artifacts": {
+    "requirement": "input/requirement.txt",
+    "source_files_dir": "input/source_files",
+    "ontology": "input/ontology.json"
+  },
+  "created_at": "2026-09-22T19:50:59.064662",
+  "updated_at": "2026-09-22T20:25:38.836202",
+  "error": null
+}

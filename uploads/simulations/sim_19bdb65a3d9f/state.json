@@ -1,0 +1,22 @@
+{
+  "simulation_id": "sim_19bdb65a3d9f",
+  "project_id": "proj_a99f3edccd21",
+  "graph_id": "mirofish_37faecbbede34536",
+  "enable_twitter": true,
+  "enable_reddit": true,
+  "status": "stopped",
+  "entities_count": 4,
+  "profiles_count": 4,
+  "entity_types": [
+    "Organization",
+    "Person"
+  ],
+  "config_generated": true,
+  "config_reasoning": "Time config: The simulation focuses on public policy discussions, which tend to have higher engagement during evenings and weekends. Peak hours are set for 7 PM to 11 PM to reflect increased public interest and media coverage. Work hours are defined as standard business hours. Off-peak hours are late nights when activity is minimal. The 72-hour duration allows for multiple rounds of stakeholder interactions and policy discussions. | Event config: The initial posts establish key stakeholders' positions on the policy, setting the stage for debate around fiscal, equity, and environmental considerations. Each post reflects the primary interests of the entity type, aligning with the simulation's requirement to model interactions among diverse groups. | Agent config: successfully generated 4 | Initial post assignment: 6 posts assigned to publishers",
+  "current_round": 0,
+  "twitter_status": "not_started",
+  "reddit_status": "not_started",
+  "created_at": "2026-09-22T19:53:27.403178",
+  "updated_at": "2026-09-22T20:26:08.220295",
+  "error": null
+}

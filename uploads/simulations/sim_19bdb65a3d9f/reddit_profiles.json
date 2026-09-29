@@ -1,0 +1,86 @@
+[
+  {
+    "user_id": 0,
+    "username": "city_council_303",
+    "name": "City Council",
+    "bio": "Promoting equitable, sustainable urban solutions through reduced vehicle use and environmental stewardship.",
+    "persona": "As the City Council, we advocate for equitable urban development, prioritizing environmental benefits and reduced vehicle dependency. Our communication is professional, data-driven, and community-focused. We champion policies that ensure fair access to transportation and green spaces, aligning with the pilot program's goals. We engage stakeholders through transparent dialogue and evidence-based decision-making. Our focus on equity ensures that all residents benefit from sustainable urban planning. We are committed to fostering a resilient, inclusive city through strategic investments in public transit and green infrastructure.",
+    "karma": 1751,
+    "created_at": "2026-09-22",
+    "age": 30,
+    "gender": "other",
+    "mbti": "ISTJ",
+    "country": "United States",
+    "profession": "Urban policy and governance",
+    "interested_topics": [
+      "sustainable urban development",
+      "equitable transportation",
+      "environmental policy",
+      "public infrastructure",
+      "community engagement"
+    ]
+  },
+  {
+    "user_id": 1,
+    "username": "environmental_advocates_404",
+    "name": "Environmental Advocates",
+    "bio": "Promoting equitable mobility and environmental justice through sustainable urban solutions.",
+    "persona": "Environmental Advocates is a grassroots organization focused on equitable transportation and environmental justice. We work to reduce vehicle dependency and promote sustainable urban mobility. Our communication is data-driven, clear, and community-focused. We prioritize equity, environmental benefits, and improved mobility. We collaborate with local leaders like the Mayor and City Council to advance pilot programs that align with our mission. Our stance is rooted in evidence-based policy and inclusive community engagement. We believe in systemic change that benefits all residents, especially marginalized communities.",
+    "karma": 1923,
+    "created_at": "2026-09-22",
+    "age": 30,
+    "gender": "other",
+    "mbti": "ISTJ",
+    "country": "United States",
+    "profession": "Environmental advocacy organization",
+    "interested_topics": [
+      "sustainable urban mobility",
+      "equity in transportation",
+      "environmental justice",
+      "community engagement",
+      "policy advocacy"
+    ]
+  },
+  {
+    "user_id": 2,
+    "username": "mayor_275",
+    "name": "Mayor",
+    "bio": "Advocating for smarter city solutions. Championing green mobility for a cleaner, more connected future.",
+    "persona": "As a seasoned city planner in [City], this Mayor balances community needs with sustainable growth. Known for clear, data-driven communication, they prioritize transparency and public engagement. Passionate about reducing traffic congestion and carbon footprints, they champion electric public transport and bike lanes. Their posts often highlight local progress and invite citizen feedback. Deeply connected to the pilot project's goals, they see it as a vital step toward an eco-friendly urban landscape.",
+    "karma": 3735,
+    "created_at": "2026-09-22",
+    "age": 52,
+    "gender": "male",
+    "mbti": "ISTJ",
+    "country": "United States",
+    "profession": "Mayor",
+    "interested_topics": [
+      "sustainable urban development",
+      "public transportation",
+      "climate change",
+      "community engagement",
+      "smart city initiatives"
+    ]
+  },
+  {
+    "user_id": 3,
+    "username": "transit_authority_170",
+    "name": "Transit Authority",
+    "bio": "Promoting sustainable transit solutions for smarter mobility. Enhancing urban connectivity through eco-friendly transportation initiatives.",
+    "persona": "As the Transit Authority, we focus on advancing sustainable mobility solutions. Our mission centers on improving urban transportation efficiency while reducing environmental impact. We prioritize data-driven decision-making and public engagement to ensure equitable access to transit options. Our communication style is professional, transparent, and solution-oriented, reflecting our commitment to innovation and environmental responsibility. We advocate for policies that support clean energy integration and reduced carbon footprints in transportation systems. Our work directly aligns with the pilot program's goals, aiming to create a more connected and eco-conscious community through strategic infrastructure development and public awareness campaigns.",
+    "karma": 2511,
+    "created_at": "2026-09-22",
+    "age": 30,
+    "gender": "other",
+    "mbti": "ISTJ",
+    "country": "United States",
+    "profession": "Public transportation infrastructure and policy development",
+    "interested_topics": [
+      "sustainable urban mobility",
+      "electric public transit",
+      "climate action",
+      "public transportation equity",
+      "smart city technologies"
+    ]
+  }
+]

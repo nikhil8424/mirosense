@@ -1,0 +1,70 @@
+2026-09-22 19:59:54 - INFO - =================================================[19:59:54] ==2026-09-22 19:59:54 - INFO - OASIS Dual-Platform Parallel Si[19:59:54]2026-09-22 19:59:54 - INFO - Config file: [19:59:54] Config file: C:\Users\NIKHIL GUPTA\Documents\mirofish-cli\app\services\../../uploads/simulations\sim_19bdb65a3d9f\2026-09-22 19:59:54 - IN[19:59:54] Simulation ID: sim_19bdb65a2026-0[19:59:54] Command-waiting mode: enabled
+[19:59:54] ============================================================
+[19:59:54] Simulation parameters:
+[19:59:54]   - Total simulation duration: 72 hours
+[19:59:54]   - Time per round: 60 minutes
+[19:59:54]   - Configured total rounds: 72
+[19:59:54]   - Max rounds limit: 10
+[19:59:54]   - Actual execution rounds: 10 (truncated)
+[19:59:54]   - Agent count: 4
+[19:59:54] Log structure:
+[19:59:54]   - Main log: simulation.log
+[19:59:54]   - Twitter actions: twitter/actions.jsonl
+[19:59:54]   - Reddit actions: reddit/actions.jsonl
+[19:59:54] ============================================================
+[19:59:54] [Twitter] Initializing...
+[19:59:54] INFO: OASIS model: provider=ollama, model=ollama, mode=cli-bridge
+[19:59:54] INFO: LLM client initialized: provider=ollama, model=qwen3:8b
+[19:59:56] [Reddit] Initializing...
+[19:59:56] INFO: OASIS model: provider=ollama, model=ollama, mode=cli-bridge
+[19:59:56] INFO: LLM client initialized: provider=ol2026-09-22 19:59:57 - [19:59:57] [Twitter] Environment start2026[19:59:57] [Reddit] Environment started
+[19:59:57] [Twitter] Published 4 initial posts
+[19:59:57] [Twitter] Rounds truncated: 72 -> 10 (max_rounds=10)
+C:\Users\NIKHIL GUPTA\Documents\mirofish-cli\.venv2026-09-22 20:03:38 - INFO - [Reddit] Published 4 initial posts
+2026-09-22 20:03:38 - INFO - [Reddit] Rounds truncated: 72 -> 10 (max_rounds=10)
+2026-09-22 20:06:59 - INFO - [Twitter] Simulation loop completed! Time elapsed: 421.4s, total actions: 10
+2026-09-22 20:09:16 - INFO - [Reddit] Simulation loop completed! Time elapsed: 338.9s, total actions: 12
+2026-09-22 20:09:16 - INFO - ============================================================
+2026-09-22 20:09:16 - INFO - Simulation loop completed! Total time elapsed: 562.6s
+2026-09-22 20:09:16 - INFO - 
+2026-09-22 20:09:16 - INFO - ============================================================
+2026-09-22 20:09:16 - INFO - Entering command-waiting mode - environment stays running
+2026-09-22 20:09:16 - INFO - Supported commands: interview, batch_interview, close_env
+2026-09-22 20:09:16 - INFO - ============================================================
+2026-09-22 20:26:07 - INFO - 
+Shutting down environment...
+ For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+[Twitter] Initializing...
+db_path C:\Users\NIKHIL GUPTA\Documents\mirofish-cli\app\services\../../uploads/simulations\sim_19bdb65a3d9f\twitter_simulation.db
+[Reddit] Initializing...
+{'user_profile': "As the City Council, we advocate for equitable urban development, prioritizing environmental benefits and reduced vehicle dependency. Our communication is professional, data-driven, and community-focused. We champion policies that ensure fair access to transportation and green spaces, aligning with the pilot program's goals. We engage stakeholders through transparent dialogue and evidence-based decision-making. Our focus on equity ensures that all residents benefit from sustainable urban planning. We are committed to fostering a resilient, inclusive city through strategic investments in public transit and green infrastructure.", 'mbti': 'ISTJ', 'gender': 'other', 'age': 30, 'country': 'United States'}
+{'user_profile': 'Environmental Advocates is a grassroots organization focused on equitable transportation and environmental justice. We work to reduce vehicle dependency and promote sustainable urban mobility. Our communication is data-driven, clear, and community-focused. We prioritize equity, environmental benefits, and improved mobility. We collaborate with local leaders like the Mayor and City Council to advance pilot programs that align with our mission. Our stance is rooted in evidence-based policy and inclusive community engagement. We believe in systemic change that benefits all residents, especially marginalized communities.', 'mbti': 'ISTJ', 'gender': 'other', 'age': 30, 'country': 'United States'}
+{'user_profile': "As a seasoned city planner in [City], this Mayor balances community needs with sustainable growth. Known for clear, data-driven communication, they prioritize transparency and public engagement. Passionate about reducing traffic congestion and carbon footprints, they champion electric public transport and bike lanes. Their posts often highlight local progress and invite citizen feedback. Deeply connected to the pilot project's goals, they see it as a vital step toward an eco-friendly urban landscape.", 'mbti': 'ISTJ', 'gender': 'male', 'age': 52, 'country': 'United States'}
+{'user_profile': "As the Transit Authority, we focus on advancing sustainable mobility solutions. Our mission centers on improving urban transportation efficiency while reducing environmental impact. We prioritize data-driven decision-making and public engagement to ensure equitable access to transit options. Our communication style is professional, transparent, and solution-oriented, reflecting our commitment to innovation and environmental responsibility. We advocate for policies that support clean energy integration and reduced carbon footprints in transportation systems. Our work directly aligns with the pilot program's goals, aiming to create a more connected and eco-conscious community through strategic infrastructure development and public awareness campaigns.", 'mbti': 'ISTJ', 'gender': 'other', 'age': 30, 'country': 'United States'}
+db_path C:\Users\NIKHIL GUPTA\Documents\mirofish-cli\app\services\../../uploads/simulations\sim_19bdb65a3d9f\reddit_simulation.db
+[Twitter] Environment started
+[Reddit] Environment started
+[Twitter] Published 4 initial posts
+[Twitter] Rounds truncated: 72 -> 10 (max_rounds=10)
+2026-09-22 19:59:59,840 - huggingface_hub.file_download - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2026-09-22 20:00:09,165 - huggingface_hub.file_download - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+Some weights of BertModel were not initialized from the model checkpoint at Twitter/twhin-bert-base and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+BertSdpaSelfAttention is used but `torch.nn.functional.scaled_dot_product_attention` does not support non-absolute `position_embedding_type` or `output_attentions=True` or `head_mask`. Falling back to the manual attention implementation, but specifying the manual implementation will be required from Transformers version v5.0.0 onwards. This warning can be removed using the argument `attn_implementation="eager"` when loading the model.
+[20:03:38] [Reddit] Published 4 initial posts
+[20:03:38] [Reddit] Rounds truncated: 72 -> 10 (max_rounds=10)
+[20:03:38] WARNING: CLIModel ignores tool schemas; tool calling is not supported in OASIS CLI mode
+[20:03:39] WARNING: CLIModel ignores tool schemas; tool calling is not supported in OASIS CLI mode
+[20:06:59] [Twitter] Simulation loop completed! Time elapsed: 421.4s, total actions: 10
+[20:09:16] [Reddit] Simulation loop completed! Time elapsed: 338.9s, total actions: 12
+[20:09:16] ============================================================
+[20:09:16] Simulation loop completed! Total time elapsed: 562.6s
+[20:09:16] 
+[20:09:16] ============================================================
+[20:09:16] Entering command-waiting mode - environment stays running
+[20:09:16] Supported commands: interview, batch_interview, close_env
+[20:09:16] ============================================================
+[20:25:23] WARNING: LLM call failed (attempt 1/3), retrying in 2.0s: Ollama request timed out after 600.0s at http://localhost:11434
+[20:26:07] 
+Shutting down environment...

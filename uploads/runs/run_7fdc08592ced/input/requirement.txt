@@ -1,0 +1,7 @@
+Simulate how a heterogeneous community responds to three alternative weekend public transit decisions: (1) maintaining the current fare system, (2) implementing a six-month fare-free weekend bus pilot across the municipal network, and (3) implementing a targeted fare-free weekend pilot on selected routes or periods serving underserved communities.
+
+Model interactions among public officials, transit riders, local businesses, taxpayers, environmental advocates, and general residents. Across multiple rounds of simulated social interaction, examine changes in policy stance, acceptance, agreement, disagreement, coalition formation, community structure, polarization, conflict, information diffusion, and stakeholder influence.
+
+Keep the stakeholder population and core simulation conditions consistent across scenarios so that differences in outcomes can be attributed to the candidate decision being simulated. Record the reasoning and interactions that contribute to major changes in stakeholder stance.
+
+This is a computational scenario analysis. Treat simulated behavior as exploratory evidence rather than a prediction of real human behavior.
